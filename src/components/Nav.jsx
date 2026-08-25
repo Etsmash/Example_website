@@ -1,64 +1,24 @@
-import { useEffect, useState } from 'react'
-
 const LINKS = [
-  { id: 'about', label: 'About Us' },
+  { id: 'about', label: 'About' },
   { id: 'tutors', label: 'Tutors' },
   { id: 'founder', label: 'Founder' },
   { id: 'reviews', label: 'Reviews' },
-  { id: 'enquiry', label: 'Enquire' },
 ]
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false)
-  const [open, setOpen] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  const go = (id) => (e) => {
-    e.preventDefault()
-    setOpen(false)
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
-
   return (
-    <header className={`nav ${scrolled ? 'nav-scrolled' : ''}`}>
-      <div className="nav-inner">
-        <a href="#about" className="nav-brand" onClick={go('about')}>
-          <span className="nav-brand-mark" aria-hidden="true">✿</span>
-          Bloom Tutoring
+    <nav className="nav" style={{ gap: 'var(--space-6)' }}>
+      <span className="nav-brand" style={{ letterSpacing: '-0.02em' }}>Amber Tutoring</span>
+      <div style={{ display: 'flex', gap: 'var(--space-2)', alignItems: 'center', flexWrap: 'wrap', marginLeft: 'auto' }}>
+        {LINKS.map((l) => (
+          <a key={l.id} className="btn btn-ghost" href={`#${l.id}`}>
+            {l.label}
+          </a>
+        ))}
+        <a className="btn btn-primary" href="#enquire">
+          Enquire
         </a>
-
-        <nav className={`nav-links ${open ? 'nav-links-open' : ''}`}>
-          {LINKS.map((l) => (
-            <a key={l.id} href={`#${l.id}`} onClick={go(l.id)}>
-              {l.label}
-            </a>
-          ))}
-        </nav>
-
-        <button
-          type="button"
-          className="nav-enquire-btn"
-          onClick={go('enquiry')}
-        >
-          Book a Tutor
-        </button>
-
-        <button
-          type="button"
-          className="nav-toggle"
-          aria-label="Toggle menu"
-          onClick={() => setOpen((o) => !o)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
       </div>
-    </header>
+    </nav>
   )
 }
