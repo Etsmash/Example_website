@@ -1,28 +1,18 @@
-const PETAL_ANGLES = [0, 60, 120, 180, 240, 300]
+import { forwardRef } from 'react'
 
-export default function Flower({ className = '', style = {}, hue = 340 }) {
+const ANGLES = [0, 60, 120, 180, 240, 300]
+
+const Flower = forwardRef(function Flower({ petal, center, style }, ref) {
   return (
-    <svg
-      className={`flower ${className}`}
-      style={style}
-      viewBox="0 0 100 100"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <g className="flower-petals" style={{ '--hue': hue }}>
-        {PETAL_ANGLES.map((angle) => (
-          <ellipse
-            key={angle}
-            className="petal"
-            cx="50"
-            cy="28"
-            rx="10"
-            ry="19"
-            transform={`rotate(${angle} 50 50)`}
-          />
+    <div ref={ref} data-flower="1" style={style}>
+      <svg viewBox="-50 -50 100 100" width="100%" height="100%">
+        {ANGLES.map((angle) => (
+          <ellipse key={angle} cx="0" cy="-27" rx="13" ry="23" fill={petal} transform={`rotate(${angle})`} />
         ))}
-      </g>
-      <circle className="flower-center" cx="50" cy="50" r="9" />
-    </svg>
+        <circle r="11" fill={center} />
+      </svg>
+    </div>
   )
-}
+})
+
+export default Flower
