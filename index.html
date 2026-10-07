@@ -1,17 +1,1305 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%B8%3C/text%3E%3C/svg%3E" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Amber Tutoring — one-to-one, online HSC and Years 7-11 tutoring in Mathematics and the Sciences." />
-    <title>Amber Tutoring | One-to-one HSC &amp; High School Tutoring</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Early Lens · Notice early, support sooner</title>
+<meta name="description" content="Early Lens helps primary school teachers notice possible learning difficulties earlier. Clickable prototype with fictional data.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='17' cy='17' r='11.5' fill='%23E6F4F6' stroke='%231D6A86' stroke-width='4'/%3E%3Cpath d='M25.5 25.5 34 34' stroke='%231D6A86' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M17 23v-7' stroke='%2323897D' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M17 18c-3.5 0-5-2-5-4.5 3 0 5 1.5 5 4.5zM17 16.5c0-3 1.8-5 5-5 0 2.8-1.8 5-5 5z' fill='%2323897D'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Lexend:wght@400;500;600&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F6F8; --surface:#FFFFFF; --surface-2:#F7FAFB; --ink:#10303C; --ink-2:#2B4753; --muted:#55707B;
+  --line:#DCE6EB; --line-2:#C6D6DD;
+  --primary:#1D6A86; --primary-600:#155670; --primary-50:#E7F2F6; --primary-100:#CFE5EE;
+  --teal:#1F8073; --teal-50:#E3F3F0;
+  --band90:#DDEEF4; --band50:#A9D1E0; --median:#4F8499;
+  --amber-50:#FFF6E3; --amber-100:#FDE7BA; --amber-300:#F6C467; --amber-500:#E39816; --amber-700:#935700; --amber-800:#734400;
+  --green:#1C7F45; --green-50:#E4F4EA;
+  --radius:18px; --radius-sm:12px;
+  --shadow:0 1px 2px rgba(16,48,60,.05),0 6px 20px rgba(16,48,60,.06);
+  --shadow-lg:0 20px 60px rgba(16,48,60,.22);
+  --font:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --display:"Lexend",var(--font);
+  --hand:"Patrick Hand","Comic Sans MS",cursive;
+  --header-h:72px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.2;margin:0;letter-spacing:-.01em}
+p{margin:0}
+button{font:inherit;color:inherit}
+a{color:var(--primary)}
+:focus-visible{outline:3px solid #3B9BC0;outline-offset:2px;border-radius:8px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.container{max-width:1280px;margin:0 auto;padding:0 32px}
+.icon{width:1em;height:1em;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.125em}
+
+/* ---------- Header ---------- */
+.app-header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
+.header-inner{height:var(--header-h);display:flex;align-items:center;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);border:0;background:none;padding:0;cursor:pointer}
+.brand svg{width:36px;height:36px}
+.brand-name{white-space:nowrap;font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:-.02em}
+.brand-name span{color:var(--teal)}
+.nav{display:flex;gap:4px;margin-left:8px}
+.nav button{white-space:nowrap;display:flex;align-items:center;gap:8px;border:0;background:none;padding:10px 14px;border-radius:10px;color:var(--muted);font-weight:700;font-size:15.5px;cursor:pointer;transition:background .15s,color .15s}
+.nav button:hover{background:var(--surface-2);color:var(--ink)}
+.nav button[aria-current="page"]{background:var(--primary-50);color:var(--primary-600)}
+.header-right{margin-left:auto;display:flex;align-items:center;gap:14px}
+.status-pill{white-space:nowrap;display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 10px;border-radius:999px;background:var(--green-50);color:var(--green);font-weight:700;font-size:14px;border:0;cursor:pointer}
+.status-dot{width:9px;height:9px;border-radius:50%;background:#22A35A;box-shadow:0 0 0 0 rgba(34,163,90,.5);animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,163,90,.45)}70%{box-shadow:0 0 0 8px rgba(34,163,90,0)}100%{box-shadow:0 0 0 0 rgba(34,163,90,0)}}
+.user-chip{display:flex;align-items:center;gap:10px;padding-left:14px;border-left:1px solid var(--line)}
+.user-chip .who{white-space:nowrap;display:flex;flex-direction:column;line-height:1.2}
+.user-chip .who strong{font-size:15px}
+.user-chip .who span{font-size:13px;color:var(--muted)}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;padding:11px 18px;font-weight:700;font-size:15.5px;border:1.5px solid transparent;cursor:pointer;transition:background .15s,border-color .15s,box-shadow .15s,transform .1s;white-space:nowrap;line-height:1.2}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{background:var(--primary-600)}
+.btn-secondary{background:#fff;color:var(--primary-600);border-color:var(--line-2)}
+.btn-secondary:hover{border-color:var(--primary);background:var(--primary-50)}
+.btn-quiet{background:transparent;color:var(--muted);border-color:transparent}
+.btn-quiet:hover{background:var(--surface-2);color:var(--ink)}
+.btn-done{background:var(--teal-50);color:var(--teal);border-color:transparent;cursor:default}
+.btn-sm{padding:8px 13px;font-size:14.5px;border-radius:10px}
+.btn-lg{padding:15px 26px;font-size:17px;border-radius:14px}
+.btn[disabled]{cursor:default}
+
+/* ---------- Tags & badges ---------- */
+.tag{display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;font-weight:700;font-size:14px;white-space:nowrap;line-height:1.3}
+.tag-amber{background:var(--amber-50);color:var(--amber-800);box-shadow:inset 0 0 0 1.5px var(--amber-100)}
+.tag-amber .dot{width:8px;height:8px;border-radius:50%;background:var(--amber-500)}
+.tag-none{background:var(--surface-2);color:var(--muted);box-shadow:inset 0 0 0 1px var(--line)}
+.tag-teal{background:var(--teal-50);color:var(--teal)}
+.tag-grey{background:#EEF2F4;color:#5B6B72}
+.badge-verified{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:8px;background:var(--teal-50);color:var(--teal);font-size:13px;font-weight:700;white-space:nowrap}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;padding:3px 10px;border-radius:8px;background:var(--primary-50);color:var(--primary-600)}
+.chip.teal{background:var(--teal-50);color:var(--teal)}
+.chip.grey{background:#EEF2F4;color:#5B6B72}
+
+/* ---------- Layout bits ---------- */
+main{min-height:calc(100vh - var(--header-h) - 70px)}
+.view{padding:36px 0 56px}
+.view.enter{animation:fadeUp .32s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:24px}
+.eyebrow{font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.page-title{font-size:36px}
+.page-sub{color:var(--muted);font-size:18px;margin-top:8px;max-width:760px}
+.card{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--line);padding:26px 28px}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:18px}
+.card-head h2{font-size:22px}
+.card-head p{color:var(--muted);margin-top:6px}
+.card h3{font-size:19px}
+.section-title{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:36px 0 16px}
+.section-title h2{font-size:23px;display:flex;align-items:center;gap:10px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.grid-2 > *,.grid-3 > *,.nat-layout > *,.cia > *{min-width:0}
+.stack{display:flex;flex-direction:column;gap:22px}
+.muted{color:var(--muted)}
+.small{font-size:14.5px}
+.disclaimer{display:flex;align-items:center;gap:10px;background:var(--primary-50);color:var(--primary-600);border-radius:12px;padding:12px 16px;font-weight:700;font-size:16px}
+.disclaimer .icon{font-size:20px}
+.disclaimer-sm{display:flex;gap:8px;align-items:flex-start;font-size:13.5px;color:var(--primary-600);font-weight:700;line-height:1.4}
+.disclaimer-sm .icon{margin-top:2px}
+
+/* ---------- Avatars ---------- */
+.avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:600;font-size:15px;flex:none;color:var(--ink-2)}
+.avatar.lg{width:52px;height:52px;font-size:18px}
+.avatar.xl{width:64px;height:64px;font-size:22px}
+
+/* ---------- Login ---------- */
+.login.view{padding:0}
+.login{min-height:calc(100vh - 70px);display:grid;grid-template-columns:1.05fr 1fr}
+.login-hero{min-width:0;background:linear-gradient(155deg,#134C61 0%,#1D6A86 55%,#22857A 100%);color:#fff;padding:64px 72px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.login-hero .brand{color:#fff}
+.login-hero .brand-name span{color:#9FE3D6}
+.login-hero h1{font-size:50px;line-height:1.08;margin-top:auto;letter-spacing:-.025em;max-width:560px}
+.login-hero .lede{font-size:20px;opacity:.92;margin-top:18px;max-width:540px}
+.hero-points{list-style:none;padding:0;margin:36px 0 auto;display:grid;gap:14px;max-width:540px}
+.hero-points li{display:flex;gap:14px;align-items:flex-start;font-size:17.5px}
+.hero-points .ic{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.14);display:grid;place-items:center;flex:none;font-size:18px}
+.hero-lens{pointer-events:none;position:absolute;right:-90px;top:-90px;width:380px;height:380px;opacity:.10}
+.login-panel{display:flex;align-items:center;justify-content:center;padding:48px}
+.login-box{width:100%;max-width:480px}
+.login-box h2{font-size:30px}
+.login-box > p{color:var(--muted);margin:10px 0 28px;font-size:18px}
+.role-btn{width:100%;display:flex;align-items:center;gap:18px;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:20px 22px;cursor:pointer;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s,transform .15s;margin-bottom:14px}
+.role-btn:hover{border-color:var(--primary);box-shadow:0 8px 28px rgba(29,106,134,.16);transform:translateY(-1px)}
+.role-btn .role-ic{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:24px;flex:none}
+.role-btn strong{display:block;font-family:var(--display);font-weight:600;font-size:20px}
+.role-btn span{display:block;color:var(--muted);font-size:15.5px;margin-top:2px}
+.role-btn .go{margin-left:auto;color:var(--primary);font-size:22px}
+.demo-note{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:14.5px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+
+/* ---------- Dashboard ---------- */
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow);display:flex;gap:16px;align-items:center}
+.stat .ic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:22px;flex:none;background:var(--primary-50);color:var(--primary)}
+.stat.amber .ic{background:var(--amber-50);color:var(--amber-700)}
+.stat.teal .ic{background:var(--teal-50);color:var(--teal)}
+.stat .num{font-family:var(--display);font-weight:600;font-size:28px;line-height:1.1}
+.stat .num.sm{font-size:21px}
+.stat .lbl{color:var(--muted);font-size:15px}
+.flag-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.flag-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px 18px;box-shadow:var(--shadow);position:relative;overflow:hidden;cursor:pointer;transition:box-shadow .15s,transform .15s,border-color .15s;display:flex;flex-direction:column;gap:12px}
+.flag-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--amber-300)}
+.flag-card:hover{box-shadow:0 10px 30px rgba(16,48,60,.11);transform:translateY(-2px);border-color:var(--amber-100)}
+.fc-top{display:flex;align-items:center;gap:12px}
+.fc-top h3{font-size:21px;white-space:nowrap}
+.fc-top p{color:var(--muted);font-size:15px}
+.fc-areas{display:flex;gap:6px;flex-wrap:wrap}
+.area-pill{font-size:13.5px;font-weight:700;padding:3px 10px;border-radius:8px;background:var(--amber-50);color:var(--amber-800)}
+.fc-summary{color:var(--ink-2);font-size:16px}
+.fc-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:12px;border-top:1px solid var(--line)}
+.filters{display:flex;gap:8px}
+.filter{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 15px;font-weight:700;font-size:14.5px;color:var(--muted);cursor:pointer}
+.filter[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.class-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.student-tile{min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:10px;text-align:left;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.student-tile:hover{border-color:var(--primary-100);box-shadow:0 6px 18px rgba(16,48,60,.08)}
+.student-tile.flagged{background:linear-gradient(180deg,#FFFDF8,#fff);border-color:var(--amber-100)}
+.st-top{display:flex;align-items:center;gap:10px;width:100%}
+.st-top strong{display:block;font-size:16px;line-height:1.25}
+.st-top span{display:block;font-size:13.5px;color:var(--muted)}
+.student-tile .tag{font-size:13px;padding:3px 10px}
+.info-strip{display:flex;align-items:center;gap:14px;background:#fff;border:1px dashed var(--line-2);border-radius:14px;padding:14px 18px;color:var(--ink-2);margin-top:28px}
+.info-strip .icon{font-size:20px;color:var(--teal)}
+
+/* ---------- Student detail ---------- */
+.student-bar{position:sticky;top:var(--header-h);z-index:30;background:rgba(242,246,248,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.sb-inner{display:flex;align-items:center;gap:16px;padding-top:14px;padding-bottom:14px}
+.back-btn{display:inline-flex;align-items:center;gap:6px;border:0;background:none;color:var(--muted);font-weight:700;font-size:15px;cursor:pointer;padding:8px 10px;border-radius:10px;margin-left:-10px}
+.back-btn:hover{background:#fff;color:var(--ink)}
+.sb-name h1{font-size:25px}
+.sb-name p{color:var(--muted);font-size:15px}
+.sb-meta{display:flex;flex-direction:column;gap:6px}
+.sb-meta-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.sb-actions{margin-left:auto;display:flex;gap:10px;align-items:center}
+.view.detail{padding-top:24px}
+.legend{display:flex;flex-wrap:wrap;gap:22px;margin-bottom:14px;font-size:15px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.sw{width:22px;height:14px;border-radius:4px;display:inline-block}
+.sw.b90{background:var(--band90)}
+.sw.b50{background:var(--band50)}
+.sw.med{height:0;border-top:2px dashed var(--median);border-radius:0}
+.sw.dot{width:14px;height:14px;border-radius:50%;background:var(--amber-500);box-shadow:0 0 0 2px #fff,0 0 0 3.5px var(--amber-800)}
+.sw.dot.teal{background:var(--primary);box-shadow:0 0 0 2px #fff,0 0 0 3.5px var(--primary-600)}
+.panels{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.panel{background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:14px 14px 6px;margin:0}
+.panel figcaption{display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:18px;padding:0 4px 4px}
+.pct-chip{font-family:var(--font);font-size:13.5px;font-weight:700;padding:3px 10px;border-radius:8px;background:var(--amber-50);color:var(--amber-800)}
+.pct-chip.ok{background:var(--teal-50);color:var(--teal)}
+.panel svg{width:100%;height:auto;display:block}
+.source{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:14.5px;margin-top:16px}
+.source .icon{margin-top:4px}
+.why-list{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.why-list li{display:flex;gap:14px;align-items:flex-start}
+.why-list .n{width:30px;height:30px;border-radius:50%;background:var(--primary-50);color:var(--primary-600);display:grid;place-items:center;font-weight:700;font-size:15px;flex:none;margin-top:1px}
+.why-rule{margin-top:18px;background:var(--surface-2);border-radius:12px;padding:14px 16px;font-size:15.5px;color:var(--ink-2)}
+.why-rule strong{color:var(--ink)}
+.unknowns{margin-top:14px;border:1px dashed var(--line-2);border-radius:12px;padding:14px 16px;font-size:15.5px;color:var(--ink-2)}
+.unknowns strong{display:flex;align-items:center;gap:8px;color:var(--ink);margin-bottom:4px}
+.patterns{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.patterns li{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:start;padding:14px 16px;border-radius:14px;background:var(--amber-50)}
+.patterns .p-ic{width:34px;height:34px;border-radius:10px;background:#fff;color:var(--amber-700);display:grid;place-items:center;font-size:17px}
+.patterns strong{display:block;font-size:17px}
+.patterns p{color:var(--ink-2);font-size:15.5px;margin-top:2px}
+.freq{font-size:13px;font-weight:700;color:var(--amber-800);background:#fff;padding:3px 9px;border-radius:8px;white-space:nowrap}
+.sample{margin-top:16px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.sample-head{display:flex;justify-content:space-between;align-items:center;padding:9px 14px;background:var(--surface-2);font-size:14px;color:var(--muted);font-weight:700}
+.sample-text{font-family:var(--hand);font-size:25px;line-height:1.9;padding:12px 20px 14px;color:#24343B;background:repeating-linear-gradient(#fff 0 46px,#E3ECF0 46px 47px);background-position:0 4px}
+.hl{border-radius:5px;padding:0 3px;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
+.hl.rev{background:#FDEFD2;text-decoration-color:var(--amber-500)}
+.hl.spell{background:#E4F0F7;text-decoration-color:var(--primary)}
+.hl.sound{background:#E5F3EF;text-decoration-color:var(--teal)}
+.sample-key{display:flex;gap:16px;flex-wrap:wrap;padding:10px 14px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink-2)}
+.sample-key span{display:inline-flex;align-items:center;gap:6px}
+.sample-key i{display:inline-block;width:14px;height:10px;border-radius:3px}
+.caveat{margin-top:14px;font-size:14.5px;color:var(--muted)}
+.side-by-side{display:grid;grid-template-columns:1fr 1fr;gap:0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.sbs-col{padding:26px 28px}
+.sbs-col + .sbs-col{border-left:1px solid var(--line);background:linear-gradient(180deg,#FBFDFE,#fff)}
+.sbs-label{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.sbs-col h3{font-size:21px;margin-bottom:14px}
+.fact-list{list-style:none;padding:0;margin:0 0 16px;display:grid;gap:10px}
+.fact-list li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border-radius:12px;background:var(--surface-2);font-size:16px}
+textarea{width:100%;min-height:110px;resize:vertical;border:1.5px solid var(--line-2);border-radius:12px;padding:14px 16px;font:inherit;font-size:17px;color:var(--ink);background:#fff;line-height:1.5}
+textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 4px rgba(29,106,134,.15)}
+.note-actions{display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:12px}
+.notes-list{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px}
+.note{border-left:4px solid var(--primary);background:var(--primary-50);border-radius:0 12px 12px 0;padding:12px 16px}
+.note p{font-size:17px}
+.note small{display:block;color:var(--muted);font-size:13.5px;margin-top:4px;font-weight:700}
+.note.enter{animation:fadeUp .3s ease both}
+.private{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;color:var(--muted);font-weight:700}
+.banner{display:flex;align-items:center;gap:14px;border-radius:14px;padding:14px 18px;margin-bottom:22px;font-size:16px}
+.banner.grey{background:#EEF2F4;color:#45565D}
+.banner.teal{background:var(--teal-50);color:#145F55}
+.banner .btn{margin-left:auto}
+.all-clear{display:flex;align-items:center;gap:16px}
+.all-clear .ic{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:24px;background:var(--teal-50);color:var(--teal);flex:none}
+
+/* ---------- National ---------- */
+.scale-strip{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:16px;margin-bottom:22px}
+.scale-step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);display:flex;gap:14px;align-items:center}
+.scale-step .num{font-family:var(--display);font-weight:600;font-size:26px;line-height:1.1}
+.scale-step .lbl{color:var(--muted);font-size:15px}
+.scale-step .ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:21px;background:var(--primary-50);color:var(--primary);flex:none}
+.scale-step.big .ic{background:var(--teal-50);color:var(--teal)}
+.scale-arrow{color:var(--line-2);font-size:28px}
+.nat-layout{display:grid;grid-template-columns:2fr 1fr;gap:22px}
+.nat-stats{display:grid;gap:14px;align-content:start}
+.nat-stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.nat-stat .num{font-family:var(--display);font-weight:600;font-size:26px}
+.nat-stat p{color:var(--muted);font-size:15px}
+.tabs{display:inline-flex;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:4px;gap:2px}
+.tabs button{border:0;background:none;padding:7px 14px;border-radius:9px;font-weight:700;font-size:14.5px;color:var(--muted);cursor:pointer}
+.tabs button[aria-selected="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(16,48,60,.12)}
+.chart-wrap svg{width:100%;height:auto;display:block}
+
+/* ---------- Parent ---------- */
+.consent-wrap{max-width:760px;margin:0 auto}
+.consent-card{padding:40px 44px}
+.consent-card h1{font-size:32px;margin-top:18px}
+.consent-card .intro{color:var(--ink-2);font-size:18.5px;margin-top:12px}
+.consent-points{list-style:none;padding:0;margin:28px 0;display:grid;gap:14px}
+.consent-points li{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:16px;background:var(--surface-2);border:1px solid var(--line);font-size:20px;font-weight:700;color:var(--ink)}
+.consent-points .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:21px;background:var(--primary-50);color:var(--primary);flex:none}
+.consent-actions{display:flex;gap:12px;align-items:center}
+.invite{display:flex;gap:14px;align-items:center;background:var(--teal-50);color:#145F55;border-radius:14px;padding:14px 18px;font-size:16px;margin-bottom:18px}
+.message-card{display:flex;gap:16px;align-items:flex-start}
+.message-card .bubble{background:var(--primary-50);border-radius:4px 16px 16px 16px;padding:14px 18px;font-size:17.5px;color:var(--ink)}
+.message-card small{display:block;color:var(--muted);font-size:13.5px;margin-top:6px;font-weight:700}
+.range-rows{display:grid;gap:16px;margin:18px 0 6px}
+.range-row{display:grid;grid-template-columns:90px 1fr;align-items:center;gap:16px;font-weight:700}
+.range-track{position:relative;height:14px;border-radius:999px;background:var(--band90)}
+.range-track .most{position:absolute;top:0;bottom:0;left:25%;width:50%;background:var(--band50);border-radius:999px}
+.range-track .me{position:absolute;top:50%;width:18px;height:18px;border-radius:50%;background:var(--amber-500);box-shadow:0 0 0 3px #fff,0 0 0 4.5px var(--amber-800);transform:translate(-50%,-50%)}
+.range-scale{display:grid;grid-template-columns:90px 1fr;gap:16px;font-size:13.5px;color:var(--muted)}
+.range-scale div{display:flex;justify-content:space-between}
+.steps{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.steps li{display:flex;gap:16px;align-items:flex-start;padding:16px 18px;border-radius:14px;background:var(--surface-2);border:1px solid var(--line)}
+.steps .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:20px;background:#fff;color:var(--teal);flex:none;box-shadow:inset 0 0 0 1px var(--line)}
+.steps strong{display:block;font-size:17.5px}
+.steps p{color:var(--ink-2);font-size:15.5px;margin-top:2px}
+.can-see{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:16px}
+.can-see li{display:flex;gap:10px;align-items:center}
+.can-see .y{color:var(--teal)}
+.can-see .n{color:#8A9AA1}
+
+/* ---------- Privacy ---------- */
+.cia{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.cia-card{display:flex;flex-direction:column;gap:14px}
+.cia-head{display:flex;align-items:center;gap:14px}
+.cia-head .ic{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;font-size:23px;background:var(--primary-50);color:var(--primary);flex:none}
+.cia-head .k{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.cia-head h3{font-size:21px}
+.cia-quote{font-size:17.5px;font-weight:700;color:var(--ink);background:var(--surface-2);border-radius:12px;padding:14px 16px}
+.checks{list-style:none;padding:0;margin:0;display:grid;gap:9px;font-size:15.5px;color:var(--ink-2)}
+.checks li{display:flex;gap:10px;align-items:flex-start}
+.checks .icon{color:var(--teal);margin-top:4px}
+.online-big{display:flex;align-items:center;gap:14px;background:var(--green-50);border-radius:14px;padding:16px 18px;color:var(--green);font-weight:700;font-size:20px;font-family:var(--display)}
+.online-big .status-dot{width:14px;height:14px}
+.log{width:100%;border-collapse:collapse;font-size:16px}
+.log th{text-align:left;font-size:13.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;padding:0 14px 10px;border-bottom:1px solid var(--line)}
+.log td:nth-child(2){white-space:nowrap}
+.log td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+.log tr:last-child td{border-bottom:0}
+.log td.time{white-space:nowrap;color:var(--ink-2);font-variant-numeric:tabular-nums;width:150px}
+.log tr.fresh td{animation:flash 1.6s ease}
+@keyframes flash{0%{background:var(--amber-50)}100%{background:transparent}}
+.access-table{width:100%;border-collapse:separate;border-spacing:0;font-size:15.5px}
+.access-table th,.access-table td{padding:12px 10px;text-align:left;border-bottom:1px solid var(--line)}
+.access-table th{font-size:14px;color:var(--muted);font-weight:700}
+.access-table td:first-child{font-weight:700}
+.access-table tr:last-child td{border-bottom:0}
+.privacy-lower{margin-top:22px;grid-template-columns:1.1fr 1fr}
+.privacy-lower.single{grid-template-columns:1fr}
+.choice-col{border-left:1px solid var(--line);padding-left:28px}
+.yes{white-space:nowrap;color:var(--teal);font-weight:700;display:inline-flex;gap:6px;align-items:center}
+.no{white-space:nowrap;color:#7C8C93;display:inline-flex;gap:6px;align-items:center}
+
+/* ---------- Modal, toast, tooltip ---------- */
+.modal-backdrop{position:fixed;inset:0;background:rgba(10,32,41,.42);z-index:80;display:grid;place-items:center;padding:24px;animation:fade .18s ease both}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.modal{background:#fff;border-radius:22px;box-shadow:var(--shadow-lg);width:100%;max-width:560px;padding:30px 32px;animation:pop .22s ease both}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+.modal h2{font-size:25px;margin-bottom:10px}
+.modal p{color:var(--ink-2)}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:24px}
+.modal .ic-top{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:24px;margin-bottom:16px;background:var(--primary-50);color:var(--primary)}
+.radio-list{display:grid;gap:8px;margin-top:16px}
+.radio-list label{display:flex;gap:12px;align-items:center;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;cursor:pointer;font-size:16px}
+.radio-list label:has(input:checked){border-color:var(--primary);background:var(--primary-50)}
+.radio-list input{accent-color:var(--primary);width:18px;height:18px}
+.share-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.share-cols div{background:var(--surface-2);border-radius:12px;padding:12px 14px;font-size:15px}
+.share-cols strong{display:block;font-size:14px;margin-bottom:6px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.share-cols ul{list-style:none;padding:0;margin:0;display:grid;gap:5px}
+.share-cols li{display:flex;gap:8px;align-items:center}
+.field-label{display:block;font-weight:700;margin:6px 0 8px;font-size:15.5px}
+#toast-root{position:fixed;right:24px;bottom:24px;z-index:90;display:grid;gap:10px;justify-items:end}
+.toast{display:flex;align-items:center;gap:14px;background:var(--ink);color:#fff;border-radius:14px;padding:14px 16px 14px 18px;box-shadow:var(--shadow-lg);font-size:16px;max-width:520px;animation:toastIn .25s ease both}
+.toast .icon{color:#8FE0C5;font-size:20px}
+.toast button{background:rgba(255,255,255,.14);border:0;color:#fff;border-radius:10px;padding:8px 12px;font-weight:700;font-size:14.5px;cursor:pointer;white-space:nowrap}
+.toast button:hover{background:rgba(255,255,255,.24)}
+.toast.out{animation:toastOut .2s ease forwards}
+@keyframes toastIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes toastOut{to{opacity:0;transform:translateY(6px)}}
+#tooltip{position:fixed;z-index:95;pointer-events:none;background:var(--ink);color:#fff;font-size:14px;line-height:1.4;padding:8px 11px;border-radius:9px;box-shadow:var(--shadow-lg);opacity:0;transform:translate(-50%,calc(-100% - 12px));transition:opacity .12s;white-space:nowrap}
+#tooltip.show{opacity:1}
+[data-tip]{cursor:pointer}
+
+/* ---------- Footer ---------- */
+.site-footer{border-top:1px solid var(--line);background:#fff}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:70px;color:var(--muted);font-size:14.5px}
+.footer-inner strong{color:var(--ink-2)}
+.link-btn{border:0;background:none;color:var(--muted);text-decoration:underline;text-underline-offset:3px;cursor:pointer;font-size:14.5px;padding:4px}
+.link-btn:hover{color:var(--ink)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1100px){
+  .class-grid{grid-template-columns:repeat(4,1fr)}
+  .summary{grid-template-columns:repeat(2,1fr)}
+  .nav button .lbl{display:none}
+  .sb-inner{flex-wrap:wrap}
+  .sb-actions{margin-left:0;width:100%}
+}
+@media (max-width:900px){
+  .container{padding:0 16px}
+  .login{grid-template-columns:1fr}
+  .login-hero{padding:40px 24px}
+  .login-hero h1{font-size:36px;margin-top:36px}
+  .hero-points{margin-bottom:0}
+  .login-panel{padding:32px 16px}
+  .grid-2,.grid-3,.flag-cards,.panels,.side-by-side,.cia,.nat-layout,.share-cols{grid-template-columns:1fr}
+  .sbs-col + .sbs-col{border-left:0;border-top:1px solid var(--line)}
+  .privacy-lower{grid-template-columns:1fr}
+  .choice-col{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:20px}
+  .access-table-wrap,.log-wrap{overflow-x:auto}
+  .class-grid{grid-template-columns:repeat(2,1fr)}
+  .scale-strip{grid-template-columns:1fr}
+  .scale-arrow{display:none}
+  .page-head{flex-direction:column;align-items:flex-start}
+  .page-title{font-size:28px}
+  .header-inner{gap:12px}
+  .user-chip .who,.status-pill .lbl,.header-right .btn .lbl{display:none}
+  .header-right{gap:8px}
+  .user-chip{padding-left:8px}
+  .card{padding:20px}
+  .card-head{flex-wrap:wrap}
+  .st-top strong{white-space:normal;overflow-wrap:anywhere}
+  .sb-actions{flex-wrap:wrap}
+  .student-bar{position:static}
+  .consent-card{padding:28px 20px}
+  .log td.time{width:auto}
+}
+@media (max-width:560px){
+  .summary{grid-template-columns:1fr}
+  .brand-name{display:none}
+  .sb-actions .btn{flex:1}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="modal-root"></div>
+<div id="toast-root" aria-live="polite"></div>
+<div id="tooltip" role="tooltip"></div>
+
+<script>
+/* =====================================================================
+   EARLY LENS · clickable prototype
+   All data below is hardcoded and fictional. No network calls, no backend.
+   ===================================================================== */
+const DATA = {
+  school: "Lilly Pilly Creek Primary School",
+  className: "Year 2, Room 4",
+  teacher: { name: "Ms Patel", role: "Class teacher" },
+  parent: { name: "Mia's parent", childId: "mia" },
+  lastUpdate: { date: "15 Sep 2026", time: "7:45 am", label: "End of Term 3 assessments" },
+  nationalCohort: "about 300,000",
+  timepoints: ["Yr 1 · T2", "Yr 1 · T4", "Yr 2 · T1", "Yr 2 · T3"],
+  domains: [
+    { key: "reading",  label: "Reading" },
+    { key: "spelling", label: "Spelling" },
+    { key: "writing",  label: "Writing" }
+  ],
+  // National reference bands (scaled scores) at the 5th, 25th, 50th, 75th and 95th percentiles
+  // for the first time point; each later time point adds `growth`.
+  national: {
+    percentiles: [5, 25, 50, 75, 95],
+    reading:  { first: [150, 182, 200, 218, 250], growth: 16 },
+    spelling: { first: [146, 178, 196, 214, 246], growth: 15 },
+    writing:  { first: [140, 172, 190, 208, 240], growth: 14 }
+  },
+  // pct: national percentile at each time point [reading, spelling, writing]
+  students: [
+    { id: "amelia",  first: "Amelia",  last: "Brown",     age: 8, latest: [70, 74, 66] },
+    { id: "lachlan", first: "Lachlan", last: "Brooks",    age: 7, latest: [31, 8, 7],
+      history: { reading: [34, 30, 33, 31], spelling: [9, 7, 8, 8], writing: [11, 8, 8, 7] },
+      flag: {
+        areas: ["Spelling", "Writing"],
+        short: "Spelling and writing have sat in the lowest 10% for the last three assessments. Reading is within the usual range.",
+        why: [
+          "Lachlan's spelling and writing results have been in the lowest 10% of Year 2 students nationally at his last three assessments.",
+          "His reading sits comfortably within the usual range, so the pattern is specific to putting words on paper.",
+          "His writing samples show words running together and uneven letter sizing more often than is typical for Year 2."
+        ],
+        patterns: [
+          { title: "Spacing between words is inconsistent", detail: "Words often run together, e.g. “wewentto”.", freq: "7 of 12 samples" },
+          { title: "Letter sizing varies within words", detail: "Tall and short letters mixed, which can make writing slow and tiring.", freq: "6 of 12 samples" }
+        ],
+        sampleCount: 12
+      } },
+    { id: "archie",  first: "Archie",  last: "Campbell",  age: 7, latest: [38, 35, 30] },
+    { id: "evie",    first: "Evie",    last: "Clarke",    age: 8, latest: [58, 52, 63] },
+    { id: "oscar",   first: "Oscar",   last: "Davies",    age: 7, latest: [14, 26, 17] },
+    { id: "zara",    first: "Zara",    last: "Ahmed",     age: 8, latest: [73, 68, 71] },
+    { id: "matilda", first: "Matilda", last: "Harris",    age: 7, latest: [64, 70, 61] },
+    { id: "layla",   first: "Layla",   last: "Hassan",    age: 8, latest: [52, 46, 54] },
+    { id: "willow",  first: "Willow",  last: "Jones",     age: 7, latest: [47, 55, 49] },
+    { id: "jayden",  first: "Jayden",  last: "Kim",       age: 8, latest: [68, 63, 57] },
+    { id: "isla",    first: "Isla",    last: "Martin",    age: 7, latest: [55, 61, 58] },
+    { id: "mia",     first: "Mia",     last: "Nguyen",    age: 7, latest: [6, 4, 8],
+      history: { reading: [8, 6, 7, 6], spelling: [6, 5, 5, 4], writing: [10, 8, 9, 8] },
+      flag: {
+        areas: ["Reading", "Spelling", "Writing"],
+        short: "Reading, spelling and writing have sat persistently low across four assessments, with repeating writing patterns.",
+        why: [
+          "Mia's reading, spelling and writing results have sat in the lowest 10% of Year 2 students nationally at each of her last four assessments.",
+          "Her classmates have moved up over the same time, so this is a steady pattern rather than one off day.",
+          "Her writing samples show patterns that research links to literacy difficulties, such as reversing ‘b’ and ‘d’ (see Writing patterns).",
+          "Any one of these on its own is common at seven. Together, and over time, they’re worth a closer look."
+        ],
+        patterns: [
+          { title: "Frequent letter reversals", detail: "‘b’ and ‘d’ swapped, e.g. “bog” for “dog”.", freq: "9 of 14 samples" },
+          { title: "Spelling inconsistent across similar words", detail: "The same word spelt different ways in one piece, e.g. “frend” and “freind”.", freq: "7 of 14 samples" },
+          { title: "Common words spelt by sound", detail: "High-frequency words written as they sound, e.g. “sed” for “said”.", freq: "8 of 14 samples" }
+        ],
+        sampleCount: 14,
+        sample: {
+          label: "Recount · 2 Sep 2026",
+          parts: [
+            ["On the weekend I went to the park with my "], ["frend", "spell"], [". We saw a big "], ["bog", "rev"],
+            [". It was "], ["bark", "rev"], [" brown. My "], ["freind", "spell"], [" "], ["sed", "sound"], [" it was his "], ["bog", "rev"], ["."]
+          ]
+        },
+        parentExplanation: [
+          "Mia's reading, spelling and writing results have been lower than most children her age for a while now. Her writing also shows a few patterns, like mixing up ‘b’ and ‘d’, that are worth looking at more closely.",
+          "This happens for lots of children, and there are many possible reasons. Noticing it early simply means Mia can get the right support sooner. Ms Patel will use what she knows about Mia to decide what will help."
+        ]
+      } },
+    { id: "ruby",    first: "Ruby",    last: "O'Connor",  age: 7, latest: [6, 24, 9],
+      history: { reading: [9, 8, 7, 6], spelling: [27, 25, 24, 24], writing: [12, 10, 9, 9] },
+      flag: {
+        areas: ["Reading", "Writing"],
+        short: "Reading and writing have drifted lower over the last three assessments, while spelling has held steady.",
+        why: [
+          "Ruby's reading and writing results have moved into the lowest 10% of Year 2 students nationally over her last three assessments.",
+          "Her spelling has stayed steady, so the pattern looks more about reading fluency and understanding than letters and sounds.",
+          "A gradual drift like this can be easy to miss week to week."
+        ],
+        patterns: [
+          { title: "Short, simple sentences", detail: "Pieces are shorter than earlier in the year and use fewer linking words.", freq: "8 of 13 samples" },
+          { title: "Ideas lose their order", detail: "Events in recounts are often out of sequence.", freq: "6 of 13 samples" }
+        ],
+        sampleCount: 13
+      } },
+    { id: "hamish",  first: "Hamish",  last: "Reid",      age: 7, latest: [41, 47, 38] },
+    { id: "lucas",   first: "Lucas",   last: "Rossi",     age: 8, latest: [27, 19, 24] },
+    { id: "priya",   first: "Priya",   last: "Sharma",    age: 7, latest: [77, 82, 74] },
+    { id: "oliver",  first: "Oliver",  last: "Smith",     age: 7, latest: [62, 58, 55] },
+    { id: "jack",    first: "Jack",    last: "Taylor",    age: 8, latest: [45, 39, 42] },
+    { id: "ava",     first: "Ava",     last: "Thompson",  age: 7, latest: [88, 85, 79] },
+    { id: "kai",     first: "Kai",     last: "Walker",    age: 7, latest: [18, 22, 20] },
+    { id: "henry",   first: "Henry",   last: "White",     age: 8, latest: [49, 44, 51] },
+    { id: "noah",    first: "Noah",    last: "Williams",  age: 7, latest: [33, 28, 36] },
+    { id: "charlotte", first: "Charlotte", last: "Wilson", age: 8, latest: [81, 77, 84] },
+    { id: "leo",     first: "Leo",     last: "Anderson",  age: 7, latest: [24, 31, 27] },
+    { id: "chloe",   first: "Chloe",   last: "Zhang",     age: 8, latest: [92, 90, 87] }
+  ],
+  priorLog: [
+    { when: "15 Sep, 7:45 am", who: "Early Lens", what: "Term 3 results imported and verified for 25 students", student: null },
+    { when: "6 Oct, 3:14 pm", who: "Ms Patel", what: "viewed the class dashboard", student: null },
+    { when: "6 Oct, 3:16 pm", who: "Ms Patel", what: "viewed Lachlan's flag", student: "lachlan" }
+  ],
+  shareMessage: "Hi, I'd love to have a chat about how Mia is going with her reading and writing. Could we find a time this week? – Ms Patel"
+};
+
+/* ---------------- Icons (Feather-style, MIT) ---------------- */
+const ICONS = {
+  grid: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/>',
+  globe: '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+  shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+  shieldCheck: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>',
+  lock: '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+  check: '<polyline points="20 6 9 17 4 12"/>',
+  checkCircle: '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>',
+  users: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+  user: '<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+  flag: '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/>',
+  clock: '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+  arrowLeft: '<line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>',
+  arrowRight: '<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>',
+  chat: '<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>',
+  edit: '<path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>',
+  x: '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>',
+  info: '<circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>',
+  eye: '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>',
+  book: '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
+  logout: '<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>',
+  database: '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>',
+  heart: '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',
+  undo: '<polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>',
+  send: '<line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>',
+  activity: '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',
+  file: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
+  search: '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
+  school: '<path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M10 21v-5h4v5"/>',
+  sparkle: '<path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/>',
+  calendar: '<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
+  server: '<rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>',
+  key: '<path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.78 7.78 5.5 5.5 0 0 1 7.78-7.78zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>'
+};
+const icon = (n, cls = "") => `<svg class="icon ${cls}" viewBox="0 0 24 24" aria-hidden="true">${ICONS[n]}</svg>`;
+
+const LOGO = (light) => `<svg viewBox="0 0 40 40" aria-hidden="true">
+  <circle cx="17" cy="17" r="11.5" fill="${light ? 'rgba(255,255,255,.14)' : '#E6F4F6'}" stroke="${light ? '#fff' : '#1D6A86'}" stroke-width="4"/>
+  <path d="M25.5 25.5 34 34" stroke="${light ? '#fff' : '#1D6A86'}" stroke-width="5" stroke-linecap="round"/>
+  <path d="M17 23v-7" stroke="${light ? '#9FE3D6' : '#1F8073'}" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M17 18c-3.5 0-5-2-5-4.5 3 0 5 1.5 5 4.5zM17 16.5c0-3 1.8-5 5-5 0 2.8-1.8 5-5 5z" fill="${light ? '#9FE3D6' : '#1F8073'}"/>
+</svg>`;
+
+const DISCLAIMER = "This is not a diagnosis. It’s a prompt for professional judgement.";
+
+/* ---------------- Helpers ---------------- */
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const byId = (id) => DATA.students.find((s) => s.id === id);
+const fullName = (s) => `${s.first} ${s.last}`;
+const ord = (n) => { const v = n % 100; if (v >= 11 && v <= 13) return n + "th"; return n + ({ 1: "st", 2: "nd", 3: "rd" }[n % 10] || "th"); };
+const AVATAR_BG = ["#DCEEF5", "#E2F3EF", "#ECE7F6", "#F6EEDF", "#E5ECF7", "#F3E6EC", "#E7F2E3"];
+const avatar = (s, size = "") => `<div class="avatar ${size}" style="background:${AVATAR_BG[DATA.students.indexOf(s) % AVATAR_BG.length]}" aria-hidden="true">${s.first[0]}${s.last[0]}</div>`;
+
+// Percentile history: flagged students carry explicit history; others vary gently around their latest result.
+const WIGGLE = [[-4, 2, -1, 0], [3, -2, 1, 0], [-2, -3, 2, 0], [1, 4, -2, 0], [-3, 1, 3, 0]];
+function history(s, d) {
+  if (s.history) return s.history[d];
+  const di = DATA.domains.findIndex((x) => x.key === d);
+  const w = WIGGLE[(DATA.students.indexOf(s) + di) % WIGGLE.length];
+  return w.map((o) => Math.max(11, Math.min(97, s.latest[di] + o)));
+}
+const latestPct = (s, d) => { const h = history(s, d); return h[h.length - 1]; };
+function bandAt(d, t) { const b = DATA.national[d]; return b.first.map((v) => v + b.growth * t); }
+function scoreAt(d, t, pct) {
+  const P = DATA.national.percentiles, S = bandAt(d, t);
+  if (pct <= P[0]) return S[0] - (P[0] - pct) * (S[1] - S[0]) / (P[1] - P[0]);
+  if (pct >= P[4]) return S[4] + (pct - P[4]) * (S[4] - S[3]) / (P[4] - P[3]);
+  for (let i = 0; i < 4; i++) if (pct <= P[i + 1]) return S[i] + (pct - P[i]) * (S[i + 1] - S[i]) / (P[i + 1] - P[i]);
+}
+
+/* ---------------- State ---------------- */
+function initialState() {
+  const flags = {};
+  DATA.students.forEach((s) => { if (s.flag) flags[s.id] = { status: "open", reviewedAt: null, sharedAt: null, dismissedAt: null, reason: null }; });
+  return {
+    role: null, view: "login", studentId: null, filter: "all", natDomain: "reading",
+    flags, notes: {}, drafts: { mia: "Avoids reading aloud. Copies from neighbours." },
+    consent: null, consentAt: null, parentSeen: false,
+    clock: 8 * 60 + 59, log: [], freshLog: 0, viewedFlags: {}, modal: null
+  };
+}
+let state = initialState();
+
+const fmtTime = (m) => { const h = Math.floor(m / 60), mm = m % 60; return `${((h + 11) % 12) + 1}:${String(mm).padStart(2, "0")} ${h < 12 ? "am" : "pm"}`; };
+function logEvent(who, what, student = null, step = 1) {
+  state.clock += step;
+  const time = fmtTime(state.clock);
+  state.log.unshift({ when: time, today: true, who, what, student });
+  state.freshLog = state.log.length;
+  return time;
+}
+const isFlagged = (s) => !!(s.flag && state.flags[s.id].status !== "dismissed");
+
+/* ---------------- Shared UI pieces ---------------- */
+function flagTag(s) {
+  if (!s.flag) return `<span class="tag tag-none">No flags</span>`;
+  if (state.flags[s.id].status === "dismissed") return `<span class="tag tag-grey">Flag dismissed</span>`;
+  return `<span class="tag tag-amber"><span class="dot"></span>Worth a closer look</span>`;
+}
+function statusChips(id) {
+  const f = state.flags[id]; if (!f) return "";
+  const c = [];
+  if (f.reviewedAt) c.push(`<span class="chip teal">${icon("check")}Reviewed ${f.reviewedAt}</span>`);
+  if (f.sharedAt) c.push(`<span class="chip">${icon("send")}Parent invited ${f.sharedAt}</span>`);
+  if (id === DATA.parent.childId && state.consent === "given") c.push(`<span class="chip teal">${icon("checkCircle")}Parent consent given ${state.consentAt}</span>`);
+  if (id === DATA.parent.childId && state.consent === "withdrawn") c.push(`<span class="chip grey">Parent consent withdrawn</span>`);
+  if (id === DATA.parent.childId && state.consent === "declined") c.push(`<span class="chip grey">Parent said no thanks</span>`);
+  return c.length ? `<div class="chips">${c.join("")}</div>` : "";
+}
+const verified = (txt = "Results verified") => `<span class="badge-verified" data-tip="Checked against school records on ${DATA.lastUpdate.date}">${icon("shieldCheck")}${txt}</span>`;
+
+function header() {
+  const teacherNav = [["dashboard", "Class dashboard", "grid"], ["national", "National view", "globe"], ["privacy", "Privacy & security", "shield"]];
+  const parentNav = [["parent", "Mia's summary", "heart"], ["privacy", "Privacy & security", "shield"]];
+  const nav = state.role === "teacher" ? teacherNav : parentNav;
+  const active = state.view === "student" ? "dashboard" : state.view;
+  const who = state.role === "teacher"
+    ? `<div class="avatar" style="background:#DCEEF5">MP</div><div class="who"><strong>Ms Patel</strong><span>Class teacher · Room 4</span></div>`
+    : `<div class="avatar" style="background:#F6EEDF">${icon("heart")}</div><div class="who"><strong>Mia's parent</strong><span>Parent / carer</span></div>`;
+  return `<header class="app-header"><div class="container header-inner">
+    <button class="brand" data-action="nav" data-view="${state.role === "teacher" ? "dashboard" : "parent"}" aria-label="Early Lens home">${LOGO(false)}<span class="brand-name">Early <span>Lens</span></span></button>
+    <nav class="nav" aria-label="Main">${nav.map(([k, l, i]) => `<button data-action="nav" data-view="${k}" ${active === k ? 'aria-current="page"' : ""}>${icon(i)}<span class="lbl">${l}</span></button>`).join("")}</nav>
+    <div class="header-right">
+      <button class="status-pill" data-action="nav" data-view="privacy" data-tip="All services running normally"><span class="status-dot"></span><span class="lbl">System online</span></button>
+      <div class="user-chip">${who}</div>
+      <button class="btn btn-quiet btn-sm" data-action="logout" aria-label="Switch user">${icon("logout")}<span class="lbl">Switch user</span></button>
+    </div>
+  </div></header>`;
+}
+const footer = () => `<footer class="site-footer"><div class="container footer-inner">
+  <span><strong>Prototype with fictional data.</strong> All students, results and names are made up.</span>
+  <span>Early Lens · ${DATA.school} <button class="link-btn" data-action="reset">Reset demo</button></span>
+</div></footer>`;
+
+/* ---------------- Charts (hand-built SVG) ---------------- */
+function trendChart(s, d, isFlag) {
+  const W = 380, H = 280, m = { l: 40, r: 40, t: 14, b: 40 };
+  const T = DATA.timepoints.length;
+  const lo = bandAt(d, 0)[0] - 22, hi = bandAt(d, T - 1)[4] + 14;
+  const x = (t) => m.l + 16 + (t * (W - m.l - m.r - 28)) / (T - 1);
+  const y = (v) => H - m.b - ((v - lo) / (hi - lo)) * (H - m.t - m.b);
+  const pts = (i) => DATA.timepoints.map((_, t) => [x(t), y(bandAt(d, t)[i])]);
+  const area = (a, b) => { const top = pts(b), bot = pts(a).reverse(); return [...top, ...bot].map((p) => p.map((n) => n.toFixed(1)).join(",")).join(" "); };
+  let g = "";
+  const step = 25, start = Math.ceil(lo / step) * step;
+  for (let v = start; v <= hi; v += step) g += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}" stroke="#E3ECF0"/><text x="${m.l - 8}" y="${y(v) + 4}" text-anchor="end" font-size="11" fill="#6B828C">${v}</text>`;
+  g = g.replace(/font-size="11"/g, 'font-size="12.5"');
+  const xl = DATA.timepoints.map((tp, t) => `<text x="${x(t)}" y="${H - m.b + 22}" text-anchor="middle" font-size="12.5" fill="#55707B">${tp}</text>`).join("");
+  const med = pts(2).map((p) => p.join(",")).join(" ");
+  const h = history(s, d);
+  const sp = h.map((p, t) => [x(t), y(scoreAt(d, t, p))]);
+  const fill = isFlag ? "#E39816" : "#1D6A86", stroke = isFlag ? "#734400" : "#155670";
+  const line = sp.map((p) => p.map((n) => n.toFixed(1)).join(",")).join(" ");
+  const dots = sp.map((p, t) => `<circle cx="${p[0]}" cy="${p[1]}" r="7" fill="${fill}" stroke="#fff" stroke-width="2.5" data-tip="${esc(s.first)} · ${DATA.timepoints[t]} · score ${Math.round(scoreAt(d, t, h[t]))} · about the ${ord(h[t])} percentile"/><circle cx="${p[0]}" cy="${p[1]}" r="8.6" fill="none" stroke="${stroke}" stroke-width="1.4" pointer-events="none"/>`).join("");
+  const last = sp[sp.length - 1];
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${DATA.domains.find((x) => x.key === d).label}: ${s.first}'s results compared with the national range">
+    ${g}
+    <polygon points="${area(0, 4)}" fill="#DDEEF4"/>
+    <polygon points="${area(1, 3)}" fill="#A9D1E0"/>
+    <polyline points="${med}" fill="none" stroke="#4F8499" stroke-width="1.6" stroke-dasharray="5 4"/>
+    <text x="${W - m.r + 1}" y="${pts(4)[T - 1][1] + 4}" font-size="12" fill="#4F8499">95th</text>
+    <text x="${W - m.r + 1}" y="${pts(0)[T - 1][1] + 4}" font-size="12" fill="#4F8499">5th</text><text x="${W - m.r + 1}" y="${pts(2)[T - 1][1] + 4}" font-size="12" fill="#4F8499">50th</text>
+    ${xl}
+    <polyline points="${line}" fill="none" stroke="${stroke}" stroke-width="2" stroke-opacity=".55"/>
+    ${dots}
+    <text x="${last[0] - 12}" y="${last[1] + 26}" text-anchor="end" font-size="14" font-weight="700" fill="${stroke}">${esc(s.first)}</text>
+  </svg>`;
+}
+
+function stripChart() {
+  const W = 720, rowH = 88, m = { l: 92, r: 22, t: 32, b: 36 };
+  const H = m.t + rowH * 3 + m.b;
+  const x = (p) => m.l + (p / 100) * (W - m.l - m.r);
+  let out = "";
+  [0, 10, 25, 50, 75, 90].forEach((p) => {
+    out += `<line x1="${x(p)}" x2="${x(p)}" y1="${m.t - 6}" y2="${H - m.b + 4}" stroke="#E6EDF1"/>`;
+    out += `<text x="${x(p)}" y="${H - m.b + 22}" text-anchor="middle" font-size="13" fill="#55707B">${p === 0 ? "0" : ord(p)}</text>`;
+  });
+  out += `<text x="${(m.l + W - m.r) / 2}" y="${m.t - 12}" text-anchor="middle" font-size="13" fill="#55707B">National percentile (Year 2)</text>`;
+  DATA.domains.forEach((dm, i) => {
+    const cy = m.t + rowH * i + rowH / 2;
+    out += `<text x="${m.l - 16}" y="${cy + 5}" text-anchor="end" font-size="16" font-weight="700" fill="#10303C" font-family="Lexend, sans-serif">${dm.label}</text>`;
+    out += `<rect x="${x(5)}" y="${cy - 30}" width="${x(95) - x(5)}" height="60" rx="10" fill="#DDEEF4"/>`;
+    out += `<rect x="${x(25)}" y="${cy - 30}" width="${x(75) - x(25)}" height="60" fill="#A9D1E0"/>`;
+    out += `<line x1="${x(50)}" x2="${x(50)}" y1="${cy - 30}" y2="${cy + 30}" stroke="#4F8499" stroke-width="1.6" stroke-dasharray="5 4"/>`;
+    // simple deterministic beeswarm
+    const placed = [];
+    const items = DATA.students.map((s) => ({ s, p: latestPct(s, dm.key) })).sort((a, b) => a.p - b.p);
+    items.forEach(({ s, p }) => {
+      const px = x(p); let oy = 0;
+      for (const off of [0, -12, 12, -24, 24, -6, 6, -18, 18]) {
+        if (placed.every((q) => Math.hypot(q[0] - px, q[1] - (cy + off)) >= 12)) { oy = off; break; }
+      }
+      placed.push([px, cy + oy]);
+      const fl = isFlagged(s);
+      out += `<circle cx="${px.toFixed(1)}" cy="${(cy + oy).toFixed(1)}" r="5.6" fill="${fl ? "#E39816" : "#1D6A86"}" stroke="${fl ? "#734400" : "#fff"}" stroke-width="${fl ? 1.6 : 1.6}" data-tip="${esc(fullName(s))} · ${dm.label} · ${ord(p)} percentile"/>`;
+    });
+  });
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Room 4 students plotted against national percentile bands for reading, spelling and writing">${out}</svg>`;
+}
+
+function histogram(d) {
+  const W = 640, H = 250, m = { l: 36, r: 12, t: 22, b: 44 };
+  const counts = Array(10).fill(0);
+  DATA.students.forEach((s) => { counts[Math.min(9, Math.floor(latestPct(s, d) / 10))]++; });
+  const max = 6, bw = (W - m.l - m.r) / 10;
+  const y = (v) => H - m.b - (v / max) * (H - m.t - m.b);
+  let out = "";
+  for (let v = 0; v <= max; v += 2) out += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}" stroke="#E3ECF0"/><text x="${m.l - 8}" y="${y(v) + 4}" text-anchor="end" font-size="11" fill="#6B828C">${v}</text>`;
+  counts.forEach((c, i) => {
+    const bx = m.l + i * bw + 6;
+    out += `<rect x="${bx}" y="${y(c)}" width="${bw - 12}" height="${H - m.b - y(c)}" rx="6" fill="${i === 0 ? "#E39816" : "#1D6A86"}" data-tip="${c} student${c === 1 ? "" : "s"} between the ${i === 0 ? "1st" : ord(i * 10)} and ${ord(i * 10 + 10 > 99 ? 99 : i * 10 + 10)} percentile"/>`;
+    out += `<text x="${bx + (bw - 12) / 2}" y="${H - m.b + 18}" text-anchor="middle" font-size="11.5" fill="#55707B">${i * 10}–${i * 10 + 10}</text>`;
+  });
+  out += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(2.5)}" y2="${y(2.5)}" stroke="#10303C" stroke-width="1.6" stroke-dasharray="6 5"/>`;
+  out += `<text x="${W - m.r}" y="${y(2.5) - 8}" text-anchor="end" font-size="12" font-weight="700" fill="#10303C">If Room 4 matched the nation: 2.5 per band</text>`;
+  out += `<text x="${(m.l + W - m.r) / 2}" y="${H - 6}" text-anchor="middle" font-size="12" fill="#55707B">National percentile band</text>`;
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Number of Room 4 students in each national percentile band">${out}</svg>`;
+}
+
+/* ---------------- Views ---------------- */
+function viewLogin() {
+  return `<div class="login view">
+    <section class="login-hero">
+      <svg class="hero-lens" viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="17" r="11.5" fill="none" stroke="#fff" stroke-width="3"/><path d="M25.5 25.5 34 34" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>
+      <div class="brand">${LOGO(true)}<span class="brand-name">Early <span>Lens</span></span></div>
+      <h1>Notice early.<br>Support sooner.</h1>
+      <p class="lede">Early Lens helps primary teachers spot learning patterns that are worth a closer look, using information the school already has.</p>
+      <ul class="hero-points">
+        <li><span class="ic">${icon("database")}</span><span>Uses results schools already collect and compares each child's pattern with national data.</span></li>
+        <li><span class="ic">${icon("edit")}</span><span>Looks for writing-sample patterns that research links to learning difficulties.</span></li>
+        <li><span class="ic">${icon("checkCircle")}</span><span>No child sits an additional test.</span></li>
+        <li><span class="ic">${icon("user")}</span><span>The teacher decides what happens next. Early Lens backs up professional judgement. It never replaces it.</span></li>
+      </ul>
+    </section>
+    <section class="login-panel">
+      <div class="login-box">
+        <h2>Welcome</h2>
+        <p>Choose a demo account. What you see depends on your role.</p>
+        <button class="role-btn" data-action="login-teacher">
+          <span class="role-ic" style="background:var(--primary-50);color:var(--primary)">${icon("school")}</span>
+          <span><strong>Teacher: Ms Patel</strong><span>Year 2, Room 4 · sees flags for her class</span></span>
+          <span class="go">${icon("arrowRight")}</span>
+        </button>
+        <button class="role-btn" data-action="login-parent">
+          <span class="role-ic" style="background:var(--amber-50);color:var(--amber-700)">${icon("heart")}</span>
+          <span><strong>Parent: Mia's parent</strong><span>Sees only Mia's flag, and only with consent</span></span>
+          <span class="go">${icon("arrowRight")}</span>
+        </button>
+        <div class="demo-note">${icon("lock")}<span>Demo only. There's no real sign-in and no real student data.</span></div>
+      </div>
+    </section>
+  </div>`;
+}
+
+function viewDashboard() {
+  const S = DATA.students;
+  const flagged = S.filter(isFlagged);
+  const list = S.filter((s) => state.filter === "all" || (state.filter === "flags" ? isFlagged(s) : !isFlagged(s)));
+  return `<div class="view"><div class="container">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow">${DATA.school}</div>
+        <h1 class="page-title">${DATA.className}</h1>
+        <p class="page-sub">Good morning, Ms Patel. Here's where your class is at. Flags are prompts for you to look into. You decide what happens next.</p>
+      </div>
+      ${verified()}
+    </div>
+    <div class="summary" role="list">
+      <div class="stat" role="listitem"><div class="ic">${icon("users")}</div><div><div class="num">${S.length}</div><div class="lbl">Students</div></div></div>
+      <div class="stat amber" role="listitem"><div class="ic">${icon("flag")}</div><div><div class="num">${flagged.length}</div><div class="lbl">Flags: worth a closer look</div></div></div>
+      <div class="stat" role="listitem"><div class="ic">${icon("clock")}</div><div><div class="num sm">${DATA.lastUpdate.date}</div><div class="lbl">Last data update</div></div></div>
+      <div class="stat teal" role="listitem"><div class="ic">${icon("checkCircle")}</div><div><div class="num">0</div><div class="lbl">Extra tests needed</div></div></div>
+    </div>
+
+    <div class="section-title"><h2>${icon("flag")} Worth a closer look</h2><span class="muted small">Sorted by how long the pattern has lasted</span></div>
+    ${flagged.length ? `<div class="flag-cards">${["mia", "lachlan", "ruby"].map(byId).filter(isFlagged).map((s) => `
+      <article class="flag-card" data-action="open-student" data-id="${s.id}">
+        <div class="fc-top">${avatar(s, "lg")}<div><h3>${fullName(s)}</h3><p>Age ${s.age} · ${s.flag.areas.join(", ").toLowerCase().replace(/^./, (c) => c.toUpperCase())}</p></div></div>
+        <div>${flagTag(s)}</div>
+        <p class="fc-summary">${s.flag.short}</p>
+        <p class="disclaimer-sm">${icon("info")}${DISCLAIMER}</p>
+        ${statusChips(s.id)}
+        <div class="fc-foot"><span class="muted small">${s.flag.sampleCount} samples · 4 assessments</span><button class="btn btn-secondary btn-sm" data-action="open-student" data-id="${s.id}">Open flag ${icon("arrowRight")}</button></div>
+      </article>`).join("")}</div>`
+    : `<div class="card all-clear"><div class="ic">${icon("check")}</div><div><h3>No open flags</h3><p class="muted">You've dismissed every flag. You can restore any of them from the student's page.</p></div></div>`}
+
+    <div class="section-title"><h2>${icon("users")} Your class</h2>
+      <div class="filters" role="group" aria-label="Filter students">
+        ${[["all", `All (${S.length})`], ["flags", `Worth a closer look (${flagged.length})`], ["none", `No flags (${S.length - flagged.length})`]].map(([k, l]) => `<button class="filter" data-action="filter" data-filter="${k}" aria-pressed="${state.filter === k}">${l}</button>`).join("")}
+      </div>
+    </div>
+    <div class="class-grid">${list.map((s) => `
+      <button class="student-tile ${isFlagged(s) ? "flagged" : ""}" data-action="open-student" data-id="${s.id}">
+        <div class="st-top">${avatar(s)}<div><strong>${fullName(s)}</strong><span>Age ${s.age}</span></div></div>
+        ${flagTag(s)}
+      </button>`).join("")}</div>
+    <div class="info-strip">${icon("info")}<span>Early Lens uses the reading, spelling and writing assessments your school already runs, plus the Year 1 Phonics Check. NAPLAN results are added from Year 3. No child sits an extra test.</span></div>
+  </div></div>`;
+}
+
+function viewStudent() {
+  const s = byId(state.studentId);
+  const f = s.flag ? state.flags[s.id] : null;
+  const open = isFlagged(s);
+  const notes = state.notes[s.id] || [];
+  const draft = state.drafts[s.id] || "";
+  const pctChips = (d) => { const p = latestPct(s, d); return `<span class="pct-chip ${p < 10 ? "" : "ok"}">about the ${ord(p)} percentile</span>`; };
+
+  const actions = s.flag ? (f.status === "dismissed"
+    ? `<button class="btn btn-secondary" data-action="restore">${icon("undo")}Restore flag</button>`
+    : `${f.reviewedAt ? `<button class="btn btn-done" disabled>${icon("check")}Reviewed</button>` : `<button class="btn btn-secondary" data-action="review">${icon("check")}Mark as reviewed</button>`}
+       ${f.sharedAt ? `<button class="btn btn-done" disabled>${icon("send")}Parent invited</button>` : `<button class="btn btn-primary" data-action="discuss">${icon("chat")}Discuss with parent</button>`}
+       <button class="btn btn-quiet" data-action="dismiss">${icon("x")}Dismiss flag</button>`)
+    : `<span class="muted small">Nothing to action</span>`;
+
+  const why = s.flag ? `
+    <section class="card">
+      <div class="card-head"><div><h2>Why was this flagged?</h2><p>In plain English, here's what Early Lens noticed.</p></div></div>
+      <ol class="why-list">${s.flag.why.map((w, i) => `<li><span class="n">${i + 1}</span><span>${w}</span></li>`).join("")}</ol>
+      <div class="why-rule"><strong>How flags work:</strong> Early Lens raises a flag when results sit in the lowest 10% nationally in at least two areas across three or more assessments, or when the same writing patterns repeat across many samples.</div>
+      <div class="unknowns"><strong>${icon("eye")}What Early Lens can't see</strong>Home life, attendance, health, language background (such as EAL/D) or how ${s.first} is in class day to day. That's why your judgement matters most.</div>
+    </section>` : "";
+
+  const patterns = s.flag ? `
+    <section class="card">
+      <div class="card-head"><div><h2>Writing patterns</h2><p>From ${s.flag.sampleCount} writing samples collected in class this year.</p></div>${verified("Samples verified")}</div>
+      <ul class="patterns">${s.flag.patterns.map((p, i) => `<li><span class="p-ic">${icon(i === 0 ? "edit" : i === 1 ? "file" : "chat")}</span><div><strong>${p.title}</strong><p>${p.detail}</p></div><span class="freq">${p.freq}</span></li>`).join("")}</ul>
+      ${s.flag.sample ? `<div class="sample">
+        <div class="sample-head"><span>${icon("edit")} Excerpt · ${s.flag.sample.label}</span><span>Typed from ${s.first}'s handwriting</span></div>
+        <p class="sample-text">${s.flag.sample.parts.map(([t, k]) => k ? `<span class="hl ${k}">${esc(t)}</span>` : esc(t)).join("")}</p>
+        <div class="sample-key"><span><i style="background:#FDEFD2;box-shadow:inset 0 -2px #E39816"></i>Letter reversal</span><span><i style="background:#E4F0F7;box-shadow:inset 0 -2px #1D6A86"></i>Inconsistent spelling</span><span><i style="background:#E5F3EF;box-shadow:inset 0 -2px #1F8073"></i>Spelt by sound</span></div>
+      </div>` : ""}
+      <p class="caveat">Some reversals and invented spellings are normal at this age. Early Lens looks at how often and how persistently they appear.</p>
+    </section>` : "";
+
+  const flagSummary = s.flag ? `
+    <h3>${open ? "Worth a closer look" : "Flag dismissed"}</h3>
+    <ul class="fact-list">
+      ${DATA.domains.map((d) => `<li><span>${d.label}</span>${pctChips(d.key)}</li>`).join("")}
+      <li><span>Writing patterns</span><span class="pct-chip">${s.flag.patterns.length} repeating</span></li>
+    </ul>
+    <p class="disclaimer-sm">${icon("info")}${DISCLAIMER}</p>` : `
+    <h3>No flags</h3>
+    <ul class="fact-list">${DATA.domains.map((d) => `<li><span>${d.label}</span>${pctChips(d.key)}</li>`).join("")}</ul>
+    <p class="muted small">${s.first}'s results sit within the usual national range.</p>`;
+
+  return `
+  <div class="student-bar"><div class="container sb-inner">
+    <button class="back-btn" data-action="nav" data-view="dashboard">${icon("arrowLeft")}Class</button>
+    ${avatar(s, "lg")}
+    <div class="sb-meta">
+      <div class="sb-meta-row"><div class="sb-name"><h1>${fullName(s)}</h1></div>${flagTag(s)}</div>
+      <div class="sb-meta-row"><span class="muted small">Age ${s.age} · ${DATA.className}</span>${statusChips(s.id)}</div>
+    </div>
+    <div class="sb-actions">${actions}</div>
+  </div></div>
+  <div class="view detail"><div class="container">
+    ${s.flag && f.status === "dismissed" ? `<div class="banner grey">${icon("info")}<span>You dismissed this flag at ${f.dismissedAt}${f.reason ? ` · ${esc(f.reason)}` : ""}. The data stays in ${s.first}'s record, and you can restore the flag at any time.</span></div>` : ""}
+    ${open ? `<div class="disclaimer" style="margin-bottom:22px">${icon("info")}${DISCLAIMER}</div>` : ""}
+    ${!s.flag ? `<div class="banner teal">${icon("checkCircle")}<span><strong>No flags.</strong> ${s.first}'s results sit within the usual national range. Nothing to review.</span></div>` : ""}
+
+    <section class="card">
+      <div class="card-head">
+        <div><h2>Reading, spelling and writing over time</h2><p>Each dot is one of ${s.first}'s results. The shaded bands show where most Year 2 students sit nationally.</p></div>
+        ${verified()}
+      </div>
+      <div class="legend">
+        <span><i class="sw b90"></i>Middle 90% of students nationally</span>
+        <span><i class="sw b50"></i>Middle 50%</span>
+        <span><i class="sw med"></i>National median</span>
+        <span><i class="sw dot ${open ? "" : "teal"}"></i>${esc(s.first)}</span>
+      </div>
+      <div class="panels">${DATA.domains.map((d) => `<figure class="panel"><figcaption>${d.label}${pctChips(d.key)}</figcaption>${trendChart(s, d.key, open)}</figure>`).join("")}</div>
+      <p class="source">${icon("database")}<span>Sources: the school's existing reading, spelling and writing assessments and the Year 1 Phonics Check, compared with national reference data. NAPLAN joins from Year 3. Hover over a dot for detail.</span></p>
+    </section>
+
+    ${s.flag ? `<div class="grid-2" style="margin-top:22px">${why}${patterns}</div>` : ""}
+
+    <div class="section-title"><h2>${icon("users")} The flag and your notes, side by side</h2><span class="muted small">Data on the left. Your professional knowledge on the right.</span></div>
+    <div class="side-by-side">
+      <div class="sbs-col">
+        <div class="sbs-label">${icon("search")}What Early Lens noticed</div>
+        ${flagSummary}
+      </div>
+      <div class="sbs-col">
+        <div class="sbs-label">${icon("edit")}Teacher's notes</div>
+        <h3>What you've observed</h3>
+        <label class="sr-only" for="note-input">Teacher's notes for ${esc(s.first)}</label>
+        <textarea id="note-input" data-input="draft" placeholder="What have you noticed in class? e.g. reading aloud, copying from the board, confidence…">${esc(draft)}</textarea>
+        <div class="note-actions"><span class="private">${icon("lock")}Only you can see these notes</span><button class="btn btn-primary" data-action="save-note">${icon("check")}Save note</button></div>
+        ${notes.length ? `<ul class="notes-list">${notes.map((n, i) => `<li class="note ${i === 0 && n.fresh ? "enter" : ""}"><p>${esc(n.text)}</p><small>Ms Patel · today, ${n.time}</small></li>`).join("")}</ul>` : ""}
+      </div>
+    </div>
+  </div></div>`;
+}
+
+function viewNational() {
+  const S = DATA.students, n = S.length;
+  const med = (arr) => { const a = [...arr].sort((x, y) => x - y); return a[Math.floor(a.length / 2)]; };
+  const readMed = med(S.map((s) => latestPct(s, "reading")));
+  const mid50 = S.filter((s) => { const p = latestPct(s, "reading"); return p >= 25 && p <= 75; }).length;
+  const low2 = S.filter((s) => DATA.domains.filter((d) => latestPct(s, d.key) < 10).length >= 2).length;
+  const d = state.natDomain;
+  return `<div class="view"><div class="container">
+    <div class="page-head">
+      <div><div class="eyebrow">National view</div><h1 class="page-title">Scales one classroom to a national view</h1>
+      <p class="page-sub">Every child in Room 4, placed against the national picture for Year 2. Most of the class sits right where you'd expect, which is what makes the few persistent patterns easier to see.</p></div>
+      ${verified()}
+    </div>
+    <div class="scale-strip">
+      <div class="scale-step"><div class="ic">${icon("users")}</div><div><div class="num">25</div><div class="lbl">students in Room 4</div></div></div>
+      <div class="scale-arrow">${icon("arrowRight")}</div>
+      <div class="scale-step"><div class="ic">${icon("school")}</div><div><div class="num">312</div><div class="lbl">students at ${DATA.school.replace(" Primary School", "")}</div></div></div>
+      <div class="scale-arrow">${icon("arrowRight")}</div>
+      <div class="scale-step big"><div class="ic">${icon("globe")}</div><div><div class="num">${DATA.nationalCohort}</div><div class="lbl">Year 2 students nationally</div></div></div>
+    </div>
+    <div class="nat-layout">
+      <section class="card">
+        <div class="card-head"><div><h2>Room 4 against the national range</h2><p>Each dot is one student's latest result. Hover to see who.</p></div></div>
+        <div class="legend">
+          <span><i class="sw b90"></i>Middle 90% nationally</span><span><i class="sw b50"></i>Middle 50%</span><span><i class="sw med"></i>National median</span>
+          <span><i class="sw dot teal"></i>Room 4 student</span><span><i class="sw dot"></i>Worth a closer look</span>
+        </div>
+        <div class="chart-wrap">${stripChart()}</div>
+      </section>
+      <div class="nat-stats">
+        <div class="nat-stat"><div class="num">${ord(readMed)}</div><p>Room 4's median reading percentile. The national median is the 50th.</p></div>
+        <div class="nat-stat"><div class="num">${mid50} of ${n}</div><p>students sit in the national middle 50% for reading.</p></div>
+        <div class="nat-stat"><div class="num">${low2}</div><p>students sit in the lowest 10% in two or more areas. These are the flags on your dashboard.</p></div>
+        <div class="nat-stat"><div class="num">0</div><p>extra tests. Every comparison uses results the school already holds.</p></div>
+      </div>
+    </div>
+    <section class="card" style="margin-top:22px">
+      <div class="card-head">
+        <div><h2>How Room 4 spreads across national bands</h2><p>If Room 4 exactly matched the nation, about 2.5 students would fall in each band.</p></div>
+        <div class="tabs" role="tablist" aria-label="Choose area">${DATA.domains.map((x) => `<button role="tab" aria-selected="${d === x.key}" data-action="nat-domain" data-domain="${x.key}">${x.label}</button>`).join("")}</div>
+      </div>
+      <div class="chart-wrap" style="max-width:900px">${histogram(d)}</div>
+    </section>
+  </div></div>`;
+}
+
+function viewParent() {
+  const s = byId(DATA.parent.childId);
+  const f = state.flags[s.id];
+  if (state.consent !== "given") {
+    if (state.consent === "declined" || state.consent === "withdrawn") {
+      return `<div class="view"><div class="container consent-wrap">
+        <section class="card consent-card">
+          <div class="all-clear"><div class="ic">${icon("check")}</div><div><h1 style="margin:0;font-size:28px">${state.consent === "withdrawn" ? "Consent withdrawn" : "No problem"}</h1></div></div>
+          <p class="intro">${state.consent === "withdrawn" ? "Mia's flag is no longer shared with you." : "You've said no, so you won't see anything about Mia in Early Lens."} Ms Patel will keep supporting Mia in class as usual, and you can always talk with her directly.</p>
+          <div class="consent-actions" style="margin-top:28px"><button class="btn btn-secondary btn-lg" data-action="consent-again">I've changed my mind</button><button class="btn btn-quiet" data-action="nav" data-view="privacy">How we protect data</button></div>
+        </section>
+      </div></div>`;
+    }
+    return `<div class="view"><div class="container consent-wrap">
+      ${f.sharedAt ? `<div class="invite">${icon("chat")}<span><strong>Ms Patel has invited you</strong> to see a note about Mia's learning. Please read this first.</span></div>` : ""}
+      <section class="card consent-card">
+        <div class="brand" style="pointer-events:none">${LOGO(false)}<span class="brand-name">Early <span>Lens</span></span></div>
+        <h1>Before you see anything about Mia</h1>
+        <p class="intro">Early Lens helps Mia's teacher notice early if she might need some extra support with learning. Here's what you're agreeing to:</p>
+        <ul class="consent-points">
+          <li><span class="ic">${icon("info")}</span>Nothing is a diagnosis.</li>
+          <li><span class="ic">${icon("user")}</span>Your child's teacher sees any flag, not a company.</li>
+          <li><span class="ic">${icon("undo")}</span>You can say no, and you can withdraw at any time.</li>
+        </ul>
+        <div class="consent-actions"><button class="btn btn-primary btn-lg" data-action="consent-agree">${icon("check")}I agree</button><button class="btn btn-secondary btn-lg" data-action="consent-decline">No thanks</button></div>
+      </section>
+    </div></div>`;
+  }
+
+  const showFlag = f.status !== "dismissed";
+  return `<div class="view"><div class="container">
+    <div class="page-head">
+      <div><div class="eyebrow">For Mia's parent</div><h1 class="page-title">Mia's learning snapshot</h1><p class="page-sub">${DATA.className} · Teacher: Ms Patel</p></div>
+      ${verified()}
+    </div>
+    ${f.sharedAt ? `<section class="card" style="margin-bottom:22px"><div class="message-card"><div class="avatar lg" style="background:#DCEEF5">MP</div><div style="flex:1"><div class="bubble">${esc(state.shareText || DATA.shareMessage)}</div><small>Ms Patel · today, ${f.sharedAt}</small></div><button class="btn btn-primary" data-action="request-chat">${icon("calendar")}Find a time to talk</button></div></section>` : ""}
+    <div class="grid-2">
+      ${showFlag ? `<section class="card">
+        <div class="card-head"><div><h2>Mia's flag</h2></div><span class="tag tag-amber"><span class="dot"></span>Worth a closer look</span></div>
+        <div class="fc-areas" style="margin-bottom:14px">${s.flag.areas.map((a) => `<span class="area-pill">${a}</span>`).join("")}</div>
+        ${s.flag.parentExplanation.map((p) => `<p style="margin-bottom:12px;font-size:17.5px">${p}</p>`).join("")}
+        <h3 style="margin-top:20px;font-size:17px">Where Mia sits compared with children her age</h3>
+        <div class="range-rows">${DATA.domains.map((d) => `<div class="range-row"><span>${d.label}</span><div class="range-track"><div class="most"></div><div class="me" style="left:${latestPct(s, d.key)}%" data-tip="Lower than most Year 2 children"></div></div></div>`).join("")}</div>
+        <div class="range-scale"><span></span><div><span>Lower</span><span>Most children</span><span>Higher</span></div></div>
+        <div class="disclaimer" style="margin-top:20px">${icon("info")}${DISCLAIMER}</div>
+      </section>` : `<section class="card"><div class="all-clear"><div class="ic">${icon("check")}</div><div><h2 style="font-size:22px">No flags right now</h2><p class="muted">Ms Patel has looked into this and there's nothing for you to do.</p></div></div></section>`}
+      <section class="card">
+        <div class="card-head"><div><h2>Suggested next steps</h2><p>Small, practical things. There's no rush.</p></div></div>
+        <ol class="steps">
+          <li><span class="ic">${icon("chat")}</span><div><strong>Talk with Ms Patel</strong><p>She knows Mia well and can tell you what she's seeing in class. Bring any questions, big or small.</p></div></li>
+          <li><span class="ic">${icon("users")}</span><div><strong>Meet the school support team</strong><p>The learning support team can suggest extra help in class and explain any options.</p></div></li>
+          <li><span class="ic">${icon("book")}</span><div><strong>Keep reading together</strong><p>Ten minutes of shared reading most days helps. Let Mia choose the book and take turns.</p></div></li>
+        </ol>
+      </section>
+    </div>
+    <section class="card" style="margin-top:22px">
+      <div class="grid-2" style="align-items:center">
+        <div>
+          <h2 style="font-size:21px;margin-bottom:12px">What you can see</h2>
+          <ul class="can-see">
+            <li><span class="y">${icon("check")}</span>Mia's flag and this explanation</li>
+            <li><span class="y">${icon("check")}</span>Who has looked at Mia's flag (in Privacy & security)</li>
+            <li><span class="n">${icon("x")}</span>Ms Patel's private notes</li>
+            <li><span class="n">${icon("x")}</span>Any other child's information</li>
+          </ul>
+        </div>
+        <div class="choice-col">
+          <h2 style="font-size:21px;margin-bottom:8px">Your choice, always</h2>
+          <p class="muted" style="margin-bottom:16px">You gave consent today at ${state.consentAt}. You can withdraw at any time and Mia's flag will stop being shared with you.</p>
+          <button class="btn btn-secondary" data-action="withdraw">${icon("undo")}Withdraw consent</button>
+        </div>
+      </div>
+    </section>
+  </div></div>`;
+}
+
+function viewPrivacy() {
+  const teacher = state.role === "teacher";
+  const all = [...state.log, ...[...DATA.priorLog].reverse()];
+  const rows = teacher ? all : all.filter((e) => e.student === DATA.parent.childId || e.who === "Mia's parent");
+  const freshCount = state.freshLog ? 1 : 0;
+  const yes = (t) => `<span class="yes">${icon("check")}${t}</span>`, no = (t = "No") => `<span class="no">${icon("x")}${t}</span>`;
+  return `<div class="view"><div class="container">
+    <div class="page-head">
+      <div><div class="eyebrow">Privacy & security</div><h1 class="page-title">Your data, looked after</h1>
+      <p class="page-sub">${teacher ? "You're signed in as Ms Patel, class teacher. You can see flags for Year 2, Room 4 only." : "You're signed in as Mia's parent. You can see Mia's flag only, and only while you give consent."}</p></div>
+      <span class="status-pill" style="cursor:default"><span class="status-dot"></span>System online</span>
+    </div>
+    <div class="cia">
+      <section class="card cia-card">
+        <div class="cia-head"><div class="ic">${icon("lock")}</div><div><div class="k">Confidentiality</div><h3>Kept private</h3></div></div>
+        <p class="cia-quote">Data encrypted. Only the class teacher and consenting parents can see a student's flag.</p>
+        <ul class="checks">
+          <li>${icon("check")}Encrypted when stored and when sent</li>
+          <li>${icon("check")}Stored in Australia</li>
+          <li>${icon("check")}No one at Early Lens can open a child's flag</li>
+          <li>${icon("check")}Never sold or used for advertising</li>
+        </ul>
+      </section>
+      <section class="card cia-card">
+        <div class="cia-head"><div class="ic">${icon("shieldCheck")}</div><div><div class="k">Integrity</div><h3>Accurate and accountable</h3></div></div>
+        <div>${verified()}</div>
+        <p class="muted">Term 3 results were imported on ${DATA.lastUpdate.date} at ${DATA.lastUpdate.time} and checked against the school's own records.</p>
+        <ul class="checks">
+          <li>${icon("check")}Results can't be edited inside Early Lens</li>
+          <li>${icon("check")}Every view and change is logged below</li>
+        </ul>
+      </section>
+      <section class="card cia-card">
+        <div class="cia-head"><div class="ic" style="background:var(--green-50);color:var(--green)">${icon("activity")}</div><div><div class="k">Availability</div><h3>Ready when you are</h3></div></div>
+        <div class="online-big"><span class="status-dot"></span>System online</div>
+        <ul class="checks">
+          <li>${icon("check")}All services running normally · checked just now</li>
+          <li>${icon("check")}99.98% uptime this term</li>
+          <li>${icon("check")}Backed up every night</li>
+        </ul>
+      </section>
+    </div>
+    <div class="grid-2 privacy-lower ${teacher ? "" : "single"}">
+      <section class="card">
+        <div class="card-head"><div><h2>Access log</h2><p>${teacher ? "Who has looked at or changed information for Room 4." : "Everyone who has looked at Mia's flag."}</p></div>${icon("eye")}</div>
+        <div class="log-wrap"><table class="log">
+          <thead><tr><th>When</th><th>Who</th><th>What</th></tr></thead>
+          <tbody>${rows.map((e, i) => `<tr class="${i < freshCount && e.today ? "fresh" : ""}"><td class="time">${e.today ? "Today, " : ""}${e.when}</td><td><strong>${esc(e.who)}</strong></td><td>${esc(e.what)}</td></tr>`).join("")}</tbody>
+        </table></div>
+      </section>
+      ${teacher ? `<section class="card">
+        <div class="card-head"><div><h2>Who can see what</h2><p>Access depends on your role.</p></div></div>
+        <div class="access-table-wrap"><table class="access-table">
+          <thead><tr><th></th><th>Class teacher</th><th>Parent (with consent)</th><th>Early Lens staff</th></tr></thead>
+          <tbody>
+            <tr><td>Flags</td><td>${yes("Own class")}</td><td>${yes("Own child")}</td><td>${no()}</td></tr>
+            <tr><td>Teacher's notes</td><td>${yes("Yes")}</td><td>${no()}</td><td>${no()}</td></tr>
+            <tr><td>Writing samples</td><td>${yes("Yes")}</td><td>${no("Summary only")}</td><td>${no()}</td></tr>
+            <tr><td>Other children</td><td>${yes("Own class")}</td><td>${no()}</td><td>${no()}</td></tr>
+          </tbody>
+        </table></div>
+      </section>` : ""}
+    </div>
+  </div></div>`;
+}
+
+/* ---------------- Modals ---------------- */
+function modalHTML() {
+  const m = state.modal; if (!m) return "";
+  const s = m.studentId ? byId(m.studentId) : null;
+  let body = "";
+  if (m.type === "dismiss") body = `
+    <div class="ic-top">${icon("flag")}</div>
+    <h2 id="modal-title">Dismiss ${s.first}'s flag?</h2>
+    <p>You know ${s.first} best. Dismissing removes the “Worth a closer look” tag from your dashboard. The data stays in ${s.first}'s record and you can restore the flag at any time.</p>
+    <div class="radio-list" role="radiogroup" aria-label="Reason (optional)">
+      ${["I've looked into it and I'm not concerned", `${s.first} is already getting support`, "Something else is going on (e.g. a recent move or illness)"].map((r, i) => `<label><input type="radio" name="reason" value="${esc(r)}" ${i === 0 ? "checked" : ""}>${esc(r)}</label>`).join("")}
+    </div>
+    <div class="modal-actions"><button class="btn btn-secondary" data-action="modal-close">Keep flag</button><button class="btn btn-primary" data-action="confirm-dismiss">Yes, dismiss flag</button></div>`;
+  if (m.type === "discuss") body = `
+    <div class="ic-top">${icon("chat")}</div>
+    <h2 id="modal-title">Discuss with ${s.first}'s parent</h2>
+    <p>${s.first}'s parent will be asked for consent first. Nothing is shared until they agree.</p>
+    <div class="share-cols">
+      <div><strong>They'll see</strong><ul><li class="yes">${icon("check")}The flag</li><li class="yes">${icon("check")}A plain-language explanation</li><li class="yes">${icon("check")}Suggested next steps</li></ul></div>
+      <div><strong>They won't see</strong><ul><li class="no">${icon("x")}Your private notes</li><li class="no">${icon("x")}Writing samples</li><li class="no">${icon("x")}Other students</li></ul></div>
+    </div>
+    <label class="field-label" for="share-text">Your message</label>
+    <textarea id="share-text" style="min-height:96px">${esc(state.shareText || DATA.shareMessage)}</textarea>
+    <div class="modal-actions"><button class="btn btn-secondary" data-action="modal-close">Cancel</button><button class="btn btn-primary" data-action="send-share">${icon("send")}Send to parent</button></div>`;
+  if (m.type === "withdraw") body = `
+    <div class="ic-top">${icon("undo")}</div>
+    <h2 id="modal-title">Withdraw consent?</h2>
+    <p>Mia's flag will stop being shared with you straight away. Ms Patel will still support Mia in class, and you can give consent again later if you like.</p>
+    <div class="modal-actions"><button class="btn btn-secondary" data-action="modal-close">Cancel</button><button class="btn btn-primary" data-action="confirm-withdraw">Withdraw consent</button></div>`;
+  return `<div class="modal-backdrop" data-action="backdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">${body}</div></div>`;
+}
+
+/* ---------------- Toasts ---------------- */
+function toast(msg, action) {
+  const root = document.getElementById("toast-root");
+  const el = document.createElement("div");
+  el.className = "toast";
+  el.innerHTML = `${icon("checkCircle")}<span>${msg}</span>${action ? `<button data-toast-action="${action.key}">${action.label}</button>` : ""}`;
+  root.appendChild(el);
+  setTimeout(() => { el.classList.add("out"); setTimeout(() => el.remove(), 220); }, action ? 7000 : 3600);
+}
+
+/* ---------------- Render ---------------- */
+const $app = document.getElementById("app");
+let lastKey = "";
+function render() {
+  let body = "";
+  if (state.view === "login") body = viewLogin();
+  else {
+    const v = { dashboard: viewDashboard, student: viewStudent, national: viewNational, parent: viewParent, privacy: viewPrivacy }[state.view]();
+    body = header() + `<main id="main">${v}</main>`;
+  }
+  $app.innerHTML = body + footer();
+  const key = state.view + ":" + (state.studentId || "") + ":" + (state.role || "") + ":" + (state.view === "parent" ? state.consent : "");
+  if (key !== lastKey) {
+    const v = $app.querySelector(".view"); if (v) v.classList.add("enter");
+    if (state.view !== lastKey.split(":")[0] || state.view === "student") window.scrollTo(0, 0);
+    lastKey = key;
+  }
+  document.getElementById("modal-root").innerHTML = modalHTML();
+  if (state.modal) { const b = document.querySelector(".modal .btn-primary"); b && b.focus(); }
+  // fresh notes only animate once
+  Object.values(state.notes).forEach((arr) => arr.forEach((n) => (n.fresh = false)));
+  state.freshLog = 0;
+}
+function go(view, extra = {}) { Object.assign(state, { view }, extra); render(); }
+
+/* ---------------- Actions ---------------- */
+const actions = {
+  "login-teacher": () => { state.role = "teacher"; logEvent("Ms Patel", "signed in"); go("dashboard"); },
+  "login-parent": () => {
+    state.role = "parent"; logEvent("Mia's parent", "signed in", "mia");
+    if (state.consent === "given") logEvent("Mia's parent", "viewed Mia's flag", "mia");
+    go("parent");
+  },
+  logout: () => { document.getElementById("toast-root").innerHTML = ""; state.role = null; state.modal = null; go("login", { studentId: null }); },
+  reset: () => { state = initialState(); lastKey = ""; document.getElementById("toast-root").innerHTML = ""; render(); },
+  nav: (el) => {
+    const v = el.dataset.view;
+    if (state.role === "parent" && !["parent", "privacy"].includes(v)) return go("parent");
+    go(v, { studentId: v === "student" ? state.studentId : null });
+  },
+  filter: (el) => { state.filter = el.dataset.filter; render(); },
+  "open-student": (el) => {
+    const s = byId(el.dataset.id);
+    logEvent("Ms Patel", s.flag ? `viewed ${s.first}'s flag` : `viewed ${s.first}'s results`, s.id, state.viewedFlags[s.id] ? 1 : 2);
+    state.viewedFlags[s.id] = true;
+    go("student", { studentId: s.id });
+  },
+  "save-note": () => {
+    const id = state.studentId, text = (state.drafts[id] || "").trim(), s = byId(id);
+    if (!text) { toast("Type a note first, then save."); document.getElementById("note-input").focus(); return; }
+    const time = logEvent("Ms Patel", `added a note to ${s.first}'s ${s.flag ? "flag" : "record"}`, id);
+    (state.notes[id] = state.notes[id] || []).unshift({ text, time, fresh: true });
+    state.drafts[id] = "";
+    render(); toast("Note saved. It sits alongside the flag, visible only to you.");
+  },
+  review: () => {
+    const s = byId(state.studentId);
+    state.flags[s.id].reviewedAt = logEvent("Ms Patel", `marked ${s.first}'s flag as reviewed`, s.id);
+    render(); toast(`${s.first}'s flag marked as reviewed.`);
+  },
+  discuss: () => { state.modal = { type: "discuss", studentId: state.studentId }; render(); },
+  "send-share": () => {
+    const s = byId(state.modal.studentId);
+    const t = document.getElementById("share-text"); state.shareText = t ? t.value : DATA.shareMessage;
+    state.flags[s.id].sharedAt = logEvent("Ms Patel", `invited ${s.first}'s parent to discuss the flag`, s.id);
+    state.modal = null; render();
+    if (s.id === DATA.parent.childId) toast(`Sent. ${s.first}'s parent will be asked for consent before seeing anything.`, { key: "switch-parent", label: "Switch to parent login" });
+    else toast(`Sent. ${s.first}'s parent will be asked for consent before seeing anything.`);
+  },
+  dismiss: () => { state.modal = { type: "dismiss", studentId: state.studentId }; render(); },
+  "confirm-dismiss": () => {
+    const s = byId(state.modal.studentId), r = document.querySelector('input[name="reason"]:checked');
+    const f = state.flags[s.id];
+    f.status = "dismissed"; f.reason = r ? r.value : null;
+    f.dismissedAt = logEvent("Ms Patel", `dismissed ${s.first}'s flag`, s.id);
+    state.modal = null; render(); toast(`Flag dismissed. You can restore it at any time.`);
+  },
+  restore: () => {
+    const s = byId(state.studentId), f = state.flags[s.id];
+    f.status = f.reviewedAt ? "reviewed" : "open"; f.dismissedAt = null; f.reason = null;
+    logEvent("Ms Patel", `restored ${s.first}'s flag`, s.id);
+    render(); toast(`${s.first}'s flag is back on your dashboard.`);
+  },
+  "modal-close": () => { state.modal = null; render(); },
+  backdrop: (el, e) => { if (e.target === el) { state.modal = null; render(); } },
+  "consent-agree": () => {
+    state.consent = "given"; state.consentAt = logEvent("Mia's parent", "gave consent to see Mia's flag", "mia");
+    logEvent("Mia's parent", "viewed Mia's flag", "mia");
+    render(); toast("Thank you. You can withdraw consent at any time.");
+  },
+  "consent-decline": () => { state.consent = "declined"; logEvent("Mia's parent", "said no thanks to sharing", "mia"); render(); },
+  "consent-again": () => { state.consent = null; render(); },
+  withdraw: () => { state.modal = { type: "withdraw" }; render(); },
+  "confirm-withdraw": () => {
+    state.consent = "withdrawn"; state.consentAt = null; state.modal = null;
+    logEvent("Mia's parent", "withdrew consent", "mia");
+    render(); toast("Consent withdrawn. Mia's flag is no longer shared with you.");
+  },
+  "request-chat": () => { logEvent("Mia's parent", "asked Ms Patel for a time to talk", "mia"); toast("Request sent. Ms Patel will be in touch to find a time."); },
+  "nat-domain": (el) => { state.natDomain = el.dataset.domain; render(); }
+};
+
+document.addEventListener("click", (e) => {
+  const t = e.target.closest("[data-toast-action]");
+  if (t) { if (t.dataset.toastAction === "switch-parent") { actions.logout(); } return; }
+  const el = e.target.closest("[data-action]");
+  if (!el) return;
+  const fn = actions[el.dataset.action];
+  if (fn) { if (el.dataset.action !== "backdrop") e.stopPropagation(); fn(el, e); }
+});
+document.addEventListener("input", (e) => {
+  if (e.target.dataset.input === "draft") state.drafts[state.studentId] = e.target.value;
+  if (e.target.id === "share-text") state.shareText = e.target.value;
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && state.modal) { state.modal = null; render(); }
+  if ((e.key === "Enter" || e.key === " ") && e.target.matches("article[data-action]")) { e.preventDefault(); e.target.click(); }
+});
+
+/* ---------------- Tooltip ---------------- */
+const tip = document.getElementById("tooltip");
+document.addEventListener("mouseover", (e) => {
+  const el = e.target.closest("[data-tip]");
+  if (!el) { tip.classList.remove("show"); return; }
+  tip.textContent = el.getAttribute("data-tip");
+  const r = el.getBoundingClientRect();
+  tip.style.left = r.left + r.width / 2 + "px"; tip.style.top = r.top + "px";
+  tip.classList.add("show");
+});
+window.addEventListener("scroll", () => tip.classList.remove("show"), { passive: true });
+
+render();
+</script>
+</body>
 </html>
