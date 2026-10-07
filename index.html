@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Early Lens · Notice early, support sooner</title>
-<meta name="description" content="Early Lens helps primary school teachers notice possible learning difficulties earlier. Clickable prototype with fictional data.">
+<meta name="description" content="Early Lens helps parents notice possible learning difficulties earlier, using results their child's school already has. Clickable prototype with fictional data.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='17' cy='17' r='11.5' fill='%23E6F4F6' stroke='%231D6A86' stroke-width='4'/%3E%3Cpath d='M25.5 25.5 34 34' stroke='%231D6A86' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M17 23v-7' stroke='%2323897D' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M17 18c-3.5 0-5-2-5-4.5 3 0 5 1.5 5 4.5zM17 16.5c0-3 1.8-5 5-5 0 2.8-1.8 5-5 5z' fill='%2323897D'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -150,30 +150,7 @@ main{min-height:calc(100vh - var(--header-h) - 70px)}
 .stat .num{font-family:var(--display);font-weight:600;font-size:28px;line-height:1.1}
 .stat .num.sm{font-size:21px}
 .stat .lbl{color:var(--muted);font-size:15px}
-.flag-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.flag-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px 18px;box-shadow:var(--shadow);position:relative;overflow:hidden;cursor:pointer;transition:box-shadow .15s,transform .15s,border-color .15s;display:flex;flex-direction:column;gap:12px}
-.flag-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--amber-300)}
-.flag-card:hover{box-shadow:0 10px 30px rgba(16,48,60,.11);transform:translateY(-2px);border-color:var(--amber-100)}
-.fc-top{display:flex;align-items:center;gap:12px}
-.fc-top h3{font-size:21px;white-space:nowrap}
-.fc-top p{color:var(--muted);font-size:15px}
-.fc-areas{display:flex;gap:6px;flex-wrap:wrap}
 .area-pill{font-size:13.5px;font-weight:700;padding:3px 10px;border-radius:8px;background:var(--amber-50);color:var(--amber-800)}
-.fc-summary{color:var(--ink-2);font-size:16px}
-.fc-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:12px;border-top:1px solid var(--line)}
-.filters{display:flex;gap:8px}
-.filter{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 15px;font-weight:700;font-size:14.5px;color:var(--muted);cursor:pointer}
-.filter[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
-.class-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
-.student-tile{min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:10px;text-align:left;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer;transition:border-color .15s,box-shadow .15s}
-.student-tile:hover{border-color:var(--primary-100);box-shadow:0 6px 18px rgba(16,48,60,.08)}
-.student-tile.flagged{background:linear-gradient(180deg,#FFFDF8,#fff);border-color:var(--amber-100)}
-.st-top{display:flex;align-items:center;gap:10px;width:100%}
-.st-top strong{display:block;font-size:16px;line-height:1.25}
-.st-top span{display:block;font-size:13.5px;color:var(--muted)}
-.student-tile .tag{font-size:13px;padding:3px 10px}
-.info-strip{display:flex;align-items:center;gap:14px;background:#fff;border:1px dashed var(--line-2);border-radius:14px;padding:14px 18px;color:var(--ink-2);margin-top:28px}
-.info-strip .icon{font-size:20px;color:var(--teal)}
 
 /* ---------- Student detail ---------- */
 .student-bar{position:sticky;top:var(--header-h);z-index:30;background:rgba(242,246,248,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
@@ -258,10 +235,6 @@ textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 4px rgb
 .scale-step.big .ic{background:var(--teal-50);color:var(--teal)}
 .scale-arrow{color:var(--line-2);font-size:28px}
 .nat-layout{display:grid;grid-template-columns:2fr 1fr;gap:22px}
-.nat-stats{display:grid;gap:14px;align-content:start}
-.nat-stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
-.nat-stat .num{font-family:var(--display);font-weight:600;font-size:26px}
-.nat-stat p{color:var(--muted);font-size:15px}
 .tabs{display:inline-flex;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:4px;gap:2px}
 .tabs button{border:0;background:none;padding:7px 14px;border-radius:9px;font-weight:700;font-size:14.5px;color:var(--muted);cursor:pointer}
 .tabs button[aria-selected="true"]{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(16,48,60,.12)}
@@ -276,10 +249,6 @@ textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 4px rgb
 .consent-points li{display:flex;align-items:center;gap:16px;padding:18px 20px;border-radius:16px;background:var(--surface-2);border:1px solid var(--line);font-size:20px;font-weight:700;color:var(--ink)}
 .consent-points .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:21px;background:var(--primary-50);color:var(--primary);flex:none}
 .consent-actions{display:flex;gap:12px;align-items:center}
-.invite{display:flex;gap:14px;align-items:center;background:var(--teal-50);color:#145F55;border-radius:14px;padding:14px 18px;font-size:16px;margin-bottom:18px}
-.message-card{display:flex;gap:16px;align-items:flex-start}
-.message-card .bubble{background:var(--primary-50);border-radius:4px 16px 16px 16px;padding:14px 18px;font-size:17.5px;color:var(--ink)}
-.message-card small{display:block;color:var(--muted);font-size:13.5px;margin-top:6px;font-weight:700}
 .range-rows{display:grid;gap:16px;margin:18px 0 6px}
 .range-row{display:grid;grid-template-columns:90px 1fr;align-items:center;gap:16px;font-weight:700}
 .range-track{position:relative;height:14px;border-radius:999px;background:var(--band90)}
@@ -367,9 +336,53 @@ textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 4px rgb
 .link-btn{border:0;background:none;color:var(--muted);text-decoration:underline;text-underline-offset:3px;cursor:pointer;font-size:14.5px;padding:4px}
 .link-btn:hover{color:var(--ink)}
 
+/* ---------- Parent experience ---------- */
+.flag-wide{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px 28px;position:relative;overflow:hidden;cursor:pointer;transition:box-shadow .15s,transform .15s}
+.flag-wide::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--amber-300)}
+.flag-wide:hover{box-shadow:0 10px 30px rgba(16,48,60,.11);transform:translateY(-2px)}
+.flag-wide h3{font-size:24px}
+.flag-wide .meta{color:var(--muted);font-size:15.5px;margin-top:2px}
+.flag-wide .body{display:grid;gap:10px}
+.flag-wide .reassure{color:var(--ink-2);font-size:16.5px;max-width:720px}
+.flag-wide .side{display:grid;gap:10px;justify-items:end}
+.child-cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.child-card{display:flex;flex-direction:column;gap:16px;text-align:left;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px 26px;cursor:pointer;transition:box-shadow .15s,border-color .15s}
+.child-card:hover{box-shadow:0 10px 30px rgba(16,48,60,.10);border-color:var(--primary-100)}
+.child-card.flagged{border-color:var(--amber-100);background:linear-gradient(180deg,#FFFCF5,#fff 60%)}
+.cc-top{display:flex;align-items:center;gap:16px}
+.cc-top h3{font-size:23px}
+.cc-top p{color:var(--muted);font-size:15.5px}
+.cc-top .tag{margin-left:auto}
+.mini-rows{display:grid;gap:10px}
+.mini-row{display:grid;grid-template-columns:80px 1fr;gap:14px;align-items:center;font-size:15px;font-weight:700;color:var(--ink-2)}
+.cc-foot{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid var(--line)}
+.know{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.know-item{display:flex;gap:14px;align-items:flex-start}
+.know-item .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:20px;background:var(--teal-50);color:var(--teal);flex:none}
+.know-item strong{display:block;font-size:17px}
+.know-item p{color:var(--ink-2);font-size:15.5px;margin-top:2px}
+.reply-card{display:flex;gap:16px;align-items:flex-start;border-color:var(--primary-100);background:linear-gradient(180deg,#F5FAFC,#fff);margin-bottom:22px}
+.reply-card.enter{animation:fadeUp .4s ease both}
+.reply-card .bubble{background:var(--primary-50);border-radius:4px 16px 16px 16px;padding:14px 18px;font-size:17.5px;color:var(--ink)}
+.reply-card .from{font-weight:700;font-size:14px;color:var(--muted);margin-bottom:6px;display:flex;gap:8px;align-items:center}
+.reply-card .actions{display:flex;gap:10px;margin-top:12px;align-items:center;flex-wrap:wrap}
+.check-row{display:flex;gap:10px;align-items:center;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;cursor:pointer;font-size:16px;margin:4px 0 14px}
+.check-row input{accent-color:var(--primary);width:18px;height:18px}
+.check-row:has(input:checked){border-color:var(--primary);background:var(--primary-50)}
+.child-tabs{display:flex;gap:10px;margin-bottom:22px}
+.child-tab{display:flex;align-items:center;gap:10px;border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:8px 16px 8px 8px;font-weight:700;cursor:pointer}
+.child-tab .avatar{width:36px;height:36px;font-size:13px}
+.child-tab[aria-selected="true"]{border-color:var(--primary);background:var(--primary-50);color:var(--primary-600)}
+.dots-card{display:flex;flex-direction:column;gap:16px}
+.dots-card .statement{font-family:var(--display);font-weight:500;font-size:21px;line-height:1.35}
+.dots-card .statement b{color:var(--amber-800)}
+.dots-card .statement.ok b{color:var(--teal)}
+.dots-wrap svg{width:100%;max-width:360px;height:auto;display:block;margin:0 auto}
+.steps .btn{margin-top:10px}
+.steps.two{grid-template-columns:1fr 1fr}
+
 /* ---------- Responsive ---------- */
 @media (max-width:1100px){
-  .class-grid{grid-template-columns:repeat(4,1fr)}
   .summary{grid-template-columns:repeat(2,1fr)}
   .nav button .lbl{display:none}
   .sb-inner{flex-wrap:wrap}
@@ -382,12 +395,15 @@ textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 4px rgb
   .login-hero h1{font-size:36px;margin-top:36px}
   .hero-points{margin-bottom:0}
   .login-panel{padding:32px 16px}
-  .grid-2,.grid-3,.flag-cards,.panels,.side-by-side,.cia,.nat-layout,.share-cols{grid-template-columns:1fr}
+  .grid-2,.grid-3,.panels,.side-by-side,.cia,.nat-layout,.share-cols{grid-template-columns:1fr}
   .sbs-col + .sbs-col{border-left:0;border-top:1px solid var(--line)}
   .privacy-lower{grid-template-columns:1fr}
+  .flag-wide{grid-template-columns:1fr}
+  .flag-wide .side{justify-items:start}
+  .child-cards,.know,.steps.two{grid-template-columns:1fr}
+  .child-tabs{flex-wrap:wrap}
   .choice-col{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:20px}
   .access-table-wrap,.log-wrap{overflow-x:auto}
-  .class-grid{grid-template-columns:repeat(2,1fr)}
   .scale-strip{grid-template-columns:1fr}
   .scale-arrow{display:none}
   .page-head{flex-direction:column;align-items:flex-start}
@@ -422,73 +438,48 @@ textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 4px rgb
 
 <script>
 /* =====================================================================
-   EARLY LENS · clickable prototype
+   EARLY LENS · clickable prototype for parents
    All data below is hardcoded and fictional. No network calls, no backend.
    ===================================================================== */
 const DATA = {
+  family: { name: "Nguyen family", initials: "NF" },
   school: "Lilly Pilly Creek Primary School",
-  className: "Year 2, Room 4",
-  teacher: { name: "Ms Patel", role: "Class teacher" },
-  parent: { name: "Mia's parent", childId: "mia" },
-  lastUpdate: { date: "15 Sep 2026", time: "7:45 am", label: "End of Term 3 assessments" },
-  nationalCohort: "about 300,000",
-  timepoints: ["Yr 1 · T2", "Yr 1 · T4", "Yr 2 · T1", "Yr 2 · T3"],
+  lastUpdate: { date: "15 Sep 2026", time: "7:45 am", label: "End of Term 3 school results" },
   domains: [
     { key: "reading",  label: "Reading" },
     { key: "spelling", label: "Spelling" },
     { key: "writing",  label: "Writing" }
   ],
-  // National reference bands (scaled scores) at the 5th, 25th, 50th, 75th and 95th percentiles
-  // for the first time point; each later time point adds `growth`.
-  national: {
-    percentiles: [5, 25, 50, 75, 95],
-    reading:  { first: [150, 182, 200, 218, 250], growth: 16 },
-    spelling: { first: [146, 178, 196, 214, 246], growth: 15 },
-    writing:  { first: [140, 172, 190, 208, 240], growth: 14 }
-  },
-  // pct: national percentile at each time point [reading, spelling, writing]
-  students: [
-    { id: "amelia",  first: "Amelia",  last: "Brown",     age: 8, latest: [70, 74, 66] },
-    { id: "lachlan", first: "Lachlan", last: "Brooks",    age: 7, latest: [31, 8, 7],
-      history: { reading: [34, 30, 33, 31], spelling: [9, 7, 8, 8], writing: [11, 8, 8, 7] },
-      flag: {
-        areas: ["Spelling", "Writing"],
-        short: "Spelling and writing have sat in the lowest 10% for the last three assessments. Reading is within the usual range.",
-        why: [
-          "Lachlan's spelling and writing results have been in the lowest 10% of Year 2 students nationally at his last three assessments.",
-          "His reading sits comfortably within the usual range, so the pattern is specific to putting words on paper.",
-          "His writing samples show words running together and uneven letter sizing more often than is typical for Year 2."
-        ],
-        patterns: [
-          { title: "Spacing between words is inconsistent", detail: "Words often run together, e.g. “wewentto”.", freq: "7 of 12 samples" },
-          { title: "Letter sizing varies within words", detail: "Tall and short letters mixed, which can make writing slow and tiring.", freq: "6 of 12 samples" }
-        ],
-        sampleCount: 12
-      } },
-    { id: "archie",  first: "Archie",  last: "Campbell",  age: 7, latest: [38, 35, 30] },
-    { id: "evie",    first: "Evie",    last: "Clarke",    age: 8, latest: [58, 52, 63] },
-    { id: "oscar",   first: "Oscar",   last: "Davies",    age: 7, latest: [14, 26, 17] },
-    { id: "zara",    first: "Zara",    last: "Ahmed",     age: 8, latest: [73, 68, 71] },
-    { id: "matilda", first: "Matilda", last: "Harris",    age: 7, latest: [64, 70, 61] },
-    { id: "layla",   first: "Layla",   last: "Hassan",    age: 8, latest: [52, 46, 54] },
-    { id: "willow",  first: "Willow",  last: "Jones",     age: 7, latest: [47, 55, 49] },
-    { id: "jayden",  first: "Jayden",  last: "Kim",       age: 8, latest: [68, 63, 57] },
-    { id: "isla",    first: "Isla",    last: "Martin",    age: 7, latest: [55, 61, 58] },
-    { id: "mia",     first: "Mia",     last: "Nguyen",    age: 7, latest: [6, 4, 8],
+  // National reference bands: scaled scores at the 5th, 25th, 50th, 75th and 95th percentiles.
+  percentiles: [5, 25, 50, 75, 95],
+  children: [
+    {
+      id: "mia", first: "Mia", last: "Nguyen", age: 7, year: "Year 2", className: "Year 2, Room 4",
+      teacher: "Ms Patel", cohort: "about 300,000",
+      timepoints: ["Yr 1 · T2", "Yr 1 · T4", "Yr 2 · T1", "Yr 2 · T3"],
+      bands: {
+        reading:  { first: [150, 182, 200, 218, 250], growth: 16 },
+        spelling: { first: [146, 178, 196, 214, 246], growth: 15 },
+        writing:  { first: [140, 172, 190, 208, 240], growth: 14 }
+      },
+      // national percentile at each time point
       history: { reading: [8, 6, 7, 6], spelling: [6, 5, 5, 4], writing: [10, 8, 9, 8] },
+      sources: "Mia's school reading, spelling and writing assessments and the Year 1 Phonics Check, compared with national reference data. NAPLAN starts in Year 3.",
+      notePrefill: "Avoids reading aloud at bedtime. Gets upset with spelling homework.",
       flag: {
         areas: ["Reading", "Spelling", "Writing"],
-        short: "Reading, spelling and writing have sat persistently low across four assessments, with repeating writing patterns.",
+        short: "Mia's reading, spelling and writing results have sat low for her age across her last four school assessments, and her writing shows a few repeating patterns.",
+        reassure: "Lots of children show patterns like this, and many catch up with a bit of extra support. Noticing early means help can start sooner.",
         why: [
-          "Mia's reading, spelling and writing results have sat in the lowest 10% of Year 2 students nationally at each of her last four assessments.",
-          "Her classmates have moved up over the same time, so this is a steady pattern rather than one off day.",
-          "Her writing samples show patterns that research links to literacy difficulties, such as reversing ‘b’ and ‘d’ (see Writing patterns).",
-          "Any one of these on its own is common at seven. Together, and over time, they’re worth a closer look."
+          "Mia's reading, spelling and writing results have been in the lowest 10% of Year 2 children nationally at each of her last four school assessments.",
+          "Children in her year have moved up over the same time, so this is a steady pattern rather than one off day.",
+          "Her writing shows a few patterns that research links to learning difficulties, like swapping ‘b’ and ‘d’ (see Writing patterns).",
+          "Each of these is common at seven on its own. Together, and over time, they’re worth a closer look with her teacher."
         ],
         patterns: [
           { title: "Frequent letter reversals", detail: "‘b’ and ‘d’ swapped, e.g. “bog” for “dog”.", freq: "9 of 14 samples" },
           { title: "Spelling inconsistent across similar words", detail: "The same word spelt different ways in one piece, e.g. “frend” and “freind”.", freq: "7 of 14 samples" },
-          { title: "Common words spelt by sound", detail: "High-frequency words written as they sound, e.g. “sed” for “said”.", freq: "8 of 14 samples" }
+          { title: "Common words spelt by sound", detail: "Everyday words written as they sound, e.g. “sed” for “said”.", freq: "8 of 14 samples" }
         ],
         sampleCount: 14,
         sample: {
@@ -497,52 +488,34 @@ const DATA = {
             ["On the weekend I went to the park with my "], ["frend", "spell"], [". We saw a big "], ["bog", "rev"],
             [". It was "], ["bark", "rev"], [" brown. My "], ["freind", "spell"], [" "], ["sed", "sound"], [" it was his "], ["bog", "rev"], ["."]
           ]
-        },
-        parentExplanation: [
-          "Mia's reading, spelling and writing results have been lower than most children her age for a while now. Her writing also shows a few patterns, like mixing up ‘b’ and ‘d’, that are worth looking at more closely.",
-          "This happens for lots of children, and there are many possible reasons. Noticing it early simply means Mia can get the right support sooner. Ms Patel will use what she knows about Mia to decide what will help."
-        ]
-      } },
-    { id: "ruby",    first: "Ruby",    last: "O'Connor",  age: 7, latest: [6, 24, 9],
-      history: { reading: [9, 8, 7, 6], spelling: [27, 25, 24, 24], writing: [12, 10, 9, 9] },
-      flag: {
-        areas: ["Reading", "Writing"],
-        short: "Reading and writing have drifted lower over the last three assessments, while spelling has held steady.",
-        why: [
-          "Ruby's reading and writing results have moved into the lowest 10% of Year 2 students nationally over her last three assessments.",
-          "Her spelling has stayed steady, so the pattern looks more about reading fluency and understanding than letters and sounds.",
-          "A gradual drift like this can be easy to miss week to week."
-        ],
-        patterns: [
-          { title: "Short, simple sentences", detail: "Pieces are shorter than earlier in the year and use fewer linking words.", freq: "8 of 13 samples" },
-          { title: "Ideas lose their order", detail: "Events in recounts are often out of sequence.", freq: "6 of 13 samples" }
-        ],
-        sampleCount: 13
-      } },
-    { id: "hamish",  first: "Hamish",  last: "Reid",      age: 7, latest: [41, 47, 38] },
-    { id: "lucas",   first: "Lucas",   last: "Rossi",     age: 8, latest: [27, 19, 24] },
-    { id: "priya",   first: "Priya",   last: "Sharma",    age: 7, latest: [77, 82, 74] },
-    { id: "oliver",  first: "Oliver",  last: "Smith",     age: 7, latest: [62, 58, 55] },
-    { id: "jack",    first: "Jack",    last: "Taylor",    age: 8, latest: [45, 39, 42] },
-    { id: "ava",     first: "Ava",     last: "Thompson",  age: 7, latest: [88, 85, 79] },
-    { id: "kai",     first: "Kai",     last: "Walker",    age: 7, latest: [18, 22, 20] },
-    { id: "henry",   first: "Henry",   last: "White",     age: 8, latest: [49, 44, 51] },
-    { id: "noah",    first: "Noah",    last: "Williams",  age: 7, latest: [33, 28, 36] },
-    { id: "charlotte", first: "Charlotte", last: "Wilson", age: 8, latest: [81, 77, 84] },
-    { id: "leo",     first: "Leo",     last: "Anderson",  age: 7, latest: [24, 31, 27] },
-    { id: "chloe",   first: "Chloe",   last: "Zhang",     age: 8, latest: [92, 90, 87] }
+        }
+      }
+    },
+    {
+      id: "leo", first: "Leo", last: "Nguyen", age: 10, year: "Year 5", className: "Year 5, Room 12",
+      teacher: "Mr Okafor", cohort: "about 310,000",
+      timepoints: ["Yr 3 · NAPLAN", "Yr 4 · T2", "Yr 4 · T4", "Yr 5 · NAPLAN"],
+      bands: {
+        reading:  { first: [330, 385, 420, 455, 510], growth: 24 },
+        spelling: { first: [325, 380, 415, 450, 505], growth: 22 },
+        writing:  { first: [310, 365, 400, 435, 490], growth: 20 }
+      },
+      history: { reading: [58, 62, 59, 61], spelling: [47, 51, 54, 52], writing: [42, 46, 49, 48] },
+      sources: "NAPLAN (Years 3 and 5) and Leo's school reading, spelling and writing assessments, compared with national reference data.",
+      notePrefill: ""
+    }
   ],
   priorLog: [
-    { when: "15 Sep, 7:45 am", who: "Early Lens", what: "Term 3 results imported and verified for 25 students", student: null },
-    { when: "6 Oct, 3:14 pm", who: "Ms Patel", what: "viewed the class dashboard", student: null },
-    { when: "6 Oct, 3:16 pm", who: "Ms Patel", what: "viewed Lachlan's flag", student: "lachlan" }
+    { when: "15 Sep, 7:45 am", who: "Early Lens", what: "Term 3 school results imported and verified for Mia and Leo" },
+    { when: "6 Oct, 8:12 pm", who: "You", what: "viewed Leo's results" }
   ],
-  shareMessage: "Hi, I'd love to have a chat about how Mia is going with her reading and writing. Could we find a time this week? – Ms Patel"
+  shareMessage: "Hi Ms Patel, Early Lens suggested Mia's reading and spelling might be worth a closer look. I've noticed she avoids reading aloud at home too. Could we have a chat? Thanks.",
+  teacherReply: "Thanks so much for sharing this. I've noticed Mia avoids reading aloud in class too, so it's great to hear what you're seeing at home. Could we meet on Thursday at 3:15 pm? I'll bring some of her work."
 };
 
 /* ---------------- Icons (Feather-style, MIT) ---------------- */
 const ICONS = {
-  grid: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/>',
+  home: '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',
   globe: '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
   shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
   shieldCheck: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>',
@@ -570,10 +543,9 @@ const ICONS = {
   file: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
   search: '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
   school: '<path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M10 21v-5h4v5"/>',
-  sparkle: '<path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/>',
   calendar: '<rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
-  server: '<rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>',
-  key: '<path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.78 7.78 5.5 5.5 0 0 1 7.78-7.78zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>'
+  ear: '<path d="M6 8.5a6 6 0 0 1 12 0c0 4-3.5 5-3.5 8a3.5 3.5 0 0 1-7 0"/><path d="M10 8.5a2 2 0 0 1 4 0"/>',
+  smile: '<circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>'
 };
 const icon = (n, cls = "") => `<svg class="icon ${cls}" viewBox="0 0 24 24" aria-hidden="true">${ICONS[n]}</svg>`;
 
@@ -588,177 +560,170 @@ const DISCLAIMER = "This is not a diagnosis. It’s a prompt for professional ju
 
 /* ---------------- Helpers ---------------- */
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const byId = (id) => DATA.students.find((s) => s.id === id);
-const fullName = (s) => `${s.first} ${s.last}`;
+const byId = (id) => DATA.children.find((c) => c.id === id);
 const ord = (n) => { const v = n % 100; if (v >= 11 && v <= 13) return n + "th"; return n + ({ 1: "st", 2: "nd", 3: "rd" }[n % 10] || "th"); };
-const AVATAR_BG = ["#DCEEF5", "#E2F3EF", "#ECE7F6", "#F6EEDF", "#E5ECF7", "#F3E6EC", "#E7F2E3"];
-const avatar = (s, size = "") => `<div class="avatar ${size}" style="background:${AVATAR_BG[DATA.students.indexOf(s) % AVATAR_BG.length]}" aria-hidden="true">${s.first[0]}${s.last[0]}</div>`;
-
-// Percentile history: flagged students carry explicit history; others vary gently around their latest result.
-const WIGGLE = [[-4, 2, -1, 0], [3, -2, 1, 0], [-2, -3, 2, 0], [1, 4, -2, 0], [-3, 1, 3, 0]];
-function history(s, d) {
-  if (s.history) return s.history[d];
-  const di = DATA.domains.findIndex((x) => x.key === d);
-  const w = WIGGLE[(DATA.students.indexOf(s) + di) % WIGGLE.length];
-  return w.map((o) => Math.max(11, Math.min(97, s.latest[di] + o)));
-}
-const latestPct = (s, d) => { const h = history(s, d); return h[h.length - 1]; };
-function bandAt(d, t) { const b = DATA.national[d]; return b.first.map((v) => v + b.growth * t); }
-function scoreAt(d, t, pct) {
-  const P = DATA.national.percentiles, S = bandAt(d, t);
+const AVATAR_BG = { mia: "#F6EEDF", leo: "#DCEEF5" };
+const avatar = (c, size = "") => `<div class="avatar ${size}" style="background:${AVATAR_BG[c.id]}" aria-hidden="true">${c.first[0]}</div>`;
+const latestPct = (c, d) => c.history[d][c.history[d].length - 1];
+const domainLabel = (d) => DATA.domains.find((x) => x.key === d).label;
+function bandAt(c, d, t) { const b = c.bands[d]; return b.first.map((v) => v + b.growth * t); }
+function scoreAt(c, d, t, pct) {
+  const P = DATA.percentiles, S = bandAt(c, d, t);
   if (pct <= P[0]) return S[0] - (P[0] - pct) * (S[1] - S[0]) / (P[1] - P[0]);
   if (pct >= P[4]) return S[4] + (pct - P[4]) * (S[4] - S[3]) / (P[4] - P[3]);
   for (let i = 0; i < 4; i++) if (pct <= P[i + 1]) return S[i] + (pct - P[i]) * (S[i + 1] - S[i]) / (P[i + 1] - P[i]);
+}
+// Inverse normal CDF (Acklam), used to place a child on the national curve.
+function invNorm(p) {
+  const a = [-39.69683028665376, 220.9460984245205, -275.9285104469687, 138.357751867269, -30.66479806614716, 2.506628277459239];
+  const b = [-54.47609879822406, 161.5858368580409, -155.6989798598866, 66.80131188771972, -13.28068155288572];
+  const c = [-0.007784894002430293, -0.3223964580411365, -2.400758277161838, -2.549732539343734, 4.374664141464968, 2.938163982698783];
+  const d = [0.007784695709041462, 0.3224671290700398, 2.445134137142996, 3.754408661907416];
+  const lo = 0.02425; let q, r;
+  if (p < lo) { q = Math.sqrt(-2 * Math.log(p)); return (((((c[0] * q + c[1]) * q + c[2]) * q + c[3]) * q + c[4]) * q + c[5]) / ((((d[0] * q + d[1]) * q + d[2]) * q + d[3]) * q + 1); }
+  if (p > 1 - lo) { q = Math.sqrt(-2 * Math.log(1 - p)); return -(((((c[0] * q + c[1]) * q + c[2]) * q + c[3]) * q + c[4]) * q + c[5]) / ((((d[0] * q + d[1]) * q + d[2]) * q + d[3]) * q + 1); }
+  q = p - 0.5; r = q * q;
+  return (((((a[0] * r + a[1]) * r + a[2]) * r + a[3]) * r + a[4]) * r + a[5]) * q / (((((b[0] * r + b[1]) * r + b[2]) * r + b[3]) * r + b[4]) * r + 1);
 }
 
 /* ---------------- State ---------------- */
 function initialState() {
   const flags = {};
-  DATA.students.forEach((s) => { if (s.flag) flags[s.id] = { status: "open", reviewedAt: null, sharedAt: null, dismissedAt: null, reason: null }; });
+  DATA.children.forEach((c) => { if (c.flag) flags[c.id] = { status: "open", readAt: null, sharedAt: null, dismissedAt: null, reason: null }; });
+  const drafts = {}; DATA.children.forEach((c) => (drafts[c.id] = c.notePrefill));
   return {
-    role: null, view: "login", studentId: null, filter: "all", natDomain: "reading",
-    flags, notes: {}, drafts: { mia: "Avoids reading aloud. Copies from neighbours." },
-    consent: null, consentAt: null, parentSeen: false,
-    clock: 8 * 60 + 59, log: [], freshLog: 0, viewedFlags: {}, modal: null
+    signedIn: false, view: "login", childId: null, natChild: "mia", natDomain: "reading",
+    consent: null, consentAt: null, flags, notes: {}, drafts, shareText: null, includeNotes: true,
+    reply: null, replyFresh: false, booked: null, teacherViewed: false,
+    clock: 8 * 60 + 59, log: [], viewed: {}, modal: null, epoch: Math.random()
   };
 }
 let state = initialState();
 
 const fmtTime = (m) => { const h = Math.floor(m / 60), mm = m % 60; return `${((h + 11) % 12) + 1}:${String(mm).padStart(2, "0")} ${h < 12 ? "am" : "pm"}`; };
-function logEvent(who, what, student = null, step = 1) {
+function logEvent(who, what, step = 1) {
   state.clock += step;
   const time = fmtTime(state.clock);
-  state.log.unshift({ when: time, today: true, who, what, student });
-  state.freshLog = state.log.length;
+  state.log.unshift({ when: time, today: true, who, what });
   return time;
 }
-const isFlagged = (s) => !!(s.flag && state.flags[s.id].status !== "dismissed");
+const isFlagged = (c) => !!(c.flag && state.flags[c.id].status !== "dismissed");
 
 /* ---------------- Shared UI pieces ---------------- */
-function flagTag(s) {
-  if (!s.flag) return `<span class="tag tag-none">No flags</span>`;
-  if (state.flags[s.id].status === "dismissed") return `<span class="tag tag-grey">Flag dismissed</span>`;
+function flagTag(c) {
+  if (!c.flag) return `<span class="tag tag-none">No flags</span>`;
+  if (state.flags[c.id].status === "dismissed") return `<span class="tag tag-grey">Flag set aside</span>`;
   return `<span class="tag tag-amber"><span class="dot"></span>Worth a closer look</span>`;
 }
 function statusChips(id) {
   const f = state.flags[id]; if (!f) return "";
   const c = [];
-  if (f.reviewedAt) c.push(`<span class="chip teal">${icon("check")}Reviewed ${f.reviewedAt}</span>`);
-  if (f.sharedAt) c.push(`<span class="chip">${icon("send")}Parent invited ${f.sharedAt}</span>`);
-  if (id === DATA.parent.childId && state.consent === "given") c.push(`<span class="chip teal">${icon("checkCircle")}Parent consent given ${state.consentAt}</span>`);
-  if (id === DATA.parent.childId && state.consent === "withdrawn") c.push(`<span class="chip grey">Parent consent withdrawn</span>`);
-  if (id === DATA.parent.childId && state.consent === "declined") c.push(`<span class="chip grey">Parent said no thanks</span>`);
+  if (f.readAt) c.push(`<span class="chip teal">${icon("check")}Read ${f.readAt}</span>`);
+  if (f.sharedAt) c.push(`<span class="chip">${icon("send")}Shared with ${byId(id).teacher} ${f.sharedAt}</span>`);
+  if (state.booked && id === "mia") c.push(`<span class="chip teal">${icon("calendar")}Meeting ${state.booked}</span>`);
   return c.length ? `<div class="chips">${c.join("")}</div>` : "";
 }
 const verified = (txt = "Results verified") => `<span class="badge-verified" data-tip="Checked against school records on ${DATA.lastUpdate.date}">${icon("shieldCheck")}${txt}</span>`;
 
 function header() {
-  const teacherNav = [["dashboard", "Class dashboard", "grid"], ["national", "National view", "globe"], ["privacy", "Privacy & security", "shield"]];
-  const parentNav = [["parent", "Mia's summary", "heart"], ["privacy", "Privacy & security", "shield"]];
-  const nav = state.role === "teacher" ? teacherNav : parentNav;
-  const active = state.view === "student" ? "dashboard" : state.view;
-  const who = state.role === "teacher"
-    ? `<div class="avatar" style="background:#DCEEF5">MP</div><div class="who"><strong>Ms Patel</strong><span>Class teacher · Room 4</span></div>`
-    : `<div class="avatar" style="background:#F6EEDF">${icon("heart")}</div><div class="who"><strong>Mia's parent</strong><span>Parent / carer</span></div>`;
+  const nav = [["home", "Home", "home"], ["national", "National picture", "globe"], ["privacy", "Privacy & security", "shield"]];
+  const active = state.view === "child" ? "home" : state.view;
   return `<header class="app-header"><div class="container header-inner">
-    <button class="brand" data-action="nav" data-view="${state.role === "teacher" ? "dashboard" : "parent"}" aria-label="Early Lens home">${LOGO(false)}<span class="brand-name">Early <span>Lens</span></span></button>
+    <button class="brand" data-action="nav" data-view="home" aria-label="Early Lens home">${LOGO(false)}<span class="brand-name">Early <span>Lens</span></span></button>
     <nav class="nav" aria-label="Main">${nav.map(([k, l, i]) => `<button data-action="nav" data-view="${k}" ${active === k ? 'aria-current="page"' : ""}>${icon(i)}<span class="lbl">${l}</span></button>`).join("")}</nav>
     <div class="header-right">
       <button class="status-pill" data-action="nav" data-view="privacy" data-tip="All services running normally"><span class="status-dot"></span><span class="lbl">System online</span></button>
-      <div class="user-chip">${who}</div>
-      <button class="btn btn-quiet btn-sm" data-action="logout" aria-label="Switch user">${icon("logout")}<span class="lbl">Switch user</span></button>
+      <div class="user-chip"><div class="avatar" style="background:#E2F3EF">${DATA.family.initials}</div><div class="who"><strong>${DATA.family.name}</strong><span>Parent account</span></div></div>
+      <button class="btn btn-quiet btn-sm" data-action="logout" aria-label="Sign out">${icon("logout")}<span class="lbl">Sign out</span></button>
     </div>
   </div></header>`;
 }
 const footer = () => `<footer class="site-footer"><div class="container footer-inner">
-  <span><strong>Prototype with fictional data.</strong> All students, results and names are made up.</span>
-  <span>Early Lens · ${DATA.school} <button class="link-btn" data-action="reset">Reset demo</button></span>
+  <span><strong>Prototype with fictional data.</strong> All children, results and names are made up.</span>
+  <span>Early Lens for families <button class="link-btn" data-action="reset">Reset demo</button></span>
 </div></footer>`;
 
 /* ---------------- Charts (hand-built SVG) ---------------- */
-function trendChart(s, d, isFlag) {
+function trendChart(c, d, isFlag) {
   const W = 380, H = 280, m = { l: 40, r: 40, t: 14, b: 40 };
-  const T = DATA.timepoints.length;
-  const lo = bandAt(d, 0)[0] - 22, hi = bandAt(d, T - 1)[4] + 14;
+  const T = c.timepoints.length;
+  const lo = bandAt(c, d, 0)[0] - 22, hi = bandAt(c, d, T - 1)[4] + 14;
   const x = (t) => m.l + 16 + (t * (W - m.l - m.r - 28)) / (T - 1);
   const y = (v) => H - m.b - ((v - lo) / (hi - lo)) * (H - m.t - m.b);
-  const pts = (i) => DATA.timepoints.map((_, t) => [x(t), y(bandAt(d, t)[i])]);
-  const area = (a, b) => { const top = pts(b), bot = pts(a).reverse(); return [...top, ...bot].map((p) => p.map((n) => n.toFixed(1)).join(",")).join(" "); };
+  const pts = (i) => c.timepoints.map((_, t) => [x(t), y(bandAt(c, d, t)[i])]);
+  const poly = (arr) => arr.map((p) => p.map((n) => n.toFixed(1)).join(",")).join(" ");
+  const area = (a, b) => poly([...pts(b), ...pts(a).reverse()]);
   let g = "";
-  const step = 25, start = Math.ceil(lo / step) * step;
-  for (let v = start; v <= hi; v += step) g += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}" stroke="#E3ECF0"/><text x="${m.l - 8}" y="${y(v) + 4}" text-anchor="end" font-size="11" fill="#6B828C">${v}</text>`;
-  g = g.replace(/font-size="11"/g, 'font-size="12.5"');
-  const xl = DATA.timepoints.map((tp, t) => `<text x="${x(t)}" y="${H - m.b + 22}" text-anchor="middle" font-size="12.5" fill="#55707B">${tp}</text>`).join("");
-  const med = pts(2).map((p) => p.join(",")).join(" ");
-  const h = history(s, d);
-  const sp = h.map((p, t) => [x(t), y(scoreAt(d, t, p))]);
+  const step = (hi - lo) > 200 ? 50 : 25, start = Math.ceil(lo / step) * step;
+  for (let v = start; v <= hi; v += step) g += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}" stroke="#E3ECF0"/><text x="${m.l - 8}" y="${y(v) + 4}" text-anchor="end" font-size="12.5" fill="#6B828C">${v}</text>`;
+  const xl = c.timepoints.map((tp, t) => `<text x="${x(t)}" y="${H - m.b + 22}" text-anchor="middle" font-size="12" fill="#55707B">${tp}</text>`).join("");
+  const h = c.history[d];
+  const sp = h.map((p, t) => [x(t), y(scoreAt(c, d, t, p))]);
   const fill = isFlag ? "#E39816" : "#1D6A86", stroke = isFlag ? "#734400" : "#155670";
-  const line = sp.map((p) => p.map((n) => n.toFixed(1)).join(",")).join(" ");
-  const dots = sp.map((p, t) => `<circle cx="${p[0]}" cy="${p[1]}" r="7" fill="${fill}" stroke="#fff" stroke-width="2.5" data-tip="${esc(s.first)} · ${DATA.timepoints[t]} · score ${Math.round(scoreAt(d, t, h[t]))} · about the ${ord(h[t])} percentile"/><circle cx="${p[0]}" cy="${p[1]}" r="8.6" fill="none" stroke="${stroke}" stroke-width="1.4" pointer-events="none"/>`).join("");
+  const dots = sp.map((p, t) => `<circle cx="${p[0]}" cy="${p[1]}" r="7" fill="${fill}" stroke="#fff" stroke-width="2.5" data-tip="${esc(c.first)} · ${c.timepoints[t]} · score ${Math.round(scoreAt(c, d, t, h[t]))} · about the ${ord(h[t])} percentile"/><circle cx="${p[0]}" cy="${p[1]}" r="8.6" fill="none" stroke="${stroke}" stroke-width="1.4" pointer-events="none"/>`).join("");
   const last = sp[sp.length - 1];
-  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${DATA.domains.find((x) => x.key === d).label}: ${s.first}'s results compared with the national range">
+  const labelBelow = h[T - 1] < 50;
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${domainLabel(d)}: ${c.first}'s results compared with the national range">
     ${g}
     <polygon points="${area(0, 4)}" fill="#DDEEF4"/>
     <polygon points="${area(1, 3)}" fill="#A9D1E0"/>
-    <polyline points="${med}" fill="none" stroke="#4F8499" stroke-width="1.6" stroke-dasharray="5 4"/>
+    <polyline points="${poly(pts(2))}" fill="none" stroke="#4F8499" stroke-width="1.6" stroke-dasharray="5 4"/>
     <text x="${W - m.r + 1}" y="${pts(4)[T - 1][1] + 4}" font-size="12" fill="#4F8499">95th</text>
-    <text x="${W - m.r + 1}" y="${pts(0)[T - 1][1] + 4}" font-size="12" fill="#4F8499">5th</text><text x="${W - m.r + 1}" y="${pts(2)[T - 1][1] + 4}" font-size="12" fill="#4F8499">50th</text>
+    <text x="${W - m.r + 1}" y="${pts(2)[T - 1][1] + 4}" font-size="12" fill="#4F8499">50th</text>
+    <text x="${W - m.r + 1}" y="${pts(0)[T - 1][1] + 4}" font-size="12" fill="#4F8499">5th</text>
     ${xl}
-    <polyline points="${line}" fill="none" stroke="${stroke}" stroke-width="2" stroke-opacity=".55"/>
+    <polyline points="${poly(sp)}" fill="none" stroke="${stroke}" stroke-width="2" stroke-opacity=".55"/>
     ${dots}
-    <text x="${last[0] - 12}" y="${last[1] + 26}" text-anchor="end" font-size="14" font-weight="700" fill="${stroke}">${esc(s.first)}</text>
+    <text x="${last[0] - 12}" y="${last[1] + (labelBelow ? 26 : -16)}" text-anchor="end" font-size="14" font-weight="700" fill="${stroke}">${esc(c.first)}</text>
   </svg>`;
 }
 
-function stripChart() {
-  const W = 720, rowH = 88, m = { l: 92, r: 22, t: 32, b: 36 };
+// One bell curve per area, with the national bands shaded and the child marked.
+function bellChart(c) {
+  const W = 720, rowH = 122, m = { l: 96, r: 24, t: 24, b: 34 };
   const H = m.t + rowH * 3 + m.b;
-  const x = (p) => m.l + (p / 100) * (W - m.l - m.r);
+  const zMin = -3, zMax = 3;
+  const x = (z) => m.l + ((z - zMin) / (zMax - zMin)) * (W - m.l - m.r);
+  const pdf = (z) => Math.exp(-z * z / 2);
+  const flag = isFlagged(c);
   let out = "";
-  [0, 10, 25, 50, 75, 90].forEach((p) => {
-    out += `<line x1="${x(p)}" x2="${x(p)}" y1="${m.t - 6}" y2="${H - m.b + 4}" stroke="#E6EDF1"/>`;
-    out += `<text x="${x(p)}" y="${H - m.b + 22}" text-anchor="middle" font-size="13" fill="#55707B">${p === 0 ? "0" : ord(p)}</text>`;
-  });
-  out += `<text x="${(m.l + W - m.r) / 2}" y="${m.t - 12}" text-anchor="middle" font-size="13" fill="#55707B">National percentile (Year 2)</text>`;
   DATA.domains.forEach((dm, i) => {
-    const cy = m.t + rowH * i + rowH / 2;
-    out += `<text x="${m.l - 16}" y="${cy + 5}" text-anchor="end" font-size="16" font-weight="700" fill="#10303C" font-family="Lexend, sans-serif">${dm.label}</text>`;
-    out += `<rect x="${x(5)}" y="${cy - 30}" width="${x(95) - x(5)}" height="60" rx="10" fill="#DDEEF4"/>`;
-    out += `<rect x="${x(25)}" y="${cy - 30}" width="${x(75) - x(25)}" height="60" fill="#A9D1E0"/>`;
-    out += `<line x1="${x(50)}" x2="${x(50)}" y1="${cy - 30}" y2="${cy + 30}" stroke="#4F8499" stroke-width="1.6" stroke-dasharray="5 4"/>`;
-    // simple deterministic beeswarm
-    const placed = [];
-    const items = DATA.students.map((s) => ({ s, p: latestPct(s, dm.key) })).sort((a, b) => a.p - b.p);
-    items.forEach(({ s, p }) => {
-      const px = x(p); let oy = 0;
-      for (const off of [0, -12, 12, -24, 24, -6, 6, -18, 18]) {
-        if (placed.every((q) => Math.hypot(q[0] - px, q[1] - (cy + off)) >= 12)) { oy = off; break; }
-      }
-      placed.push([px, cy + oy]);
-      const fl = isFlagged(s);
-      out += `<circle cx="${px.toFixed(1)}" cy="${(cy + oy).toFixed(1)}" r="5.6" fill="${fl ? "#E39816" : "#1D6A86"}" stroke="${fl ? "#734400" : "#fff"}" stroke-width="${fl ? 1.6 : 1.6}" data-tip="${esc(fullName(s))} · ${dm.label} · ${ord(p)} percentile"/>`;
-    });
+    const base = m.t + rowH * (i + 1) - 16, amp = rowH - 44;
+    const yz = (z) => base - pdf(z) * amp;
+    const region = (za, zb, fill) => {
+      let pts = `${x(za).toFixed(1)},${base} `;
+      for (let z = za; z <= zb + 1e-9; z += 0.05) pts += `${x(z).toFixed(1)},${yz(z).toFixed(1)} `;
+      pts += `${x(zb).toFixed(1)},${base}`;
+      return `<polygon points="${pts}" fill="${fill}"/>`;
+    };
+    out += `<text x="${m.l - 16}" y="${base - 24}" text-anchor="end" font-size="16" font-weight="700" fill="#10303C" font-family="Lexend, sans-serif">${dm.label}</text>`;
+    out += region(zMin, zMax, "#EEF4F7") + region(invNorm(0.05), invNorm(0.95), "#DDEEF4") + region(invNorm(0.25), invNorm(0.75), "#A9D1E0");
+    out += `<line x1="${x(0)}" x2="${x(0)}" y1="${base}" y2="${yz(0)}" stroke="#4F8499" stroke-width="1.6" stroke-dasharray="5 4"/>`;
+    out += `<line x1="${m.l}" x2="${W - m.r}" y1="${base}" y2="${base}" stroke="#C6D6DD"/>`;
+    const p = latestPct(c, dm.key), z = invNorm(p / 100), cx = x(z);
+    const col = flag ? "#E39816" : "#1D6A86", ink = flag ? "#734400" : "#155670";
+    out += `<line x1="${cx}" x2="${cx}" y1="${base}" y2="${yz(z) - 10}" stroke="${ink}" stroke-width="2"/>`;
+    out += `<circle cx="${cx}" cy="${yz(z) - 10}" r="7.5" fill="${col}" stroke="#fff" stroke-width="2.5" data-tip="${esc(c.first)} · ${dm.label} · about the ${ord(p)} percentile"/>`;
+    const right = cx < x(1.6);
+    out += `<text x="${cx + (right ? 14 : -14)}" y="${yz(z) - 6}" text-anchor="${right ? "start" : "end"}" font-size="14" font-weight="700" fill="${ink}">${esc(c.first)} · ${ord(p)}</text>`;
   });
-  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Room 4 students plotted against national percentile bands for reading, spelling and writing">${out}</svg>`;
+  [5, 25, 50, 75, 95].forEach((p) => {
+    out += `<text x="${x(invNorm(p / 100))}" y="${H - 10}" text-anchor="middle" font-size="13" fill="#55707B">${ord(p)}</text>`;
+  });
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${c.first}'s results placed on the national spread for each area">${out}</svg>`;
 }
 
-function histogram(d) {
-  const W = 640, H = 250, m = { l: 36, r: 12, t: 22, b: 44 };
-  const counts = Array(10).fill(0);
-  DATA.students.forEach((s) => { counts[Math.min(9, Math.floor(latestPct(s, d) / 10))]++; });
-  const max = 6, bw = (W - m.l - m.r) / 10;
-  const y = (v) => H - m.b - (v / max) * (H - m.t - m.b);
+// 100 dots: how many children nationally score at or below this child.
+function dotGrid(c, d) {
+  const p = latestPct(c, d), flag = isFlagged(c);
+  const S = 34, r = 11, W = S * 10;
   let out = "";
-  for (let v = 0; v <= max; v += 2) out += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}" stroke="#E3ECF0"/><text x="${m.l - 8}" y="${y(v) + 4}" text-anchor="end" font-size="11" fill="#6B828C">${v}</text>`;
-  counts.forEach((c, i) => {
-    const bx = m.l + i * bw + 6;
-    out += `<rect x="${bx}" y="${y(c)}" width="${bw - 12}" height="${H - m.b - y(c)}" rx="6" fill="${i === 0 ? "#E39816" : "#1D6A86"}" data-tip="${c} student${c === 1 ? "" : "s"} between the ${i === 0 ? "1st" : ord(i * 10)} and ${ord(i * 10 + 10 > 99 ? 99 : i * 10 + 10)} percentile"/>`;
-    out += `<text x="${bx + (bw - 12) / 2}" y="${H - m.b + 18}" text-anchor="middle" font-size="11.5" fill="#55707B">${i * 10}–${i * 10 + 10}</text>`;
-  });
-  out += `<line x1="${m.l}" x2="${W - m.r}" y1="${y(2.5)}" y2="${y(2.5)}" stroke="#10303C" stroke-width="1.6" stroke-dasharray="6 5"/>`;
-  out += `<text x="${W - m.r}" y="${y(2.5) - 8}" text-anchor="end" font-size="12" font-weight="700" fill="#10303C">If Room 4 matched the nation: 2.5 per band</text>`;
-  out += `<text x="${(m.l + W - m.r) / 2}" y="${H - 6}" text-anchor="middle" font-size="12" fill="#55707B">National percentile band</text>`;
-  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Number of Room 4 students in each national percentile band">${out}</svg>`;
+  for (let i = 0; i < 100; i++) {
+    const col = i % 10, row = Math.floor(i / 10);
+    const on = i < p, me = i === p - 1;
+    out += `<circle cx="${col * S + S / 2}" cy="${row * S + S / 2}" r="${r}" fill="${on ? (flag ? "#F6C467" : "#7FB9CC") : "#E3ECF0"}" ${me ? `stroke="${flag ? "#734400" : "#155670"}" stroke-width="3"` : ""}/>`;
+  }
+  return `<svg viewBox="0 0 ${W} ${W}" role="img" aria-label="${p} of 100 dots highlighted">${out}</svg>`;
 }
 
 /* ---------------- Views ---------------- */
@@ -768,26 +733,21 @@ function viewLogin() {
       <svg class="hero-lens" viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="17" r="11.5" fill="none" stroke="#fff" stroke-width="3"/><path d="M25.5 25.5 34 34" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>
       <div class="brand">${LOGO(true)}<span class="brand-name">Early <span>Lens</span></span></div>
       <h1>Notice early.<br>Support sooner.</h1>
-      <p class="lede">Early Lens helps primary teachers spot learning patterns that are worth a closer look, using information the school already has.</p>
+      <p class="lede">Early Lens helps parents spot learning patterns that are worth a closer look, using results your child's school already has.</p>
       <ul class="hero-points">
-        <li><span class="ic">${icon("database")}</span><span>Uses results schools already collect and compares each child's pattern with national data.</span></li>
+        <li><span class="ic">${icon("database")}</span><span>Uses school results, like NAPLAN and classroom assessments, and compares your child's pattern with national data.</span></li>
         <li><span class="ic">${icon("edit")}</span><span>Looks for writing-sample patterns that research links to learning difficulties.</span></li>
         <li><span class="ic">${icon("checkCircle")}</span><span>No child sits an additional test.</span></li>
-        <li><span class="ic">${icon("user")}</span><span>The teacher decides what happens next. Early Lens backs up professional judgement. It never replaces it.</span></li>
+        <li><span class="ic">${icon("users")}</span><span>You decide what happens next, together with your child's teacher. Early Lens flags patterns. It never labels your child.</span></li>
       </ul>
     </section>
     <section class="login-panel">
       <div class="login-box">
         <h2>Welcome</h2>
-        <p>Choose a demo account. What you see depends on your role.</p>
-        <button class="role-btn" data-action="login-teacher">
-          <span class="role-ic" style="background:var(--primary-50);color:var(--primary)">${icon("school")}</span>
-          <span><strong>Teacher: Ms Patel</strong><span>Year 2, Room 4 · sees flags for her class</span></span>
-          <span class="go">${icon("arrowRight")}</span>
-        </button>
-        <button class="role-btn" data-action="login-parent">
+        <p>See how your children are going at school, in plain language.</p>
+        <button class="role-btn" data-action="login">
           <span class="role-ic" style="background:var(--amber-50);color:var(--amber-700)">${icon("heart")}</span>
-          <span><strong>Parent: Mia's parent</strong><span>Sees only Mia's flag, and only with consent</span></span>
+          <span><strong>Parent: ${DATA.family.name}</strong><span>Mia (Year 2) and Leo (Year 5)</span></span>
           <span class="go">${icon("arrowRight")}</span>
         </button>
         <div class="demo-note">${icon("lock")}<span>Demo only. There's no real sign-in and no real student data.</span></div>
@@ -796,300 +756,278 @@ function viewLogin() {
   </div>`;
 }
 
-function viewDashboard() {
-  const S = DATA.students;
-  const flagged = S.filter(isFlagged);
-  const list = S.filter((s) => state.filter === "all" || (state.filter === "flags" ? isFlagged(s) : !isFlagged(s)));
+function viewConsent() {
+  if (state.consent === "declined" || state.consent === "withdrawn") {
+    return `<div class="view"><div class="container consent-wrap">
+      <section class="card consent-card">
+        <div class="all-clear"><div class="ic">${icon("check")}</div><div><h1 style="margin:0;font-size:28px">${state.consent === "withdrawn" ? "Consent withdrawn" : "No problem"}</h1></div></div>
+        <p class="intro">${state.consent === "withdrawn" ? "Early Lens has stopped looking at Mia and Leo's results, and nothing will be shown here." : "You've said no, so Early Lens won't look at Mia or Leo's results."} Their teachers will keep supporting them as usual, and you can always talk with the school directly.</p>
+        <div class="consent-actions" style="margin-top:28px"><button class="btn btn-secondary btn-lg" data-action="consent-again">I've changed my mind</button><button class="btn btn-quiet" data-action="nav" data-view="privacy">How we protect data</button></div>
+      </section>
+    </div></div>`;
+  }
+  return `<div class="view"><div class="container consent-wrap">
+    <section class="card consent-card">
+      <div class="brand" style="pointer-events:none">${LOGO(false)}<span class="brand-name">Early <span>Lens</span></span></div>
+      <h1>Before we look at Mia and Leo's results</h1>
+      <p class="intro">Early Lens can look at results ${DATA.school} already collects and let you know if anything might be worth a closer look. Here's what you're agreeing to:</p>
+      <ul class="consent-points">
+        <li><span class="ic">${icon("info")}</span>Nothing is a diagnosis.</li>
+        <li><span class="ic">${icon("user")}</span>You see any flag, not a company. You decide whether to share it with the teacher.</li>
+        <li><span class="ic">${icon("undo")}</span>You can say no, and you can withdraw at any time.</li>
+      </ul>
+      <div class="consent-actions"><button class="btn btn-primary btn-lg" data-action="consent-agree">${icon("check")}I agree</button><button class="btn btn-secondary btn-lg" data-action="consent-decline">No thanks</button></div>
+    </section>
+  </div></div>`;
+}
+
+function replyCard(c) {
+  if (!state.reply || c.id !== "mia") return "";
+  const fresh = state.replyFresh; state.replyFresh = false;
+  return `<section class="card reply-card ${fresh ? "enter" : ""}">
+    <div class="avatar lg" style="background:#DCEEF5">MP</div>
+    <div style="flex:1">
+      <div class="from">${icon("chat")}Ms Patel replied · today, ${state.reply.time}</div>
+      <div class="bubble">${esc(DATA.teacherReply)}</div>
+      <div class="actions">${state.booked
+        ? `<span class="chip teal">${icon("calendar")}Booked for ${state.booked}</span>`
+        : `<button class="btn btn-primary" data-action="book">${icon("calendar")}Book Thursday, 3:15 pm</button><button class="btn btn-quiet" data-action="other-time">Suggest another time</button>`}</div>
+    </div>
+  </section>`;
+}
+
+function viewHome() {
+  const kids = DATA.children, flagged = kids.filter(isFlagged);
+  const miniBars = (c) => `<div class="mini-rows">${DATA.domains.map((d) => `<div class="mini-row"><span>${d.label}</span><div class="range-track"><div class="most"></div><div class="me" style="left:${latestPct(c, d.key)}%;${isFlagged(c) ? "" : "background:var(--primary);box-shadow:0 0 0 3px #fff,0 0 0 4.5px var(--primary-600)"}" data-tip="${esc(c.first)} · ${d.label} · about the ${ord(latestPct(c, d.key))} percentile"></div></div></div>`).join("")}</div>`;
   return `<div class="view"><div class="container">
     <div class="page-head">
       <div>
-        <div class="eyebrow">${DATA.school}</div>
-        <h1 class="page-title">${DATA.className}</h1>
-        <p class="page-sub">Good morning, Ms Patel. Here's where your class is at. Flags are prompts for you to look into. You decide what happens next.</p>
+        <div class="eyebrow">${DATA.family.name}</div>
+        <h1 class="page-title">Good morning</h1>
+        <p class="page-sub">Here's how Mia and Leo are going at school. Early Lens uses results the school already has, so there's nothing extra for them to do.</p>
       </div>
       ${verified()}
     </div>
     <div class="summary" role="list">
-      <div class="stat" role="listitem"><div class="ic">${icon("users")}</div><div><div class="num">${S.length}</div><div class="lbl">Students</div></div></div>
+      <div class="stat" role="listitem"><div class="ic">${icon("users")}</div><div><div class="num">${kids.length}</div><div class="lbl">Children linked</div></div></div>
       <div class="stat amber" role="listitem"><div class="ic">${icon("flag")}</div><div><div class="num">${flagged.length}</div><div class="lbl">Flags: worth a closer look</div></div></div>
-      <div class="stat" role="listitem"><div class="ic">${icon("clock")}</div><div><div class="num sm">${DATA.lastUpdate.date}</div><div class="lbl">Last data update</div></div></div>
+      <div class="stat" role="listitem"><div class="ic">${icon("clock")}</div><div><div class="num sm">${DATA.lastUpdate.date}</div><div class="lbl">Last school data update</div></div></div>
       <div class="stat teal" role="listitem"><div class="ic">${icon("checkCircle")}</div><div><div class="num">0</div><div class="lbl">Extra tests needed</div></div></div>
     </div>
 
-    <div class="section-title"><h2>${icon("flag")} Worth a closer look</h2><span class="muted small">Sorted by how long the pattern has lasted</span></div>
-    ${flagged.length ? `<div class="flag-cards">${["mia", "lachlan", "ruby"].map(byId).filter(isFlagged).map((s) => `
-      <article class="flag-card" data-action="open-student" data-id="${s.id}">
-        <div class="fc-top">${avatar(s, "lg")}<div><h3>${fullName(s)}</h3><p>Age ${s.age} · ${s.flag.areas.join(", ").toLowerCase().replace(/^./, (c) => c.toUpperCase())}</p></div></div>
-        <div>${flagTag(s)}</div>
-        <p class="fc-summary">${s.flag.short}</p>
-        <p class="disclaimer-sm">${icon("info")}${DISCLAIMER}</p>
-        ${statusChips(s.id)}
-        <div class="fc-foot"><span class="muted small">${s.flag.sampleCount} samples · 4 assessments</span><button class="btn btn-secondary btn-sm" data-action="open-student" data-id="${s.id}">Open flag ${icon("arrowRight")}</button></div>
-      </article>`).join("")}</div>`
-    : `<div class="card all-clear"><div class="ic">${icon("check")}</div><div><h3>No open flags</h3><p class="muted">You've dismissed every flag. You can restore any of them from the student's page.</p></div></div>`}
+    ${state.reply ? `<div style="margin-top:28px">${replyCard(byId("mia"))}</div>` : ""}
 
-    <div class="section-title"><h2>${icon("users")} Your class</h2>
-      <div class="filters" role="group" aria-label="Filter students">
-        ${[["all", `All (${S.length})`], ["flags", `Worth a closer look (${flagged.length})`], ["none", `No flags (${S.length - flagged.length})`]].map(([k, l]) => `<button class="filter" data-action="filter" data-filter="${k}" aria-pressed="${state.filter === k}">${l}</button>`).join("")}
-      </div>
-    </div>
-    <div class="class-grid">${list.map((s) => `
-      <button class="student-tile ${isFlagged(s) ? "flagged" : ""}" data-action="open-student" data-id="${s.id}">
-        <div class="st-top">${avatar(s)}<div><strong>${fullName(s)}</strong><span>Age ${s.age}</span></div></div>
-        ${flagTag(s)}
+    <div class="section-title"><h2>${icon("flag")} Worth a closer look</h2></div>
+    ${flagged.length ? flagged.map((c) => `
+      <article class="flag-wide" data-action="open-child" data-id="${c.id}">
+        ${avatar(c, "xl")}
+        <div class="body">
+          <div><h3>${c.first} ${c.last}</h3><p class="meta">Age ${c.age} · ${c.className} · Teacher: ${c.teacher}</p></div>
+          <div class="chips">${flagTag(c)}${c.flag.areas.map((a) => `<span class="area-pill">${a}</span>`).join("")}</div>
+          <p class="reassure">${c.flag.short} ${c.flag.reassure}</p>
+          <p class="disclaimer-sm">${icon("info")}${DISCLAIMER}</p>
+          ${statusChips(c.id)}
+        </div>
+        <div class="side"><button class="btn btn-primary" data-action="open-child" data-id="${c.id}">See what we noticed ${icon("arrowRight")}</button></div>
+      </article>`).join("")
+    : `<div class="card all-clear"><div class="ic">${icon("check")}</div><div><h3>No open flags</h3><p class="muted">You've set every flag aside. You can bring one back from your child's page at any time.</p></div></div>`}
+
+    <div class="section-title"><h2>${icon("heart")} Your children</h2></div>
+    <div class="child-cards">${kids.map((c) => `
+      <button class="child-card ${isFlagged(c) ? "flagged" : ""}" data-action="open-child" data-id="${c.id}">
+        <div class="cc-top">${avatar(c, "lg")}<div><h3>${c.first}</h3><p>${c.className} · ${c.teacher}</p></div>${flagTag(c)}</div>
+        ${miniBars(c)}
+        <div class="range-scale" style="grid-template-columns:80px 1fr;gap:14px"><span></span><div><span>Lower</span><span>Most children</span><span>Higher</span></div></div>
+        <div class="cc-foot"><span class="muted small">${isFlagged(c) ? "Some patterns are worth a closer look" : "Results sit within the usual range"}</span><span class="btn btn-secondary btn-sm">View ${c.first}'s results ${icon("arrowRight")}</span></div>
       </button>`).join("")}</div>
-    <div class="info-strip">${icon("info")}<span>Early Lens uses the reading, spelling and writing assessments your school already runs, plus the Year 1 Phonics Check. NAPLAN results are added from Year 3. No child sits an extra test.</span></div>
+
+    <section class="card" style="margin-top:28px">
+      <div class="know">
+        <div class="know-item"><span class="ic">${icon("smile")}</span><div><strong>Patterns are common</strong><p>A flag means “worth a closer look”. Many children with flags simply need a little extra help.</p></div></div>
+        <div class="know-item"><span class="ic">${icon("users")}</span><div><strong>You decide what happens next</strong><p>Nothing goes to the school unless you choose to share it with your child's teacher.</p></div></div>
+        <div class="know-item"><span class="ic">${icon("checkCircle")}</span><div><strong>Nothing extra for your child</strong><p>Early Lens uses results the school already collects. No extra tests, ever.</p></div></div>
+      </div>
+    </section>
   </div></div>`;
 }
 
-function viewStudent() {
-  const s = byId(state.studentId);
-  const f = s.flag ? state.flags[s.id] : null;
-  const open = isFlagged(s);
-  const notes = state.notes[s.id] || [];
-  const draft = state.drafts[s.id] || "";
-  const pctChips = (d) => { const p = latestPct(s, d); return `<span class="pct-chip ${p < 10 ? "" : "ok"}">about the ${ord(p)} percentile</span>`; };
+function viewChild() {
+  const c = byId(state.childId);
+  const f = c.flag ? state.flags[c.id] : null;
+  const open = isFlagged(c);
+  const notes = state.notes[c.id] || [];
+  const draft = state.drafts[c.id] || "";
+  const pctChip = (d) => { const p = latestPct(c, d); return `<span class="pct-chip ${p < 10 ? "" : "ok"}">about the ${ord(p)} percentile</span>`; };
 
-  const actions = s.flag ? (f.status === "dismissed"
-    ? `<button class="btn btn-secondary" data-action="restore">${icon("undo")}Restore flag</button>`
-    : `${f.reviewedAt ? `<button class="btn btn-done" disabled>${icon("check")}Reviewed</button>` : `<button class="btn btn-secondary" data-action="review">${icon("check")}Mark as reviewed</button>`}
-       ${f.sharedAt ? `<button class="btn btn-done" disabled>${icon("send")}Parent invited</button>` : `<button class="btn btn-primary" data-action="discuss">${icon("chat")}Discuss with parent</button>`}
+  const actions = c.flag ? (f.status === "dismissed"
+    ? `<button class="btn btn-secondary" data-action="restore">${icon("undo")}Bring flag back</button>`
+    : `${f.readAt ? `<button class="btn btn-done" disabled>${icon("check")}Read</button>` : `<button class="btn btn-secondary" data-action="mark-read">${icon("check")}Mark as read</button>`}
+       ${f.sharedAt ? `<button class="btn btn-done" disabled>${icon("send")}Shared with ${c.teacher}</button>` : `<button class="btn btn-primary" data-action="share">${icon("chat")}Share with ${c.teacher}</button>`}
        <button class="btn btn-quiet" data-action="dismiss">${icon("x")}Dismiss flag</button>`)
-    : `<span class="muted small">Nothing to action</span>`;
+    : `<span class="muted small">Nothing to do right now</span>`;
 
-  const why = s.flag ? `
+  const why = c.flag ? `
     <section class="card">
       <div class="card-head"><div><h2>Why was this flagged?</h2><p>In plain English, here's what Early Lens noticed.</p></div></div>
-      <ol class="why-list">${s.flag.why.map((w, i) => `<li><span class="n">${i + 1}</span><span>${w}</span></li>`).join("")}</ol>
+      <ol class="why-list">${c.flag.why.map((w, i) => `<li><span class="n">${i + 1}</span><span>${w}</span></li>`).join("")}</ol>
       <div class="why-rule"><strong>How flags work:</strong> Early Lens raises a flag when results sit in the lowest 10% nationally in at least two areas across three or more assessments, or when the same writing patterns repeat across many samples.</div>
-      <div class="unknowns"><strong>${icon("eye")}What Early Lens can't see</strong>Home life, attendance, health, language background (such as EAL/D) or how ${s.first} is in class day to day. That's why your judgement matters most.</div>
+      <div class="unknowns"><strong>${icon("eye")}What Early Lens can't see</strong>How ${c.first} is at school day to day, her health, hearing or eyesight, or anything happening at home. That's why what you know, and what her teacher knows, matters most.</div>
     </section>` : "";
 
-  const patterns = s.flag ? `
+  const patterns = c.flag ? `
     <section class="card">
-      <div class="card-head"><div><h2>Writing patterns</h2><p>From ${s.flag.sampleCount} writing samples collected in class this year.</p></div>${verified("Samples verified")}</div>
-      <ul class="patterns">${s.flag.patterns.map((p, i) => `<li><span class="p-ic">${icon(i === 0 ? "edit" : i === 1 ? "file" : "chat")}</span><div><strong>${p.title}</strong><p>${p.detail}</p></div><span class="freq">${p.freq}</span></li>`).join("")}</ul>
-      ${s.flag.sample ? `<div class="sample">
-        <div class="sample-head"><span>${icon("edit")} Excerpt · ${s.flag.sample.label}</span><span>Typed from ${s.first}'s handwriting</span></div>
-        <p class="sample-text">${s.flag.sample.parts.map(([t, k]) => k ? `<span class="hl ${k}">${esc(t)}</span>` : esc(t)).join("")}</p>
+      <div class="card-head"><div><h2>Writing patterns</h2><p>From ${c.flag.sampleCount} pieces of ${c.first}'s class writing this year.</p></div>${verified("Samples verified")}</div>
+      <ul class="patterns">${c.flag.patterns.map((p, i) => `<li><span class="p-ic">${icon(i === 0 ? "edit" : i === 1 ? "file" : "chat")}</span><div><strong>${p.title}</strong><p>${p.detail}</p></div><span class="freq">${p.freq}</span></li>`).join("")}</ul>
+      ${c.flag.sample ? `<div class="sample">
+        <div class="sample-head"><span>${icon("edit")} Excerpt · ${c.flag.sample.label}</span><span>Typed from ${c.first}'s handwriting</span></div>
+        <p class="sample-text">${c.flag.sample.parts.map(([t, k]) => k ? `<span class="hl ${k}">${esc(t)}</span>` : esc(t)).join("")}</p>
         <div class="sample-key"><span><i style="background:#FDEFD2;box-shadow:inset 0 -2px #E39816"></i>Letter reversal</span><span><i style="background:#E4F0F7;box-shadow:inset 0 -2px #1D6A86"></i>Inconsistent spelling</span><span><i style="background:#E5F3EF;box-shadow:inset 0 -2px #1F8073"></i>Spelt by sound</span></div>
       </div>` : ""}
-      <p class="caveat">Some reversals and invented spellings are normal at this age. Early Lens looks at how often and how persistently they appear.</p>
+      <p class="caveat">Some reversals and invented spellings are normal at this age. Early Lens looks at how often, and for how long, they appear.</p>
     </section>` : "";
 
-  const flagSummary = s.flag ? `
-    <h3>${open ? "Worth a closer look" : "Flag dismissed"}</h3>
+  const flagSummary = c.flag ? `
+    <h3>${open ? "Worth a closer look" : "Flag set aside"}</h3>
     <ul class="fact-list">
-      ${DATA.domains.map((d) => `<li><span>${d.label}</span>${pctChips(d.key)}</li>`).join("")}
-      <li><span>Writing patterns</span><span class="pct-chip">${s.flag.patterns.length} repeating</span></li>
+      ${DATA.domains.map((d) => `<li><span>${d.label}</span>${pctChip(d.key)}</li>`).join("")}
+      <li><span>Writing patterns</span><span class="pct-chip">${c.flag.patterns.length} repeating</span></li>
     </ul>
     <p class="disclaimer-sm">${icon("info")}${DISCLAIMER}</p>` : `
     <h3>No flags</h3>
-    <ul class="fact-list">${DATA.domains.map((d) => `<li><span>${d.label}</span>${pctChips(d.key)}</li>`).join("")}</ul>
-    <p class="muted small">${s.first}'s results sit within the usual national range.</p>`;
+    <ul class="fact-list">${DATA.domains.map((d) => `<li><span>${d.label}</span>${pctChip(d.key)}</li>`).join("")}</ul>
+    <p class="muted small">${c.first}'s results sit within the usual national range.</p>`;
+
+  const steps = c.flag ? `
+    <section class="card" style="margin-top:22px">
+      <div class="card-head"><div><h2>What you can do next</h2><p>Small, practical steps. There's no rush, and you don't need to do them all.</p></div></div>
+      <ol class="steps two">
+        <li><span class="ic">${icon("chat")}</span><div><strong>Talk with ${c.teacher}</strong><p>She sees ${c.first} every day and can tell you what she notices in class. Sharing this flag is an easy way to start.</p>${f.sharedAt ? `<span class="chip" style="margin-top:10px">${icon("send")}Shared ${f.sharedAt}</span>` : (open ? `<button class="btn btn-secondary btn-sm" data-action="share">${icon("send")}Share with ${c.teacher}</button>` : "")}</div></li>
+        <li><span class="ic">${icon("users")}</span><div><strong>Ask about learning support</strong><p>Most schools have a learning support team who can suggest extra help in class.</p></div></li>
+        <li><span class="ic">${icon("ear")}</span><div><strong>Check the simple things</strong><p>A hearing and eyesight check with your GP is a good idea for any child finding reading hard.</p></div></li>
+        <li><span class="ic">${icon("book")}</span><div><strong>Keep reading together</strong><p>Ten relaxed minutes most days helps. Let ${c.first} choose the book and take turns reading.</p></div></li>
+      </ol>
+    </section>` : "";
 
   return `
   <div class="student-bar"><div class="container sb-inner">
-    <button class="back-btn" data-action="nav" data-view="dashboard">${icon("arrowLeft")}Class</button>
-    ${avatar(s, "lg")}
+    <button class="back-btn" data-action="nav" data-view="home">${icon("arrowLeft")}Home</button>
+    ${avatar(c, "lg")}
     <div class="sb-meta">
-      <div class="sb-meta-row"><div class="sb-name"><h1>${fullName(s)}</h1></div>${flagTag(s)}</div>
-      <div class="sb-meta-row"><span class="muted small">Age ${s.age} · ${DATA.className}</span>${statusChips(s.id)}</div>
+      <div class="sb-meta-row"><div class="sb-name"><h1>${c.first} ${c.last}</h1></div>${flagTag(c)}</div>
+      <div class="sb-meta-row"><span class="muted small">Age ${c.age} · ${c.className} · Teacher: ${c.teacher}</span>${statusChips(c.id)}</div>
     </div>
     <div class="sb-actions">${actions}</div>
   </div></div>
   <div class="view detail"><div class="container">
-    ${s.flag && f.status === "dismissed" ? `<div class="banner grey">${icon("info")}<span>You dismissed this flag at ${f.dismissedAt}${f.reason ? ` · ${esc(f.reason)}` : ""}. The data stays in ${s.first}'s record, and you can restore the flag at any time.</span></div>` : ""}
+    ${replyCard(c)}
+    ${c.flag && f.status === "dismissed" ? `<div class="banner grey">${icon("info")}<span>You set this flag aside at ${f.dismissedAt}${f.reason ? ` · ${esc(f.reason)}` : ""}. Nothing was shared, and you can bring it back at any time.</span></div>` : ""}
     ${open ? `<div class="disclaimer" style="margin-bottom:22px">${icon("info")}${DISCLAIMER}</div>` : ""}
-    ${!s.flag ? `<div class="banner teal">${icon("checkCircle")}<span><strong>No flags.</strong> ${s.first}'s results sit within the usual national range. Nothing to review.</span></div>` : ""}
+    ${!c.flag ? `<div class="banner teal">${icon("checkCircle")}<span><strong>No flags.</strong> ${c.first}'s results sit within the usual national range. Nothing to do right now.</span></div>` : ""}
 
     <section class="card">
       <div class="card-head">
-        <div><h2>Reading, spelling and writing over time</h2><p>Each dot is one of ${s.first}'s results. The shaded bands show where most Year 2 students sit nationally.</p></div>
+        <div><h2>How ${c.first}'s results compare with ${c.year} children nationally</h2><p>Each dot is one of ${c.first}'s school results. The shaded bands show where most ${c.year} children sit.</p></div>
         ${verified()}
       </div>
       <div class="legend">
-        <span><i class="sw b90"></i>Middle 90% of students nationally</span>
+        <span><i class="sw b90"></i>Middle 90% of children nationally</span>
         <span><i class="sw b50"></i>Middle 50%</span>
         <span><i class="sw med"></i>National median</span>
-        <span><i class="sw dot ${open ? "" : "teal"}"></i>${esc(s.first)}</span>
+        <span><i class="sw dot ${open ? "" : "teal"}"></i>${esc(c.first)}</span>
       </div>
-      <div class="panels">${DATA.domains.map((d) => `<figure class="panel"><figcaption>${d.label}${pctChips(d.key)}</figcaption>${trendChart(s, d.key, open)}</figure>`).join("")}</div>
-      <p class="source">${icon("database")}<span>Sources: the school's existing reading, spelling and writing assessments and the Year 1 Phonics Check, compared with national reference data. NAPLAN joins from Year 3. Hover over a dot for detail.</span></p>
+      <div class="panels">${DATA.domains.map((d) => `<figure class="panel"><figcaption>${d.label}${pctChip(d.key)}</figcaption>${trendChart(c, d.key, open)}</figure>`).join("")}</div>
+      <p class="source">${icon("database")}<span>Sources: ${c.sources} Hover over a dot for detail.</span></p>
     </section>
 
-    ${s.flag ? `<div class="grid-2" style="margin-top:22px">${why}${patterns}</div>` : ""}
+    ${c.flag ? `<div class="grid-2" style="margin-top:22px">${why}${patterns}</div>` : ""}
 
-    <div class="section-title"><h2>${icon("users")} The flag and your notes, side by side</h2><span class="muted small">Data on the left. Your professional knowledge on the right.</span></div>
+    <div class="section-title"><h2>${icon("users")} The flag and your notes, side by side</h2><span class="muted small">School data on the left. What you see at home on the right.</span></div>
     <div class="side-by-side">
       <div class="sbs-col">
         <div class="sbs-label">${icon("search")}What Early Lens noticed</div>
         ${flagSummary}
       </div>
       <div class="sbs-col">
-        <div class="sbs-label">${icon("edit")}Teacher's notes</div>
-        <h3>What you've observed</h3>
-        <label class="sr-only" for="note-input">Teacher's notes for ${esc(s.first)}</label>
-        <textarea id="note-input" data-input="draft" placeholder="What have you noticed in class? e.g. reading aloud, copying from the board, confidence…">${esc(draft)}</textarea>
-        <div class="note-actions"><span class="private">${icon("lock")}Only you can see these notes</span><button class="btn btn-primary" data-action="save-note">${icon("check")}Save note</button></div>
-        ${notes.length ? `<ul class="notes-list">${notes.map((n, i) => `<li class="note ${i === 0 && n.fresh ? "enter" : ""}"><p>${esc(n.text)}</p><small>Ms Patel · today, ${n.time}</small></li>`).join("")}</ul>` : ""}
+        <div class="sbs-label">${icon("home")}Your notes from home</div>
+        <h3>What you've noticed at home</h3>
+        <label class="sr-only" for="note-input">Your notes about ${esc(c.first)}</label>
+        <textarea id="note-input" data-input="draft" placeholder="e.g. reading at bedtime, homework, confidence, anything that's changed…">${esc(draft)}</textarea>
+        <div class="note-actions"><span class="private">${icon("lock")}Private to you unless you choose to share</span><button class="btn btn-primary" data-action="save-note">${icon("check")}Save note</button></div>
+        ${notes.length ? `<ul class="notes-list">${notes.map((n) => `<li class="note ${n.fresh ? "enter" : ""}"><p>${esc(n.text)}</p><small>You · today, ${n.time}</small></li>`).join("")}</ul>` : ""}
       </div>
     </div>
+    ${steps}
   </div></div>`;
 }
 
 function viewNational() {
-  const S = DATA.students, n = S.length;
-  const med = (arr) => { const a = [...arr].sort((x, y) => x - y); return a[Math.floor(a.length / 2)]; };
-  const readMed = med(S.map((s) => latestPct(s, "reading")));
-  const mid50 = S.filter((s) => { const p = latestPct(s, "reading"); return p >= 25 && p <= 75; }).length;
-  const low2 = S.filter((s) => DATA.domains.filter((d) => latestPct(s, d.key) < 10).length >= 2).length;
-  const d = state.natDomain;
+  const c = byId(state.natChild), d = state.natDomain, p = latestPct(c, d), flag = isFlagged(c);
+  const statement = p < 50
+    ? `About <b>${p} in every 100</b> ${c.year} children score at or below ${c.first} in ${domainLabel(d).toLowerCase()}.`
+    : `${c.first} scores higher than about <b>${p - 1} in every 100</b> ${c.year} children in ${domainLabel(d).toLowerCase()}.`;
+  const lowAreas = DATA.domains.filter((x) => latestPct(c, x.key) < 10).length;
   return `<div class="view"><div class="container">
     <div class="page-head">
-      <div><div class="eyebrow">National view</div><h1 class="page-title">Scales one classroom to a national view</h1>
-      <p class="page-sub">Every child in Room 4, placed against the national picture for Year 2. Most of the class sits right where you'd expect, which is what makes the few persistent patterns easier to see.</p></div>
+      <div><div class="eyebrow">National picture</div><h1 class="page-title">Scales one child to a national view</h1>
+      <p class="page-sub">See where your child sits among every ${c.year} child in Australia. Other children's results are never shown, only the national pattern.</p></div>
       ${verified()}
     </div>
+    <div class="child-tabs" role="tablist" aria-label="Choose child">${DATA.children.map((k) => `<button class="child-tab" role="tab" aria-selected="${k.id === c.id}" data-action="nat-child" data-id="${k.id}">${avatar(k)}${k.first} · ${k.year}</button>`).join("")}</div>
     <div class="scale-strip">
-      <div class="scale-step"><div class="ic">${icon("users")}</div><div><div class="num">25</div><div class="lbl">students in Room 4</div></div></div>
+      <div class="scale-step"><div class="ic">${icon("user")}</div><div><div class="num">1 child</div><div class="lbl">${c.first}, ${c.className}</div></div></div>
       <div class="scale-arrow">${icon("arrowRight")}</div>
-      <div class="scale-step"><div class="ic">${icon("school")}</div><div><div class="num">312</div><div class="lbl">students at ${DATA.school.replace(" Primary School", "")}</div></div></div>
+      <div class="scale-step big"><div class="ic">${icon("globe")}</div><div><div class="num">${c.cohort}</div><div class="lbl">${c.year} children nationally</div></div></div>
       <div class="scale-arrow">${icon("arrowRight")}</div>
-      <div class="scale-step big"><div class="ic">${icon("globe")}</div><div><div class="num">${DATA.nationalCohort}</div><div class="lbl">Year 2 students nationally</div></div></div>
+      <div class="scale-step"><div class="ic" style="${flag ? "background:var(--amber-50);color:var(--amber-700)" : ""}">${icon(flag ? "flag" : "checkCircle")}</div><div><div class="num">${flag ? `${lowAreas} areas` : "Usual range"}</div><div class="lbl">${flag ? "in the lowest 10% nationally" : "in reading, spelling and writing"}</div></div></div>
     </div>
     <div class="nat-layout">
       <section class="card">
-        <div class="card-head"><div><h2>Room 4 against the national range</h2><p>Each dot is one student's latest result. Hover to see who.</p></div></div>
+        <div class="card-head"><div><h2>Where ${c.first} sits on the national spread</h2><p>Each curve shows how all ${c.year} children's results spread out. Most sit in the middle.</p></div></div>
         <div class="legend">
           <span><i class="sw b90"></i>Middle 90% nationally</span><span><i class="sw b50"></i>Middle 50%</span><span><i class="sw med"></i>National median</span>
-          <span><i class="sw dot teal"></i>Room 4 student</span><span><i class="sw dot"></i>Worth a closer look</span>
+          <span><i class="sw dot ${flag ? "" : "teal"}"></i>${c.first}</span>
         </div>
-        <div class="chart-wrap">${stripChart()}</div>
+        <div class="chart-wrap">${bellChart(c)}</div>
       </section>
-      <div class="nat-stats">
-        <div class="nat-stat"><div class="num">${ord(readMed)}</div><p>Room 4's median reading percentile. The national median is the 50th.</p></div>
-        <div class="nat-stat"><div class="num">${mid50} of ${n}</div><p>students sit in the national middle 50% for reading.</p></div>
-        <div class="nat-stat"><div class="num">${low2}</div><p>students sit in the lowest 10% in two or more areas. These are the flags on your dashboard.</p></div>
-        <div class="nat-stat"><div class="num">0</div><p>extra tests. Every comparison uses results the school already holds.</p></div>
-      </div>
-    </div>
-    <section class="card" style="margin-top:22px">
-      <div class="card-head">
-        <div><h2>How Room 4 spreads across national bands</h2><p>If Room 4 exactly matched the nation, about 2.5 students would fall in each band.</p></div>
+      <section class="card dots-card">
+        <div class="card-head" style="margin-bottom:0"><div><h2>In every 100 children</h2></div></div>
         <div class="tabs" role="tablist" aria-label="Choose area">${DATA.domains.map((x) => `<button role="tab" aria-selected="${d === x.key}" data-action="nat-domain" data-domain="${x.key}">${x.label}</button>`).join("")}</div>
-      </div>
-      <div class="chart-wrap" style="max-width:900px">${histogram(d)}</div>
-    </section>
-  </div></div>`;
-}
-
-function viewParent() {
-  const s = byId(DATA.parent.childId);
-  const f = state.flags[s.id];
-  if (state.consent !== "given") {
-    if (state.consent === "declined" || state.consent === "withdrawn") {
-      return `<div class="view"><div class="container consent-wrap">
-        <section class="card consent-card">
-          <div class="all-clear"><div class="ic">${icon("check")}</div><div><h1 style="margin:0;font-size:28px">${state.consent === "withdrawn" ? "Consent withdrawn" : "No problem"}</h1></div></div>
-          <p class="intro">${state.consent === "withdrawn" ? "Mia's flag is no longer shared with you." : "You've said no, so you won't see anything about Mia in Early Lens."} Ms Patel will keep supporting Mia in class as usual, and you can always talk with her directly.</p>
-          <div class="consent-actions" style="margin-top:28px"><button class="btn btn-secondary btn-lg" data-action="consent-again">I've changed my mind</button><button class="btn btn-quiet" data-action="nav" data-view="privacy">How we protect data</button></div>
-        </section>
-      </div></div>`;
-    }
-    return `<div class="view"><div class="container consent-wrap">
-      ${f.sharedAt ? `<div class="invite">${icon("chat")}<span><strong>Ms Patel has invited you</strong> to see a note about Mia's learning. Please read this first.</span></div>` : ""}
-      <section class="card consent-card">
-        <div class="brand" style="pointer-events:none">${LOGO(false)}<span class="brand-name">Early <span>Lens</span></span></div>
-        <h1>Before you see anything about Mia</h1>
-        <p class="intro">Early Lens helps Mia's teacher notice early if she might need some extra support with learning. Here's what you're agreeing to:</p>
-        <ul class="consent-points">
-          <li><span class="ic">${icon("info")}</span>Nothing is a diagnosis.</li>
-          <li><span class="ic">${icon("user")}</span>Your child's teacher sees any flag, not a company.</li>
-          <li><span class="ic">${icon("undo")}</span>You can say no, and you can withdraw at any time.</li>
-        </ul>
-        <div class="consent-actions"><button class="btn btn-primary btn-lg" data-action="consent-agree">${icon("check")}I agree</button><button class="btn btn-secondary btn-lg" data-action="consent-decline">No thanks</button></div>
-      </section>
-    </div></div>`;
-  }
-
-  const showFlag = f.status !== "dismissed";
-  return `<div class="view"><div class="container">
-    <div class="page-head">
-      <div><div class="eyebrow">For Mia's parent</div><h1 class="page-title">Mia's learning snapshot</h1><p class="page-sub">${DATA.className} · Teacher: Ms Patel</p></div>
-      ${verified()}
-    </div>
-    ${f.sharedAt ? `<section class="card" style="margin-bottom:22px"><div class="message-card"><div class="avatar lg" style="background:#DCEEF5">MP</div><div style="flex:1"><div class="bubble">${esc(state.shareText || DATA.shareMessage)}</div><small>Ms Patel · today, ${f.sharedAt}</small></div><button class="btn btn-primary" data-action="request-chat">${icon("calendar")}Find a time to talk</button></div></section>` : ""}
-    <div class="grid-2">
-      ${showFlag ? `<section class="card">
-        <div class="card-head"><div><h2>Mia's flag</h2></div><span class="tag tag-amber"><span class="dot"></span>Worth a closer look</span></div>
-        <div class="fc-areas" style="margin-bottom:14px">${s.flag.areas.map((a) => `<span class="area-pill">${a}</span>`).join("")}</div>
-        ${s.flag.parentExplanation.map((p) => `<p style="margin-bottom:12px;font-size:17.5px">${p}</p>`).join("")}
-        <h3 style="margin-top:20px;font-size:17px">Where Mia sits compared with children her age</h3>
-        <div class="range-rows">${DATA.domains.map((d) => `<div class="range-row"><span>${d.label}</span><div class="range-track"><div class="most"></div><div class="me" style="left:${latestPct(s, d.key)}%" data-tip="Lower than most Year 2 children"></div></div></div>`).join("")}</div>
-        <div class="range-scale"><span></span><div><span>Lower</span><span>Most children</span><span>Higher</span></div></div>
-        <div class="disclaimer" style="margin-top:20px">${icon("info")}${DISCLAIMER}</div>
-      </section>` : `<section class="card"><div class="all-clear"><div class="ic">${icon("check")}</div><div><h2 style="font-size:22px">No flags right now</h2><p class="muted">Ms Patel has looked into this and there's nothing for you to do.</p></div></div></section>`}
-      <section class="card">
-        <div class="card-head"><div><h2>Suggested next steps</h2><p>Small, practical things. There's no rush.</p></div></div>
-        <ol class="steps">
-          <li><span class="ic">${icon("chat")}</span><div><strong>Talk with Ms Patel</strong><p>She knows Mia well and can tell you what she's seeing in class. Bring any questions, big or small.</p></div></li>
-          <li><span class="ic">${icon("users")}</span><div><strong>Meet the school support team</strong><p>The learning support team can suggest extra help in class and explain any options.</p></div></li>
-          <li><span class="ic">${icon("book")}</span><div><strong>Keep reading together</strong><p>Ten minutes of shared reading most days helps. Let Mia choose the book and take turns.</p></div></li>
-        </ol>
+        <p class="statement ${flag ? "" : "ok"}">${statement}</p>
+        <div class="dots-wrap">${dotGrid(c, d)}</div>
+        <p class="muted small">Each dot is one ${c.year} child. The outlined dot is ${c.first}.</p>
       </section>
     </div>
-    <section class="card" style="margin-top:22px">
-      <div class="grid-2" style="align-items:center">
-        <div>
-          <h2 style="font-size:21px;margin-bottom:12px">What you can see</h2>
-          <ul class="can-see">
-            <li><span class="y">${icon("check")}</span>Mia's flag and this explanation</li>
-            <li><span class="y">${icon("check")}</span>Who has looked at Mia's flag (in Privacy & security)</li>
-            <li><span class="n">${icon("x")}</span>Ms Patel's private notes</li>
-            <li><span class="n">${icon("x")}</span>Any other child's information</li>
-          </ul>
-        </div>
-        <div class="choice-col">
-          <h2 style="font-size:21px;margin-bottom:8px">Your choice, always</h2>
-          <p class="muted" style="margin-bottom:16px">You gave consent today at ${state.consentAt}. You can withdraw at any time and Mia's flag will stop being shared with you.</p>
-          <button class="btn btn-secondary" data-action="withdraw">${icon("undo")}Withdraw consent</button>
-        </div>
-      </div>
-    </section>
   </div></div>`;
 }
 
 function viewPrivacy() {
-  const teacher = state.role === "teacher";
-  const all = [...state.log, ...[...DATA.priorLog].reverse()];
-  const rows = teacher ? all : all.filter((e) => e.student === DATA.parent.childId || e.who === "Mia's parent");
-  const freshCount = state.freshLog ? 1 : 0;
+  const rows = [...state.log, ...[...DATA.priorLog].reverse()];
   const yes = (t) => `<span class="yes">${icon("check")}${t}</span>`, no = (t = "No") => `<span class="no">${icon("x")}${t}</span>`;
+  const maybe = (t) => `<span class="yes" style="color:var(--primary-600)">${icon("send")}${t}</span>`;
   return `<div class="view"><div class="container">
     <div class="page-head">
-      <div><div class="eyebrow">Privacy & security</div><h1 class="page-title">Your data, looked after</h1>
-      <p class="page-sub">${teacher ? "You're signed in as Ms Patel, class teacher. You can see flags for Year 2, Room 4 only." : "You're signed in as Mia's parent. You can see Mia's flag only, and only while you give consent."}</p></div>
+      <div><div class="eyebrow">Privacy & security</div><h1 class="page-title">Your family's data, looked after</h1>
+      <p class="page-sub">You're signed in as the ${DATA.family.name}. Only you can see Mia and Leo's flags, unless you choose to share one with their teacher.</p></div>
       <span class="status-pill" style="cursor:default"><span class="status-dot"></span>System online</span>
     </div>
     <div class="cia">
       <section class="card cia-card">
         <div class="cia-head"><div class="ic">${icon("lock")}</div><div><div class="k">Confidentiality</div><h3>Kept private</h3></div></div>
-        <p class="cia-quote">Data encrypted. Only the class teacher and consenting parents can see a student's flag.</p>
+        <p class="cia-quote">Data encrypted. Only you, and the teacher you choose to share with, can see your child's flag.</p>
         <ul class="checks">
           <li>${icon("check")}Encrypted when stored and when sent</li>
           <li>${icon("check")}Stored in Australia</li>
-          <li>${icon("check")}No one at Early Lens can open a child's flag</li>
+          <li>${icon("check")}No one at Early Lens can open your child's flag</li>
           <li>${icon("check")}Never sold or used for advertising</li>
         </ul>
       </section>
       <section class="card cia-card">
         <div class="cia-head"><div class="ic">${icon("shieldCheck")}</div><div><div class="k">Integrity</div><h3>Accurate and accountable</h3></div></div>
         <div>${verified()}</div>
-        <p class="muted">Term 3 results were imported on ${DATA.lastUpdate.date} at ${DATA.lastUpdate.time} and checked against the school's own records.</p>
+        <p class="muted">Term 3 school results were imported on ${DATA.lastUpdate.date} at ${DATA.lastUpdate.time} and checked against the school's own records.</p>
         <ul class="checks">
-          <li>${icon("check")}Results can't be edited inside Early Lens</li>
-          <li>${icon("check")}Every view and change is logged below</li>
+          <li>${icon("check")}Results can't be changed inside Early Lens</li>
+          <li>${icon("check")}Every view and share is logged below</li>
         </ul>
       </section>
       <section class="card cia-card">
@@ -1102,26 +1040,34 @@ function viewPrivacy() {
         </ul>
       </section>
     </div>
-    <div class="grid-2 privacy-lower ${teacher ? "" : "single"}">
+    <div class="grid-2 privacy-lower">
       <section class="card">
-        <div class="card-head"><div><h2>Access log</h2><p>${teacher ? "Who has looked at or changed information for Room 4." : "Everyone who has looked at Mia's flag."}</p></div>${icon("eye")}</div>
+        <div class="card-head"><div><h2>Access log</h2><p>Everyone who has looked at or shared your children's information.</p></div>${icon("eye")}</div>
         <div class="log-wrap"><table class="log">
           <thead><tr><th>When</th><th>Who</th><th>What</th></tr></thead>
-          <tbody>${rows.map((e, i) => `<tr class="${i < freshCount && e.today ? "fresh" : ""}"><td class="time">${e.today ? "Today, " : ""}${e.when}</td><td><strong>${esc(e.who)}</strong></td><td>${esc(e.what)}</td></tr>`).join("")}</tbody>
+          <tbody>${rows.map((e) => `<tr><td class="time">${e.today ? "Today, " : ""}${e.when}</td><td><strong>${esc(e.who)}</strong></td><td>${esc(e.what)}</td></tr>`).join("")}</tbody>
         </table></div>
       </section>
-      ${teacher ? `<section class="card">
-        <div class="card-head"><div><h2>Who can see what</h2><p>Access depends on your role.</p></div></div>
-        <div class="access-table-wrap"><table class="access-table">
-          <thead><tr><th></th><th>Class teacher</th><th>Parent (with consent)</th><th>Early Lens staff</th></tr></thead>
-          <tbody>
-            <tr><td>Flags</td><td>${yes("Own class")}</td><td>${yes("Own child")}</td><td>${no()}</td></tr>
-            <tr><td>Teacher's notes</td><td>${yes("Yes")}</td><td>${no()}</td><td>${no()}</td></tr>
-            <tr><td>Writing samples</td><td>${yes("Yes")}</td><td>${no("Summary only")}</td><td>${no()}</td></tr>
-            <tr><td>Other children</td><td>${yes("Own class")}</td><td>${no()}</td><td>${no()}</td></tr>
-          </tbody>
-        </table></div>
-      </section>` : ""}
+      <div class="stack">
+        <section class="card">
+          <div class="card-head"><div><h2>Who can see what</h2><p>You're in charge of sharing.</p></div></div>
+          <div class="access-table-wrap"><table class="access-table">
+            <thead><tr><th></th><th>You</th><th>Your child's teacher</th><th>Early Lens staff</th></tr></thead>
+            <tbody>
+              <tr><td>Flags</td><td>${yes("Yes")}</td><td>${maybe("If you share")}</td><td>${no()}</td></tr>
+              <tr><td>Your notes</td><td>${yes("Yes")}</td><td>${maybe("If you include them")}</td><td>${no()}</td></tr>
+              <tr><td>Writing patterns</td><td>${yes("Yes")}</td><td>${maybe("If you share")}</td><td>${no()}</td></tr>
+              <tr><td>Other children</td><td>${no()}</td><td>${no("Not via Early Lens")}</td><td>${no()}</td></tr>
+            </tbody>
+          </table></div>
+        </section>
+        <section class="card">
+          <h2 style="font-size:21px;margin-bottom:8px">Your choice, always</h2>
+          ${state.consent === "given"
+            ? `<p class="muted" style="margin-bottom:16px">You gave consent today at ${state.consentAt}. You can withdraw at any time and Early Lens will stop looking at Mia and Leo's results.</p><button class="btn btn-secondary" data-action="withdraw">${icon("undo")}Withdraw consent</button>`
+            : `<p class="muted" style="margin-bottom:16px">Early Lens isn't looking at your children's results right now.</p><button class="btn btn-secondary" data-action="consent-again">Review consent</button>`}
+        </section>
+      </div>
     </div>
   </div></div>`;
 }
@@ -1129,31 +1075,32 @@ function viewPrivacy() {
 /* ---------------- Modals ---------------- */
 function modalHTML() {
   const m = state.modal; if (!m) return "";
-  const s = m.studentId ? byId(m.studentId) : null;
+  const c = m.childId ? byId(m.childId) : null;
   let body = "";
   if (m.type === "dismiss") body = `
     <div class="ic-top">${icon("flag")}</div>
-    <h2 id="modal-title">Dismiss ${s.first}'s flag?</h2>
-    <p>You know ${s.first} best. Dismissing removes the “Worth a closer look” tag from your dashboard. The data stays in ${s.first}'s record and you can restore the flag at any time.</p>
+    <h2 id="modal-title">Dismiss ${c.first}'s flag?</h2>
+    <p>You know ${c.first} best. Dismissing hides the “Worth a closer look” tag. Nothing is shared with the school, and you can bring the flag back at any time.</p>
     <div class="radio-list" role="radiogroup" aria-label="Reason (optional)">
-      ${["I've looked into it and I'm not concerned", `${s.first} is already getting support`, "Something else is going on (e.g. a recent move or illness)"].map((r, i) => `<label><input type="radio" name="reason" value="${esc(r)}" ${i === 0 ? "checked" : ""}>${esc(r)}</label>`).join("")}
+      ${["I've already talked with the school about this", "I'm not worried right now", "Something else is going on (e.g. a recent move or illness)"].map((r, i) => `<label><input type="radio" name="reason" value="${esc(r)}" ${i === 0 ? "checked" : ""}>${esc(r)}</label>`).join("")}
     </div>
     <div class="modal-actions"><button class="btn btn-secondary" data-action="modal-close">Keep flag</button><button class="btn btn-primary" data-action="confirm-dismiss">Yes, dismiss flag</button></div>`;
-  if (m.type === "discuss") body = `
+  if (m.type === "share") body = `
     <div class="ic-top">${icon("chat")}</div>
-    <h2 id="modal-title">Discuss with ${s.first}'s parent</h2>
-    <p>${s.first}'s parent will be asked for consent first. Nothing is shared until they agree.</p>
+    <h2 id="modal-title">Share with ${c.teacher}?</h2>
+    <p>Only ${c.teacher} will see what you share. You can stop sharing at any time.</p>
     <div class="share-cols">
-      <div><strong>They'll see</strong><ul><li class="yes">${icon("check")}The flag</li><li class="yes">${icon("check")}A plain-language explanation</li><li class="yes">${icon("check")}Suggested next steps</li></ul></div>
-      <div><strong>They won't see</strong><ul><li class="no">${icon("x")}Your private notes</li><li class="no">${icon("x")}Writing samples</li><li class="no">${icon("x")}Other students</li></ul></div>
+      <div><strong>She'll see</strong><ul><li class="yes">${icon("check")}${c.first}'s flag</li><li class="yes">${icon("check")}The plain-language explanation</li><li class="yes">${icon("check")}Writing patterns</li></ul></div>
+      <div><strong>She won't see</strong><ul><li class="no">${icon("x")}Leo's information</li><li class="no">${icon("x")}Anything you leave out</li></ul></div>
     </div>
+    <label class="check-row"><input type="checkbox" id="include-notes" ${state.includeNotes ? "checked" : ""}>Include my notes from home${(state.notes[c.id] || []).length ? ` (${state.notes[c.id].length})` : ""}</label>
     <label class="field-label" for="share-text">Your message</label>
-    <textarea id="share-text" style="min-height:96px">${esc(state.shareText || DATA.shareMessage)}</textarea>
-    <div class="modal-actions"><button class="btn btn-secondary" data-action="modal-close">Cancel</button><button class="btn btn-primary" data-action="send-share">${icon("send")}Send to parent</button></div>`;
+    <textarea id="share-text" style="min-height:96px">${esc(state.shareText ?? DATA.shareMessage)}</textarea>
+    <div class="modal-actions"><button class="btn btn-secondary" data-action="modal-close">Cancel</button><button class="btn btn-primary" data-action="send-share">${icon("send")}Share with ${c.teacher}</button></div>`;
   if (m.type === "withdraw") body = `
     <div class="ic-top">${icon("undo")}</div>
     <h2 id="modal-title">Withdraw consent?</h2>
-    <p>Mia's flag will stop being shared with you straight away. Ms Patel will still support Mia in class, and you can give consent again later if you like.</p>
+    <p>Early Lens will stop looking at Mia and Leo's results straight away, and anything you've shared will be removed from the teacher's view. You can give consent again later if you like.</p>
     <div class="modal-actions"><button class="btn btn-secondary" data-action="modal-close">Cancel</button><button class="btn btn-primary" data-action="confirm-withdraw">Withdraw consent</button></div>`;
   return `<div class="modal-backdrop" data-action="backdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">${body}</div></div>`;
 }
@@ -1171,116 +1118,118 @@ function toast(msg, action) {
 /* ---------------- Render ---------------- */
 const $app = document.getElementById("app");
 let lastKey = "";
+function currentView() {
+  if (!state.signedIn) return "login";
+  if (state.consent !== "given" && state.view !== "privacy") return "consent";
+  return state.view;
+}
 function render() {
-  let body = "";
-  if (state.view === "login") body = viewLogin();
-  else {
-    const v = { dashboard: viewDashboard, student: viewStudent, national: viewNational, parent: viewParent, privacy: viewPrivacy }[state.view]();
-    body = header() + `<main id="main">${v}</main>`;
-  }
+  const v = currentView();
+  const body = v === "login" ? viewLogin()
+    : header() + `<main id="main">${{ consent: viewConsent, home: viewHome, child: viewChild, national: viewNational, privacy: viewPrivacy }[v]()}</main>`;
   $app.innerHTML = body + footer();
-  const key = state.view + ":" + (state.studentId || "") + ":" + (state.role || "") + ":" + (state.view === "parent" ? state.consent : "");
+  const key = [v, state.childId, state.consent].join(":");
   if (key !== lastKey) {
-    const v = $app.querySelector(".view"); if (v) v.classList.add("enter");
-    if (state.view !== lastKey.split(":")[0] || state.view === "student") window.scrollTo(0, 0);
+    const el = $app.querySelector(".view"); if (el) el.classList.add("enter");
+    window.scrollTo(0, 0);
     lastKey = key;
   }
   document.getElementById("modal-root").innerHTML = modalHTML();
   if (state.modal) { const b = document.querySelector(".modal .btn-primary"); b && b.focus(); }
-  // fresh notes only animate once
   Object.values(state.notes).forEach((arr) => arr.forEach((n) => (n.fresh = false)));
-  state.freshLog = 0;
 }
 function go(view, extra = {}) { Object.assign(state, { view }, extra); render(); }
 
 /* ---------------- Actions ---------------- */
+const later = (ms, fn) => { const e = state.epoch; setTimeout(() => { if (state.epoch === e) fn(); }, ms); };
 const actions = {
-  "login-teacher": () => { state.role = "teacher"; logEvent("Ms Patel", "signed in"); go("dashboard"); },
-  "login-parent": () => {
-    state.role = "parent"; logEvent("Mia's parent", "signed in", "mia");
-    if (state.consent === "given") logEvent("Mia's parent", "viewed Mia's flag", "mia");
-    go("parent");
-  },
-  logout: () => { document.getElementById("toast-root").innerHTML = ""; state.role = null; state.modal = null; go("login", { studentId: null }); },
+  login: () => { state.signedIn = true; logEvent("You", "signed in"); go("home"); },
+  logout: () => { document.getElementById("toast-root").innerHTML = ""; state.signedIn = false; state.modal = null; go("login", { childId: null }); },
   reset: () => { state = initialState(); lastKey = ""; document.getElementById("toast-root").innerHTML = ""; render(); },
-  nav: (el) => {
-    const v = el.dataset.view;
-    if (state.role === "parent" && !["parent", "privacy"].includes(v)) return go("parent");
-    go(v, { studentId: v === "student" ? state.studentId : null });
+  nav: (el) => go(el.dataset.view, { childId: null }),
+  "open-child": (el) => {
+    const c = byId(el.dataset.id);
+    logEvent("You", c.flag ? `viewed ${c.first}'s flag` : `viewed ${c.first}'s results`);
+    go("child", { childId: c.id });
   },
-  filter: (el) => { state.filter = el.dataset.filter; render(); },
-  "open-student": (el) => {
-    const s = byId(el.dataset.id);
-    logEvent("Ms Patel", s.flag ? `viewed ${s.first}'s flag` : `viewed ${s.first}'s results`, s.id, state.viewedFlags[s.id] ? 1 : 2);
-    state.viewedFlags[s.id] = true;
-    go("student", { studentId: s.id });
+  "consent-agree": () => {
+    state.consent = "given"; state.consentAt = logEvent("You", "gave consent for Early Lens to look at Mia and Leo's school results");
+    go("home"); toast("Thank you. You can withdraw consent at any time.");
   },
+  "consent-decline": () => { state.consent = "declined"; logEvent("You", "said no thanks"); render(); },
+  "consent-again": () => { state.consent = null; go("home"); },
   "save-note": () => {
-    const id = state.studentId, text = (state.drafts[id] || "").trim(), s = byId(id);
+    const id = state.childId, text = (state.drafts[id] || "").trim(), c = byId(id);
     if (!text) { toast("Type a note first, then save."); document.getElementById("note-input").focus(); return; }
-    const time = logEvent("Ms Patel", `added a note to ${s.first}'s ${s.flag ? "flag" : "record"}`, id);
+    const time = logEvent("You", `added a note to ${c.first}'s ${c.flag ? "flag" : "results"}`);
     (state.notes[id] = state.notes[id] || []).unshift({ text, time, fresh: true });
     state.drafts[id] = "";
-    render(); toast("Note saved. It sits alongside the flag, visible only to you.");
+    render(); toast("Note saved. It's private to you unless you choose to share it.");
   },
-  review: () => {
-    const s = byId(state.studentId);
-    state.flags[s.id].reviewedAt = logEvent("Ms Patel", `marked ${s.first}'s flag as reviewed`, s.id);
-    render(); toast(`${s.first}'s flag marked as reviewed.`);
+  "mark-read": () => {
+    const c = byId(state.childId);
+    state.flags[c.id].readAt = logEvent("You", `marked ${c.first}'s flag as read`);
+    render(); toast(`Marked as read. ${c.first}'s flag stays here until you decide what to do.`);
   },
-  discuss: () => { state.modal = { type: "discuss", studentId: state.studentId }; render(); },
+  share: () => { state.modal = { type: "share", childId: state.childId }; render(); },
   "send-share": () => {
-    const s = byId(state.modal.studentId);
+    const c = byId(state.modal.childId);
     const t = document.getElementById("share-text"); state.shareText = t ? t.value : DATA.shareMessage;
-    state.flags[s.id].sharedAt = logEvent("Ms Patel", `invited ${s.first}'s parent to discuss the flag`, s.id);
+    const inc = document.getElementById("include-notes"); state.includeNotes = inc ? inc.checked : true;
+    state.flags[c.id].sharedAt = logEvent("You", `shared ${c.first}'s flag with ${c.teacher}${state.includeNotes ? ", with your notes" : ""}`);
     state.modal = null; render();
-    if (s.id === DATA.parent.childId) toast(`Sent. ${s.first}'s parent will be asked for consent before seeing anything.`, { key: "switch-parent", label: "Switch to parent login" });
-    else toast(`Sent. ${s.first}'s parent will be asked for consent before seeing anything.`);
+    toast(`Shared with ${c.teacher}. Only she can see it.`);
+    later(2600, () => { logEvent(c.teacher, `viewed ${c.first}'s flag (shared by you)`); if (currentView() === "privacy") render(); });
+    later(4200, () => {
+      state.reply = { time: logEvent(c.teacher, "replied to your message") }; state.replyFresh = true;
+      const v = currentView();
+      if (v === "home" || (v === "child" && state.childId === c.id) || v === "privacy") render();
+      toast(`${c.teacher} replied about ${c.first}.`, { key: "open-mia", label: "View reply" });
+    });
   },
-  dismiss: () => { state.modal = { type: "dismiss", studentId: state.studentId }; render(); },
+  book: () => { state.booked = "Thu 3:15 pm"; logEvent("You", "booked a meeting with Ms Patel, Thursday 3:15 pm"); render(); toast("Booked. Ms Patel will see you Thursday at 3:15 pm."); },
+  "other-time": () => toast("We'll let Ms Patel know you'd like another time."),
+  dismiss: () => { state.modal = { type: "dismiss", childId: state.childId }; render(); },
   "confirm-dismiss": () => {
-    const s = byId(state.modal.studentId), r = document.querySelector('input[name="reason"]:checked');
-    const f = state.flags[s.id];
+    const c = byId(state.modal.childId), r = document.querySelector('input[name="reason"]:checked'), f = state.flags[c.id];
     f.status = "dismissed"; f.reason = r ? r.value : null;
-    f.dismissedAt = logEvent("Ms Patel", `dismissed ${s.first}'s flag`, s.id);
-    state.modal = null; render(); toast(`Flag dismissed. You can restore it at any time.`);
+    f.dismissedAt = logEvent("You", `dismissed ${c.first}'s flag`);
+    state.modal = null; render(); toast("Flag dismissed. You can bring it back at any time.");
   },
   restore: () => {
-    const s = byId(state.studentId), f = state.flags[s.id];
-    f.status = f.reviewedAt ? "reviewed" : "open"; f.dismissedAt = null; f.reason = null;
-    logEvent("Ms Patel", `restored ${s.first}'s flag`, s.id);
-    render(); toast(`${s.first}'s flag is back on your dashboard.`);
+    const c = byId(state.childId), f = state.flags[c.id];
+    f.status = "open"; f.dismissedAt = null; f.reason = null;
+    logEvent("You", `brought back ${c.first}'s flag`);
+    render(); toast(`${c.first}'s flag is back on your home page.`);
   },
   "modal-close": () => { state.modal = null; render(); },
   backdrop: (el, e) => { if (e.target === el) { state.modal = null; render(); } },
-  "consent-agree": () => {
-    state.consent = "given"; state.consentAt = logEvent("Mia's parent", "gave consent to see Mia's flag", "mia");
-    logEvent("Mia's parent", "viewed Mia's flag", "mia");
-    render(); toast("Thank you. You can withdraw consent at any time.");
-  },
-  "consent-decline": () => { state.consent = "declined"; logEvent("Mia's parent", "said no thanks to sharing", "mia"); render(); },
-  "consent-again": () => { state.consent = null; render(); },
   withdraw: () => { state.modal = { type: "withdraw" }; render(); },
   "confirm-withdraw": () => {
     state.consent = "withdrawn"; state.consentAt = null; state.modal = null;
-    logEvent("Mia's parent", "withdrew consent", "mia");
-    render(); toast("Consent withdrawn. Mia's flag is no longer shared with you.");
+    logEvent("You", "withdrew consent");
+    go("home"); toast("Consent withdrawn. Early Lens has stopped looking at your children's results.");
   },
-  "request-chat": () => { logEvent("Mia's parent", "asked Ms Patel for a time to talk", "mia"); toast("Request sent. Ms Patel will be in touch to find a time."); },
+  "nat-child": (el) => { state.natChild = el.dataset.id; render(); },
   "nat-domain": (el) => { state.natDomain = el.dataset.domain; render(); }
 };
 
 document.addEventListener("click", (e) => {
   const t = e.target.closest("[data-toast-action]");
-  if (t) { if (t.dataset.toastAction === "switch-parent") { actions.logout(); } return; }
+  if (t) { if (t.dataset.toastAction === "open-mia") {
+    t.closest(".toast").remove();
+    if (currentView() === "child" && state.childId === "mia") window.scrollTo({ top: 0, behavior: "smooth" });
+    else actions["open-child"]({ dataset: { id: "mia" } });
+  } return; }
   const el = e.target.closest("[data-action]");
   if (!el) return;
   const fn = actions[el.dataset.action];
   if (fn) { if (el.dataset.action !== "backdrop") e.stopPropagation(); fn(el, e); }
 });
 document.addEventListener("input", (e) => {
-  if (e.target.dataset.input === "draft") state.drafts[state.studentId] = e.target.value;
+  if (e.target.dataset.input === "draft") state.drafts[state.childId] = e.target.value;
   if (e.target.id === "share-text") state.shareText = e.target.value;
+  if (e.target.id === "include-notes") state.includeNotes = e.target.checked;
 });
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && state.modal) { state.modal = null; render(); }
